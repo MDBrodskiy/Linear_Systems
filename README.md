@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="left">
-  <a href="https://github.com/MDBrodskiy/Linear Systems/tree/master/LICENSE">
+  <a href="https://github.com/MDBrodskiy/Linear_Systems/tree/master/LICENSE">
     <img src="images/LicenseImage.svg" alt="license" width="100" height="24"></a>
 </p>
 <br/>
@@ -9,7 +9,7 @@
 
 <!-- BACKGROUND & TITLE -->
 <p align="center">
-  <a href="https://github.com/MDBrodskiy/Linear Systems">
+  <a href="https://github.com/MDBrodskiy/Linear_Systems">
     <img src="images/background.png" alt="background">
   </a>
   <h3 align="center">Fundamentals of Linear Systems</h3>
@@ -43,6 +43,6 @@ Authentication:
 Cloning This Repository
 </br>&nbsp;&nbsp;with **command line interface**:
     <pre>    
-    **$** git clone https://github.com/MDBrodskiy/Linear Systems.git    
+    **$** git clone https://github.com/MDBrodskiy/Linear_Systems.git    
     **$** **>**  **_**
     </pre>

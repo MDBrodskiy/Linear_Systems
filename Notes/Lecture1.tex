@@ -1,0 +1,162 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 1}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item What is a signal?
+
+    \begin{itemize}
+
+      \item A signal is a pattern of variation that carries information about the nature or behavior of a phenomenon
+
+      \item Examples of signals include:
+
+        \begin{itemize}
+
+          \item Ultra-short electromagnetic pulses traveling through optical fibers to connect computers globally
+
+          \item Audio and video signals
+
+          \item Acoustic signals represented by changes in acoustic pressure over time
+
+          \item Monthly sales data for a corporation
+
+          \item Pressure applied to an accelerator pedal
+
+          \item Velocity of a car over time
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item How is a signal represented?
+
+    \begin{itemize}
+
+      \item Signals are mathematically represented as functions of one or more independent variables
+
+      \item A speech signal, for example, is represented as the variation of acoustic pressure over time
+
+    \end{itemize}
+
+  \item What is a system?
+
+    \begin{itemize}
+
+      \item A system is any entity that modifies a signal. It responds to an input signal by producing an output signal. For example, in an electric circuit, the system's input signal might be the source current or voltage, while the output is the current or voltage across the load
+
+      \item When electromagnetic waves travel through air or optical fibers, the medium through which they propagate can be considered a system if it alters the waves. Similarly, a temperature control system manages the temperature of a building by regulating the flow of heating or cooling energy
+
+    \end{itemize}
+
+  \item Theory of Representation of a Signal, Analogy with Vectors
+
+    \begin{itemize}
+
+      \item Concepts of linear algebra can also be applied to signals
+
+      \item In linear algebra, the same vector can be represented in different bases
+
+      \item Signals play the role of vectors, and therefore can also be represented in different bases
+
+      \item This notion leads to two main representations of a signal: the time domain representation and the frequency domain representation
+
+    \end{itemize}
+
+  \item Theory of Representation of a Signal, Analogy with Matrices
+
+    \begin{itemize}
+
+      \item A system takes a signal as an input and transforms it into another signal
+
+      \item In this class, we are mainly interested in a particular but quite common class of systems, the so-called linear and time invariant (LTI) systems
+
+    \end{itemize}
+
+  \item The concept of frequency and frequency content of a signal
+
+    \begin{itemize}
+
+      \item The frequency content of a signal indicates how rapidly the signal's variations occur. Transform methods are tools used to extract and analyze this frequency content, providing a frequency domain representation of the signal
+
+      \item For continuous-time signals, the key transforms include:
+
+        \begin{itemize}
+
+          \item Laplace Transform: Used for analyzing and solving linear time-invariant systems, in the complex frequency domain
+
+          \item Fourier Transform: Provides a frequency domain representation, decomposing a signal into its constituent sinusoidal frequencies
+
+        \end{itemize}
+
+      \item For discrete-time signals, the relevant transforms are:
+
+        \begin{itemize}
+
+          \item Z-transform: Extends the concept of the Laplace Transform to discrete-time signals, useful for analyzing digital systems
+
+          \item Discrete-Time Fourier Transform: Analyzes discrete-time signals in the frequency domain, focusing on periodic components and their spectral content
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Why Frequency Domain Analysis?
+
+    \begin{enumerate}
+
+      \item Significant Improvements: Frequency-domain analysis leads to significant improvements in signal processing applications
+
+      \item Wide Usage: It's widely used in areas such as communications, remote sensing, and image processing
+
+      \item Energy Distribution: Frequency-domain analysis shows how the signal's energy is distributed over frequency
+
+      \item Frequency Content: A signal with rapid variations has higher frequency content than a signal with slower variations
+
+      \item Phase Shift Representations: A frequency-domain representation also includes information on the phase shift of each frequency component
+
+    \end{enumerate}
+
+  \item Continuous vs. Discrete Time
+
+    \begin{itemize}
+
+      \item Continuous
+
+        \begin{itemize}
+
+          \item Encountered in the analysis of electrical and mechanical systems
+
+          \item Denoted by $x(t)$, where the time interval may be bounded (finite) or infinite
+
+          \item Because the concepts of continuous time and discrete time are similar, both concepts will be discussed in parallel, focusing on similarities and differences
+
+        \end{itemize}
+
+      \item Discrete
+
+        \begin{itemize}
+
+          \item Some signals are naturally discrete-time, such as the daily closing averages of stock markets, which are recorded at specific points in time
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

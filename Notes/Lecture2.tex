@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 2 — Introduction to Signals and Systems}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Signal Power and Energy
+
+    \begin{itemize}
+
+      \item Definition
+
+        \begin{itemize}
+
+          \item Consider signal $x(t)$ representing the voltage or current in a unit resistance. The signal power is defined as $p(t)=|x(t)|^2$
+
+          \item It is a common terminology to refer to $|x(t)|^2$ or $|x[n]|^2$ as the signal power even if the signal does not represent voltage or current
+
+        \end{itemize}
+
+      \item Total energy in a finite duration interval
+
+        \begin{itemize}
+
+          \item The total energy in an interval $T=t_2-t_1$ is given by:
+
+            $$\text{Continuous Time } \to E=\int_{t_1}^{t_2} \underbrace{|x(t)|^2}_{p(t)}\,dt$$
+            $$\text{Discrete Time } \to E=\Delta T\sum_{n=n_1}^{n_2}\underbrace{|x[n]|^2}_{p(t)}\,\text{ where }T=(n_2-n_1+1)\Delta T$$
+
+        \end{itemize}
+
+      \item The average power in a finite duration interval
+
+        $$P_{avg}=\frac{E}{t_2-t_1}=\frac{1}{t_1-t_2}\int_{t_1}^{t_2}|x(t)|^2\,dt$$
+        \begin{center}
+          or
+        \end{center}
+        $$P_{avg}=\frac{1}{n_2-n_1+1}\sum_{n=n_1}^{n_2} |x[n]|^2$$
+
+    \end{itemize}
+
+  \item Power and Energy over an infinite time interval
+
+    \begin{itemize}
+
+      \item Energy
+
+        $$\text{Continuous Time } \to E_{\infty}=\lim_{T\to\infty}\int_{-T}^{T} \underbrace{|x(t)|^2}_{p(t)}\,dt$$
+        $$\text{Discrete Time } \to E_{\infty}=\lim_{N\to\infty}\cancel{\Delta T}\sum_{n=-N}^{N}\underbrace{|x[n]|^2}_{p(t)}$$
+
+      \item Power
+
+        $$P_{\infty}=\lim_{T\to\infty}\frac{E_{\infty}}{2T}=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^{T} \underbrace{|x(t)|^2}_{p(t)}\,dt$$
+        \begin{center}
+          or
+        \end{center}
+        $$P_{\infty}=\lim_{N\to\infty}\frac{E_{\infty}}{2N+1}=\lim_{T\to\infty}\frac{1}{2N+1}\sum_{n=-N}^{N}\underbrace{|x[n]|^2}_{p(t)}$$
+
+    \end{itemize}
+
+  \item Energy Signals versus Power Signals
+
+    \begin{itemize}
+
+      \item The energy or power of a signal quantifies the magnitude of the signal. For this measure to be meaningful, it must be finite. This requirement leads to the following classification of signals:
+
+        \begin{itemize}
+
+          \item Energy
+
+            \begin{itemize}
+
+              \item Signals with finite total energy ($E_{\infty}<\infty$)
+
+              \item They have zero average power
+
+                $$P_{\infty}=\lim_{T\to\infty}\frac{E_{\infty}}{2T}=0$$
+                $$P_{\infty}=\lim_{N\to\infty}\frac{E_{\infty}}{2N+1}=0$$
+
+            \end{itemize}
+
+          \item Power
+
+            \begin{itemize}
+
+              \item Signals with finite average power ($P_{\infty} < \infty$)
+
+              \item They have infinite energy
+
+                $$E_{\infty}=\lim_{T\to\infty}2T(P_{\infty})\to\infty$$
+                $$E_{\infty}=\lim_{N\to\infty}(2N+1)(P_{\infty})\to\infty$$
+
+            \end{itemize}
+
+          \item Any finite signal is automatically an energy signal (think: some value in range, 0 otherwise)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Periodic Signals
+
+    \begin{itemize}
+
+      \item Periodic signals are classified as power signals because they possess an infinite amount of energy
+
+      \item The average power of a periodic signal can be determined by averaging its power over one period:
+
+        $$P_{\infty}=P_{avg}=\frac{1}{T_o}\int_{-T_o/2}^{T_o/2}|x(t)|^2\,dt$$
+
+    \end{itemize}
+
+  \item Signals with neither finite power nor energy
+
+    \begin{itemize}
+
+      \item Some signals have neither finite power nor energy
+
+      \item An example is a ramp signal, where $x(t)=t,\,t\geq 0$
+
+      \item Neither the energy nor the power can be defined for such signals
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

@@ -28,6 +28,13 @@
         $$z(8,0)=8(\cos(0)+j\sin(0))$$
         $$\therefore \text{ In polar: } \boxed{z=8}$$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1a}
+          \caption{$z=8$ Plotted on the Imaginary Plane}
+          \label{fig:1}
+        \end{figure}
+
       \item $-5$
 
         $$r=\sqrt{(-5)^2+0^2}=5$$
@@ -35,6 +42,13 @@
         $$z(r,\theta)=r(\cos(\theta)+j\sin(\theta))$$
         $$z(5,\pi)=5(\cos(\pi)+j\sin(\pi))$$
         $$\therefore \text{ In polar: } \boxed{z=-5=5e^{\pi j}}$$
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1b}
+          \caption{$z=-5$ Plotted on the Imaginary Plane}
+          \label{fig:2}
+        \end{figure}
 
       \item $2j$
 
@@ -44,17 +58,31 @@
         $$z(2,.5\pi)=2j$$
         $$\therefore \text{ In polar: } \boxed{z=2j=2e^{.5\pi j}}$$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1c}
+          \caption{$z=2j$ Plotted on the Imaginary Plane}
+          \label{fig:3}
+        \end{figure}
+
       \item $\frac{1}{4}(1-j)^5$
 
         $$.25(1-j)^2(1-j)^3$$
-        $$.25(2-2j)(1-j)(1-j)^2$$
-        $$.25(4-4j)(2-2j)$$
-        $$z=4-4j$$
-        $$r=\sqrt{4^2+(-4)^2}=4\sqrt{2}$$
-        $$\theta=-\frac{\pi}{4}$$
+        $$.25(-2j)(1-j)(1-j)^2$$
+        $$.25(-2-2j)(-2j)$$
+        $$z=j-1$$
+        $$r=\sqrt{1^2+(-1)^2}=\sqrt{2}$$
+        $$\theta=\frac{3\pi}{4}$$
         $$z(r,\theta)=r(\cos(\theta)+j\sin(\theta))$$
-        $$z(4\sqrt{2},-.25\pi)=4-4j$$
-        $$\therefore \text{ In polar: } \boxed{z=4-4j=4\sqrt{2}e^{-.25\pi j}}$$
+        $$z(\sqrt{2},.75\pi)=j-1$$
+        $$\therefore \text{ In polar: } \boxed{z=j-1=\sqrt{2}e^{.75\pi j}}$$
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1d}
+          \caption{$z=\frac{1}{4}(1-j)^5$ Plotted on the Imaginary Axis}
+          \label{fig:4}
+        \end{figure}
 
       \item $\frac{(1+j)}{j}e^{\frac{j\pi}{3}}$
 
@@ -74,6 +102,13 @@
         $$z(\sqrt{2},.26179)=\frac{1}{2}(\sqrt{3}+1)+(\sqrt{3}-1)j$$
         $$\therefore \text{ In polar: } \boxed{z=\frac{1}{2}(\sqrt{3}+1)+(\sqrt{3}-1)j=\sqrt{2}e^{.26179j}}$$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1e}
+          \caption{$z=\frac{(1+j)}{j}e^{\frac{j\pi}{3}}$ Plotted on the Imaginary Axis}
+          \label{fig:5}
+        \end{figure}
+
       \item $(\sqrt{3}-j^5)(1+j)$
 
         $$j^5=j\to (\sqrt{3}-j)(1+j)=(\sqrt{3}+(\sqrt{3}-1)j+1)$$
@@ -85,6 +120,13 @@
         $$z(2\sqrt{2},.26179)=(\sqrt{3}+1)+(\sqrt{3}-1)j$$
         $$\therefore \text{ In polar: } \boxed{z=(\sqrt{3}+1)+(\sqrt{3}-1)j=2\sqrt{2}e^{.26179j}}$$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1f}
+          \caption{$z=(\sqrt{3}-j^5)(1+j)$ Plotted on the Imaginary Axis}
+          \label{fig:6}
+        \end{figure}
+
       \item $\frac{2(\sqrt{3}-j)}{1+j\sqrt{3}}$
 
         $$\frac{2\sqrt{3}-2j}{1+j\sqrt{3}}\cdot\frac{1-j\sqrt{3}}{1-j\sqrt{3}}=-2j$$
@@ -94,6 +136,13 @@
         $$z(2,1.5\pi)=-2j$$
         $$\therefore \text{ In polar: } \boxed{z=-2j=2e^{1.5\pi j}}$$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig1g}
+          \caption{$z=\frac{2(\sqrt{3}-j)}{1+j\sqrt{3}}$ Plotted on the Imaginary Axis}
+          \label{fig:7}
+        \end{figure}
+
     \end{enumerate}
 
   \item Determine the value of $E_{\infty}$ and $P_{\infty}$ for each of the following signals and indicate whether the signal is a power or energy signal or neither.
@@ -102,7 +151,24 @@
 
       \item $x_1(t)=\left\{\begin{array}{l r} 5e^{j(4t+\pi/3)},\, & t\geq 2\\ 0,\, & \text{Otherwise}\end{array}$
 
+          $$E_{\infty}=\int_2^{2+\frac{\pi}{4}} 25e^{j(8t+2\pi/3)}\,dt$$
+          $$E_{\infty}=\frac{25}{8}\left[ \sin\left( \frac{24t+2\pi}{3} \right)-i\cos\left( \frac{24t+2\pi}{3} \right) \right]\Big|_2^{2+\frac{\pi}{4}}$$
+          $$E_{\infty}=2.2755+76.43285i+2.142+2.2755i$$
+          $$\therefore\text{ Energy if finite}$$
+
       \item $x_2(t)=\left\{\begin{array}{l r} 2+2\cos(t),\, & 0<t< 2\pi\\ 0,\, & \text{Otherwise}\end{array}$
+
+          $$P_{\infty}=\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^{T}(2+2\cos(t))^2\,dt$$
+          $$P_{\infty}=6$$
+          $$\therefore\text{ Power is finite}$$
+
+          $$E_{\infty}=\lim_{T\to\infty}\int_{-T}^T(2+2\cos(t))^2\,dt$$
+          $$P_{\infty}=\infty$$
+          $$\therefore\text{ Energy is infinite}$$
+
+          \begin{center}
+            $$\boxed{\text{Since power is finite and energy is infinite, this is a power signal}}$$
+          \end{center}
 
         \item $x_3[n]=\left\{\begin{array}{l r} (.5)^n,\, & n\geq0\\ 0,\, & \text{Otherwise}\end{array}$
 

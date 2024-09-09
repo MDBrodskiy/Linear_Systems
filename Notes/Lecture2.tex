@@ -142,9 +142,112 @@
 
         \begin{itemize}
 
-          \item Time shift
+          \item Time shifting
+
+          \item Time scaling
+
+          \item Time reversal
+
+          \item Combined operations
 
         \end{itemize}
+
+    \end{itemize}
+
+  \item Time Shifting
+
+    \begin{itemize}
+
+      \item Given a signal $x(t)$, a shift could be written as $y(t)=x(t-t_o)$. This would mean that:
+
+        $$x(t-t_o)=x(t_{old})\text{ at } t=t_{old}+t_o$$
+
+      \item For shift $x(t-t_o)$ the signal is shifted to the right, and for shift $x(t+t_o)$ the signal is shifted to the left
+
+      \item For discrete time, a shift has the same effect
+
+    \end{itemize}
+
+  \item Time Reversal
+
+    \begin{itemize}
+
+      \item Time reversal is performed using a $180^{\circ}$ rotation around the vertical axis. If $x(t)$ represents an audio recording, $x(-t)$ is the audio recording played backward
+
+      \item For example $x(t)=t$, a linear line with slope one, would become $x(-t)=-t$ upon reversal, with slope negative one (reflected about vertical axis)
+
+    \end{itemize}
+
+  \item Time Scaling
+
+    \begin{itemize}
+
+      \item Continuous Time Signals
+
+        \begin{itemize}
+
+          \item $x(\alpha t)$ leads to linear compression if $\alpha>1$ and linear stretching if $0\leq \alpha\leq 1$
+
+          \item If $x(t)$ is an audio recording, the expression $x(2t)$ represents the recording played at twice the speed, and $x\left( \frac{1}{2}t \right)$ is the recording played at half the speed
+
+          \item In the time scaling operation, $t=0$ serves as a fixed anchor point and remains unchanged, since $x(t)=x(\alpha t)$ at $t=0$
+
+          \item The concepts of compression and expansions differ slightly for discrete time signals
+
+        \end{itemize}
+
+      \item Discrete Time Signals
+
+        \begin{itemize}
+
+          \item Zero remains as an anchor point
+
+          \item Take only equivalent values at integer $n$ values, and assume $y[n]=0$ for non-integer $n$ values
+
+          \item For $x\left[ \frac{n}{L} \right]$, which increases the sampling rate, (resample) the sequence by a factor of $L$, a process known as up-sampling
+
+          \item $L-1$ zeros are inserted between each consecutive data points
+
+          \item Usually followed by a low pass filter to interpolate
+
+          \item Compression is much simpler, as a compression would lose information, but will only use integer $n$ values
+
+          \item First, a low pass filter is used, and the values are down-sampled
+
+          \item For $x[Mn]$, the signal is decimated by a factor of $M$, which keeps only very $M$-th sample
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Combined Operations
+
+    \begin{itemize}
+
+      \item For $y(t)=x(\alpha t + \beta)=x(t_{old}$ we can write:
+
+          $$t_{old}=\alpha t + \beta$$
+          $$t=\frac{1}{\alpha}\left( t_{old}-\beta \right)$$
+
+          \begin{itemize}
+
+            \item This means the signal was scaled by $1/\alpha$ and shifted to the left $\beta/\alpha$
+
+          \end{itemize}
+
+    \end{itemize}
+
+  \item Euler Formula
+
+    \begin{itemize}
+
+      \item $Ae^{j(\omega_o t+\phi)}=A\left\{ \cos(\omega_o t+\phi)+j\sin(\omega_o t+\phi) \right\}$
+
+      \item $Ae^{-j(\omega_o t+\phi)}=A\left\{ \cos(\omega_o t+\phi)-j\sin(\omega_o t+\phi) \right\}$
+
+      \item $A\cos(\omega_o t+\phi)=\dfrac{A}{2}\left\{ e^{j\omega_o t+\phi)}+e^{-j(\omega_o t+\phi)} \right\}=\text{Re}\left\{ Ae^{j(\omega_o t+\phi)} \right\}$
+
+      \item $A\sin(\omega_o t+\phi)=\dfrac{A}{2j}\left\{ e^{j\omega_o t+\phi)}-e^{-j(\omega_o t+\phi)} \right\}=\text{Im}\left\{ Ae^{j(\omega_o t+\phi)} \right\}$
 
     \end{itemize}
 

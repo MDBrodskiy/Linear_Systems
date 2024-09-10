@@ -151,10 +151,11 @@
 
       \item $x_1(t)=\left\{\begin{array}{l r} 5e^{j(4t+\pi/3)},\, & t\geq 2\\ 0,\, & \text{Otherwise}\end{array}$
 
-          $$E_{\infty}=\int_2^{2+\frac{\pi}{4}} 25e^{j(8t+2\pi/3)}\,dt$$
-          $$E_{\infty}=\frac{25}{8}\left[ \sin\left( \frac{24t+2\pi}{3} \right)-i\cos\left( \frac{24t+2\pi}{3} \right) \right]\Big|_2^{2+\frac{\pi}{4}}$$
-          $$E_{\infty}=2.2755+76.43285i+2.142+2.2755i$$
-          $$\therefore\text{ Energy if finite}$$
+          $$E_{\infty}=\int_2^{\infty} 25\left[ \cos\left( 4t+\frac{\pi}{3} \right)+j\sin\left( 4t+\frac{\pi}{3} \right) \right]^2\,dt$$
+          \begin{center}
+            Period of the sinusoids is $\pi/2$
+          \end{center}
+          $$E_{\infty}=\frac{50}{\pi}\int_2^{2+\frac{\pi}{2}} \left[ \cos\left( 4t+\frac{\pi}{3} \right)+j\sin\left( 4t+\frac{\pi}{3} \right) \right]^2\,dt$$
 
       \item $x_2(t)=\left\{\begin{array}{l r} 2+2\cos(t),\, & 0<t< 2\pi\\ 0,\, & \text{Otherwise}\end{array}$
 
@@ -172,6 +173,18 @@
 
         \item $x_3[n]=\left\{\begin{array}{l r} (.5)^n,\, & n\geq0\\ 0,\, & \text{Otherwise}\end{array}$
 
+            $$E_{\infty}=\lim_{N\to\infty}\sum_{n=0}^N \left( .25 \right)^n$$
+            \begin{center}
+              A geometric series must be finite:
+            \end{center}
+            $$E_{\infty}\approx \left( \frac{1}{1-.25} \right)\approx \frac{4}{3}$$
+
+            $$P_{\infty}=\lim_{N\to\infty}\frac{4/3}{2N+1}\approx 0$$
+
+            \begin{center}
+              $\boxed{\text{As such, because energy is finite and average power is 0, this is an energy signal}}$
+            \end{center}
+
     \end{enumerate}
 
   \item For the discrete time signal shown in Figure P1.3, sketch, and carefully label each of the following.
@@ -180,7 +193,19 @@
 
       \item $x[n-4]$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig3a}
+          \label{fig:8}
+        \end{figure}
+
       \item $x[2n+2]$
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig3b}
+          \label{fig:9}
+        \end{figure}
 
     \end{enumerate}
 
@@ -190,7 +215,21 @@
 
       \item $x(t+3)$
 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig4a}
+          \caption{Figure Showing Transformation $x(t)\to x(t+3)$}
+          \label{fig:10}
+        \end{figure}
+
       \item $x\left( 3-\frac{2}{3}t \right)$
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig4b}
+          \caption{Figure Showing Transformation $x(t)\to x\left( 3-\frac{2}{3}t \right)$}
+          \label{fig:11}
+        \end{figure}
 
     \end{enumerate}
 
@@ -211,6 +250,20 @@
     \begin{enumerate}
 
       \item $x_1(t)=4e^{-2t}\sin\left( 10t+\frac{3\pi}{4}\right)\cos\left( 10t+\frac{3\pi}{4} \right)$
+
+        \begin{center}
+          Per trig identities, we can rewrite this as:
+        \end{center}
+        $$2e^{-2t}\sin\left( 20t+\frac{3\pi}{2}\right) \right)$$
+        \begin{center}
+          Per another identity, we can convert $\sin\to\cos$:
+        \end{center}
+        $$2e^{-2t}\cos\left( \frac{\pi}{2}-20t-\frac{3\pi}{2}\right) \right)$$
+        $$x_1(t)=2e^{-2t}\cos\left( -20t-\pi\right) \right)$$
+        \begin{center}
+          Since $\cos(x)=\cos(-x)$, we finally write:
+        \end{center}
+        $$\boxed{x_1(t)=2e^{-2t}\cos\left( 20t+\pi\right) \right)}$$
 
       \item $x_2(t)=j(1-j)e^{(-5+j\pi)t}$
 

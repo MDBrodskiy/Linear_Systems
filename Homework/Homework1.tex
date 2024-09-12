@@ -151,11 +151,18 @@
 
       \item $x_1(t)=\left\{\begin{array}{l r} 5e^{j(4t+\pi/3)},\, & t\geq 2\\ 0,\, & \text{Otherwise}\end{array}$
 
-          $$E_{\infty}=\int_2^{\infty} 25\left[ \cos\left( 4t+\frac{\pi}{3} \right)+j\sin\left( 4t+\frac{\pi}{3} \right) \right]^2\,dt$$
-          \begin{center}
-            Period of the sinusoids is $\pi/2$
-          \end{center}
-          $$E_{\infty}=\frac{50}{\pi}\int_2^{2+\frac{\pi}{2}} \left[ \cos\left( 4t+\frac{\pi}{3} \right)+j\sin\left( 4t+\frac{\pi}{3} \right) \right]^2\,dt$$
+          $$|x_1(t)|=\sqrt{\left( 5\cos\left( 4t+\frac{\pi}{3} \right) \right)^2+\left( 5\sin\left( 4t+\frac{\pi}{3} \right) \right)^2}$$
+          $$|x_1(t)|=5\sqrt{2}$$
+
+          $$E_{\infty}=\int_2^{\infty} 50\,dt$$
+          $$E_{\infty}=\infty$$
+          $$\therefore\text{ Energy is infinite}$$
+
+          $$P_{\infty}=\lim_{T\to\infty}\frac{1}{T}\int_{-T/2}^{T/2}50\,dt$$
+          $$P_{\infty}=50$$
+          $$\therefore\text{ Power is finite}$$
+
+          $$\boxed{\text{Therefore, this is a power signal}}$$
 
       \item $x_2(t)=\left\{\begin{array}{l r} 2+2\cos(t),\, & 0<t< 2\pi\\ 0,\, & \text{Otherwise}\end{array}$
 
@@ -164,7 +171,7 @@
           $$\therefore\text{ Power is finite}$$
 
           $$E_{\infty}=\lim_{T\to\infty}\int_{-T}^T(2+2\cos(t))^2\,dt$$
-          $$P_{\infty}=\infty$$
+          $$E_{\infty}=\infty$$
           $$\therefore\text{ Energy is infinite}$$
 
           \begin{center}

@@ -244,13 +244,129 @@
 
     \begin{enumerate}
 
-      \item 
+      \item The original plot is as follows:
 
-      \item 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5a1}
+          \caption{Original Plot}
+          \label{fig:12}
+        \end{figure}
+
+        First, we begin by plotting $x(-t)$:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5a2}
+          \caption{$x(t)\to x(-t)$}
+          \label{fig:13}
+        \end{figure}
+
+        From here, we find the average of the two to find the even part:
+
+        $$\frac{x(t)+x(-t)}{2}\to\frac{-2t+2t}{2}=0$$
+
+        Thus, we see there is no even part (the plot would show $x(t)=0$ for $0<t<1$).
+
+        From here, we subtract $x(-t)$ from $x(t)$ and then divide by two:
+
+        $$\frac{x(t)-x(-t)}{2}\to\frac{2t-(-2t)}{2}=2t$$
+
+        We can plot this; however, as a result of being purely an even function, the plot would be the same as the original:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5a3}
+          \caption{$x(t)$ Even (Original Plot)}
+          \label{fig:14}
+        \end{figure}
+
+      \item The original plot is as follows:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5b1}
+          \caption{Original Plot}
+          \label{fig:15}
+        \end{figure}
+
+        First, we begin by plotting $x(-t)$:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5b2}
+          \caption{$x(t)\to x(-t)$}
+          \label{fig:16}
+        \end{figure}
+
+        From here, we find the average of the two to find the even part:
+
+        $$\frac{x(t)+x(-t)}{2}\to\frac{-2t-t}{2}=-\frac{3t}{2}\text{ for }t<0$$
+        $$\frac{x(t)+x(-t)}{2}\to\frac{2t+t}{2}=\frac{3t}{2}\text{ for }t>0$$
+
+        Then, we plot this:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5b3}
+          \caption{Even $x(t)$}
+          \label{fig:17}
+        \end{figure}
+
+        From here, we subtract $x(-t)$ from $x(t)$ and then divide by two:
+
+        $$\frac{x(t)-x(-t)}{2}\to\frac{-2t+t}{2}=-\frac{t}{2}\text{ for }t<0$$
+        $$\frac{x(t)-x(-t)}{2}\to\frac{t-2t}{2}=-\frac{t}{2}\text{ for }t>0$$
+
+        Then, we plot this:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig5b4}
+          \caption{Odd $x(t)$}
+          \label{fig:18}
+        \end{figure}
+
+        Hence, we have the even and odd figures here.
 
     \end{enumerate}
 
   \item Determine and sketch the even and odd parts of the signal depicted in Figure P1.6. Label your sketches carefully.
+
+    For this problem, we find even using:
+
+    $$\frac{x[n]+x[-n]}{2}$$
+
+    and the odd part with:
+
+    $$\frac{x[n]-x[-n]}{2}$$
+
+    The original signal is as follows:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig6}
+          \caption{Original Plot}
+          \label{fig:19}
+        \end{figure}
+
+        Using the above formulas, we can draw the even:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig6-1}
+          \caption{Even $x[n]$}
+          \label{fig:20}
+        \end{figure}
+
+        and then the odd:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Fig6-2}
+          \caption{Odd $x[-n]$}
+          \label{fig:21}
+        \end{figure}
 
   \item Express the real part of each of the following signals in the form $Ae^{-at}\cos(\omega t + \phi)$ where $A$, $a$, $\omega$ and $\phi$ are real numbers with $A > 0$ and $-\pi < \phi \leq \pi$.
 

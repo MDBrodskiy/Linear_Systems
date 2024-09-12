@@ -267,6 +267,13 @@
 
       \item $x_2(t)=j(1-j)e^{(-5+j\pi)t}$
 
+        We can rewrite this in terms of exponentials:
+
+        $$x_2(t)=e^{\frac{\pi}{2}j}\left( \sqrt{2}e^{-\frac{\pi}{4}j} \right)\left( e^{(-5+j\pi)t} \right)$$
+        $$x_2(t)=\sqrt{2}e^{-5t}\left( e^{j\pi t+\frac{\pi}{2}j-\frac{\pi}{4}j} \right)$$
+        $$x_2(t)=\sqrt{2}e^{-5t}\left( e^{j(\pi t+\frac{\pi}{4})} \right)$$
+        $$\boxed{x_2(t)=\sqrt{2}e^{-5t}\cos\left(\pi t+\frac{\pi}{4}\right)}$$
+
     \end{enumerate}
 
   \item Determine whether each of the following continuous time signals is periodic. If the signal is periodic, determine its fundamental period.
@@ -275,11 +282,43 @@
 
       \item $x(t)=5\cos\left( 400\pi t+\frac{\pi}{4} \right)$
 
+        The function is periodic, with angular frequency $\omega=400\pi\left[ \dfrac{\text{rad}}{\si{\second}} \right]$
+
+        This gives us the fundamental period:
+
+        $$\boxed{T=\frac{2\pi}{400\pi}=.005[\si{\second}]}$$
+
       \item $x(t)=20e^{j(\pi t-2)}$
+
+        The function is periodic, with angular frequency $\omega=\pi\left[ \dfrac{\text{rad}}{\si{\second}} \right]$
+
+        This gives us the fundamental period:
+
+        $$\boxed{T=\frac{2\pi}{\pi}=2[\si{\second}]}$$
 
       \item $x(t)=2\left[ \sin\left( 50\pi t - \frac{\pi}{3} \right) \right]^2$
 
+        The function is periodic, with angular frequency $\omega=50\pi\left[ \dfrac{\text{rad}}{\si{\second}} \right]$
+
+        This gives us the fundamental period:
+
+        $$\boxed{T=\frac{2\pi}{50\pi}=.04[\si{\second}]}$$
+
       \item $x(t)=\left\{\begin{array}{l r} 2\sin(5\pi t),\, & t\geq 0\\ -2\sin(-5\pi t),\, &t<0\end{array}$
+
+        Per trigonometric identities, we know that:
+
+        $$\sin(t)=-\sin(-t)$$
+
+        Thus, the function presented is simply:
+
+        $$x(t)=2\sin(5\pi t)$$
+
+        This function is periodic, with angular frequency $\omega=5\pi\left[ \dfrac{\text{rad}}{\si{\second}} \right]$
+
+        This gives us the fundamental period:
+
+        $$\boxed{T=\frac{2\pi}{5\pi}=.4[\si{\second}]}$$
 
     \end{enumerate}
 
@@ -289,9 +328,27 @@
 
       \item $x[n]=2\cos\left( \frac{7}{11}n+\frac{\pi}{2} \right)$
 
+        To be periodic, $(2\pi/\Omega_o)m$ must be rational. We see:
+
+        $$\Omega_o=\frac{7}{11}\to\frac{22\pi m}{7}$$
+
+        As a result of the $\pi$, this is never rational and therefore not periodic.
+
       \item $x[n]=\cos(\pi n)+4\sin\left( \frac{\pi}{4}n^2 \right)$
 
+        To be periodic, both sinusoids must have $2\pi/\Omega_o$ be rational. We see:
+
+        $$\Omega_1=\pi\to\frac{2\pi}{\pi}=2\text{ and }\Omega_2=\pi/4\to\frac{2\pi}{\pi/4}=8$$
+
+        Thus, the function is periodic. The period is the smallest number such that the two periods are a common divisor of the integer. Since 8 is divisible by 2, \underline{the fundamental period is 8}.
+
       \item $x[n]=3\sin\left( \frac{\pi}{3}n \right)+\cos\left( \frac{\pi}{4}n \right)-3\cos\left( \frac{\pi}{6}n+\frac{\pi}{3} \right)$ 
+
+        Once again, each of the sinusoids must be periodic:
+
+        $$\Omega_1=\pi/3\to\frac{2\pi}{\pi/3}=6\text{ and }\Omega_2=\pi/4\to\frac{2\pi}{\pi/4}=8\text{ and }\Omega_3=\pi/6\to\frac{2\pi}{\pi/6}=12$$
+
+        Thus, we see these functions are all periodic. The smallest integer which is divisible by all of these values is 24, and, thus, \underline{the fundamental period is 24}.
 
     \end{enumerate}
 

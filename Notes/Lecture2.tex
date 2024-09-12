@@ -251,6 +251,155 @@
 
     \end{itemize}
 
+  \item Sinusoidal Waveform, Discrete Time Case: The Discrete Time Frequency
+
+    \begin{itemize}
+
+      \item The continuous time signal $x(t)=A\sin(\omega_ot+\phi)=A\sin(2\pi f_ot+\phi)$
+
+      \item The continuous time frequency ($f_o$) is in cycles/second and $\omega_o$ is in radians/second
+
+      \item The discrete time signal can be expressed as:
+
+        $$x[n]=x(nT_s)=A\sin(2\pi f_o nT_s+\phi)=A\sin(2\pi\frac{f_o}{f_s}n+\phi)=A\sin(2\pi Fn+\phi)$$
+
+      \item Where $F=\dfrac{f_o}{f_s}=\dfrac{T_s}{T_o}$ is the discrete time frequency, in cycles/sample
+
+        $$\frac{T_o}{T_s}=\text{ number of samples per one cycle of the signal}$$
+        $$x[n]=A\sin(\Omega n+\phi),\,\Omega\text{ is in radians/sample, }\Omega=2\pi F$$
+
+      \item $\Omega=2\pi\dfrac{f_o}{f_s}$ is the discrete time frequency in radians/sample
+
+      \item $\Omega=\pi$ is the largest discrete time frequency that corresponds to the lowest sampling rate (Nyquist rate)
+
+    \end{itemize}
+
+  \item Is a Discrete Time Sinusoidal Waveform Always Periodic
+
+    \begin{itemize}
+
+      \item A continuous time sinusoidal signal in the form $A\cos(\omega_o t+\phi)$ is always periodic with a fundamental period $T_o=\dfrac{2\pi}{\omega_o}$
+
+      \item For a discrete time sinusoidal signal, $x[n]=A\cos(\omega_on)$ to be periodic, we must have an integer period $N_o$ where $x[n+N_o]=x[n]$
+
+      \item $A\cos(\Omega_o(n+N_o))=A\cos(\omega_o+2m\pi),\,m=0,1,2\cdots$
+
+      \item $N_o=\dfrac{2\pi}{\Omega_o}m$, which requires the ratio $\dfrac{2\pi}{\Omega_o}$ to be rational
+
+    \end{itemize}
+
+  \item Exponential and Sinusoidal Waveforms
+
+    \begin{itemize}
+
+      \item These signals occur frequently and serve as fundamental building blocks for constructing more complex signals
+
+      \item A continuous-time signal would be of form: $x(t)=Ce^{\alpha t}$
+
+      \item $\alpha>0\to$ rising exponential and $\alpha<0\to$ decaying exponential
+
+      \item A discrete-time signal would be of form: $x[n]=C\alpha^n$
+
+      \item $|\alpha|>1\to$ rising exponential and $|\alpha|<1\to$ decaying exponential
+
+      \item Imaginary Exponentials: $x(t)=Ce^{j\omega_ot}$, where $\omega_o$ is the fundamental frequency in radians/s
+
+        \begin{itemize}
+
+          \item $x(t+T_o)=e^{j\omega_o(t+T_o)}=e^{j\omega_ot}e^{j\omega_oT_o}=e^{j\omega_ot}$ if $\omega_oT_o=2\pi$
+
+          \item This complex exponential signal is periodic with fundamental period $T_o=\frac{2\pi}{\omega_o}$
+
+        \end{itemize}
+
+      \item Imaginary Exponentials (Discrete Case): $x[n]=Ce^{j\Omega_on}$
+
+        \begin{itemize}
+
+          \item The complex exponential can be expressed using the Euler formula in terms of sinusoidal signals $\toCe^{j\Omega_on}=C\left\{ \cos(\Omega_on)+j\sin(\Omega_on) \right\}$ 
+
+        \end{itemize}
+
+      \item Total energy in one period for such an exponential is $|C|^2T_o$
+
+      \item Total energy is infinite, since there is an infinite number of cycles
+
+      \item Average power in a period is 1
+
+      \item Average power in an infinite interval is $|C|^2$
+
+    \end{itemize}
+
+  \item Harmonically Related Signals
+
+    \begin{itemize}
+
+      \item Continuous Time Case
+
+        \begin{itemize}
+
+          \item For a signal form of $\phi_k(t)=e^{jk\omega_ot}$, where $k=0,\pm1,\pm2,\cdots$
+
+            \begin{itemize}
+
+              \item The frequency $\omega=k\omega_o$ is an integral multiple of the fundamental frequency, $\omega_o$
+
+              \item The period is $T_k=\frac{2\pi}{|k|\omega_o}=\frac{T_o}{|k|}$
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item Discrete Time Case
+
+        \begin{itemize}
+
+          \item For a signal of form $\phi_k[n]=e^{jk\Omega_on}$, where $k=0,\pm1,\pm2,\cdots$
+
+            \begin{itemize}
+
+              \item The frequency $\Omega=k\Omega_o$ is an integral multiple of the fundamental frequency, $\Omega_o$
+
+              \item The period is $N_k=\frac{2\pi}{|k|\Omega_o}m=N_o\left(\frac{m}{|k|}\right)$
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Combining Complex Exponentials
+
+    \begin{itemize}
+
+      \item Example:
+
+        $$x(t)=e^{j\omega_1t}+e^{j\omega_2t}\to 2e^{.5j(\omega_1+\omega_2)t}\cos\left( \frac{(\omega_1-\omega_2)t}{2} \right)$$
+
+      \item Multiply by a conjugate to more easily find the magnitude:
+
+        $$|x(t)|^2=x(t)x^*(t)$$
+
+    \end{itemize}
+
+  \item General Complex Exponential
+
+    \begin{itemize}
+
+      \item Continuous Time
+
+        \begin{itemize}
+
+          \item $x(t)=Ce^{\alpha t}$ (both $C$ and $\alpha$ are complex)
+
+          \item $C=|C|e^{j\theta}$ and $\alpha=r+j\omega_o$
+
+          \item $x(t)=|C|e^{j\theta}e^{(r+j\omega_o)t}=|C|e^{rt}e^{j(\omega_ot+\theta)}$
+
+        \end{itemize}
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 3 — The Unit Step and Unit Impulse Functions}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item The Unit Step Function
+
+    \begin{itemize}
+
+      \item The step function is discontinuous at $t=0$
+
+        $$u(t)=\left\{\begin{array}{l l}0,&t<0\\1,&t\geq0\end{array}$$
+
+    \end{itemize}
+
+  \item The Dirac Delta (Unit Impulse) Function
+
+    \begin{itemize}
+
+      \item As $\epsilon$ reduces to zero, the derivative to the unit step function reduces to a Dirac delta function
+
+        $$\frac{d}{dt}[u(t)]=\lim_{\epsilon\to0}\left\{\begin{array}{ll}\dfrac{1}{\epsilon},&-\dfrac{\epsilon}{2}\leq t<\dfrac{\epsilon}{2}\\0,&\text{otherwise}\end{array}$$
+
+        \item The Dirac delta function has an infinite amplitude and unit area, and a scaled impulse $k\delta(t)$ has an area equal to $k$:
+
+          $$u(t)=\int_{-\infty}^t\delta(\tau)\,d\tau$$
+
+        \item Substitute $x=\tau-t\to u(t)$:
+
+          $$u(t)=\int_{-\infty}^t\delta(\tau)\,d\tau=\int_0^{\infty}\delta(t-x)\,dx$$
+
+        \item Useful Properties:
+
+          $$\int_{-\infty}^{\infty}\delta(t-t_o)\,dt=1$$
+
+          $$\int_{-\infty}^{\infty}A\delta(t-t_o)\,dt=A$$
+
+          $$g(t)\delta(t-t_o)=g(t_o)\delta(t-t_o)$$
+
+          $$\int_{-\infty}^{\infty}g(t)\delta(t-t_o)\,dt=g(t_o)\text{ (sifting property)}$$
+
+          \begin{itemize}
+
+            \item The derivative property ($x(t)$ is continuous and $t_1<t_o<t_2$):
+
+              $$\int_{t_1}^{t_2}x(t)\dot{\delta}(t-t_o)\,dt=-\dot{x}(t_o)$$
+              $$\int_{t_1}^{t_2}x(t)\delta^n(t-t_o)\,dt=(-1)^nx^n(t_o)$$
+
+              \begin{itemize}
+
+                \item Where $\delta^n(t-t_o)$ is the n-th derivative of $\delta(t-t_o)$ and $x^n$ is the n-th derivative of $x(t)$
+
+              \end{itemize}
+
+          \end{itemize}
+
+    \end{itemize}
+
+  \item The Unit Ramp Function
+    
+    $$r(t)=\int_{-\infty}^tu(\tau)\,d\tau=\left\{\begin{array}{ll}t,&t\geq0\\0,&\text{otherwise}\end{array}$$
+
+\end{itemize}
+
+\end{document}
+

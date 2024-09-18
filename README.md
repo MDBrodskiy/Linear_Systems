@@ -23,6 +23,7 @@
     * [**Lecture 1**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Notes/Lecture1.pdf)
     * [**Lecture 2**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Notes/Lecture2.pdf)
     * [**Lecture 3**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Notes/Lecture3.pdf)
+    * [**Lecture 4**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Notes/Lecture4.pdf)
 * [**Homework**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Homework/)
     * [**Homework 1**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Homework/Homework1.pdf)
 

@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 4 — Classifications/Interconnections of Systems}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item System Representation
+
+    \begin{itemize}
+
+      \item A system takes a signal as an input and transforms it into an output
+
+      \item This is written as $x(t)$ passed through transformation function $T\left\{ \cdots \right\}$ makes $y(t)$
+
+    \end{itemize}
+
+  \item Linear Systems and the Principle of Superposition
+
+    \begin{itemize}
+
+      \item A homogenous system has zero output for zero input (if $x(t)$ transforms to $y(t)$, then $ax(t)\to ay(t)$)
+
+      \item Additive: $x_1(t)$ causes response $y_1(t)$ and $x_2(t)$ causes response $y_2(t)$, then $x_1(t)+x_2(t)$ causes $y_1(t)+y_2(t)$
+
+      \item A linear system is both homogenous and additive (the superposition principle applies)
+
+    \end{itemize}
+
+  \item Linearity
+
+    \begin{itemize}
+
+      \item The system with an input-output relationship $y(t)=t^2x(t)$ is linear
+
+      \item We can prove linearity by saying:
+
+        $$x_1(t)\to y_1(t)=T\left\{ x_1(t) \right\}=t^2x_1(t)\quad\text{ and }\quad x_2(t)\to y_2(t)=T\left\{ x_2(t) \right\}=t^2x_2(t)$$
+
+      \item and then proving:
+
+        $$T\left\{ a_1x_1(t)+a_2x_2(t) \right\}=t^2(a_1x_1(t)+a_2x_2(t))=a_1t_1(t)+a_2y_2(t)$$
+
+
+      \item The system with an input-output relationship $y(t)=x^2(t)$ is non-linear
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

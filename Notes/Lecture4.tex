@@ -57,6 +57,126 @@
 
     \end{itemize}
 
+  \item Incrementally Linear Systems
+
+    \begin{itemize}
+
+      \item The system described by $y[n]=2x[n]+4$ is non-linear
+
+      \item The system has a non-zero output for a zero input
+
+      \item The system is sometimes described as incrementally linear, meaning that the difference between two output responses is a linear function of the difference between their corresponding inputs
+
+        $$y_2[n]-y_1[n]=2(x_2[n]-x_2[n])$$
+
+      \item A system described by a linear constant coefficient differential or difference equation is incrementally linear
+
+        $$\frac{d}{dt}v_c(t)+\frac{1}{RC}v_c(t)=\frac{1}{RC}v_s(t)$$
+
+      \item The system's response can be split into two parts: the zero-input response, due to the initial conditions, and the zero-state response
+
+      \item In general, a system described by a linear constant coefficient differential or difference equation is incrementally linear; it has a response equal to the sum of a zero-input response and the zero-state response
+
+    \end{itemize}
+
+  \item Time Invariance
+
+    \begin{itemize}
+
+      \item A system is time invariant if the behavior/parameters of the system are fixed over time; the nature of the response is not expected to change if the experiment is performed now or a few days later
+
+      \item A network initially at rest and composed of RLC components and other commonly used active components with fixed parameters is time invariant
+
+      \item A system described by a linear constant coefficient differential/difference equation is time invariant if initially at rest. If not initially at rest or if the coefficients of the differential/difference become time-dependent, the system becomes time varying
+
+    \end{itemize}
+
+  \item Dynamic Versus Instantaneous System
+
+    \begin{itemize}
+
+      \item Instantaneous or Memoryless System
+
+        \begin{itemize}
+
+          \item The output of the system at any instants depends only on the current instant of the input; the history of the input or system response do not affect the current output
+
+          \item Resistive networks are memoryless
+
+        \end{itemize}
+
+      \item Dynamic Systems or Systems with Memory
+
+        \begin{itemize}
+
+          \item A system is said to be dynamic if the response is determined by the input signal over the past interval of time and/or system response over the past interval of time
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Causal Versus Non-Causal Systems
+
+    \begin{itemize}
+
+      \item Causal Systems
+
+        \begin{itemize}
+
+          \item The output of a causal system at any instant depends on the current and previous values of the input; a causal system is non-anticipative
+
+          \item All memoryless systems are causal
+
+        \end{itemize}
+
+      \item Non-Causal Systems
+
+        \begin{itemize}
+
+          \item A system is said to be non-causal if the response depends on future values of the input
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Stability
+
+    \begin{itemize}
+
+      \item The input is bounded if there exists a positive finite value $B_{x}$ such that:
+
+        $$|x(t)|<B_x<\infty\,\quad\forall t$$
+        $$|x[n]|<B_x<\infty\,\quad\forall n$$
+
+      \item A system is stable if for every bounded input, the output is also bounded; \textit{i}.\textit{e}. there exists a positive finite value, $B_y$ such that:
+
+        $$|y(t)|<B_y<\infty\,\quad\forall t$$
+        $$|y[n]|<B_y<\infty\,\quad\forall n$$
+
+      \item This type of stability is referred to as bounded input/bounded output (BIBO) stability
+
+      \item Stability of physical systems usually results from a mechanism that dissipates energy, such as a resistor or losst transmission line in an electrical system, and friction in a mechanical system
+
+      \item Consider a constant applied force, $f(t)=F$, applied to a vehicle initially at rest; the vehicle will continue to accelerate until the frictional force, which is proportional to the velocity, balances the applied force ($\rho v=F$)
+
+      \item The velocity of the vehicle is therefore bounded, and the maximum velocity is given by $v=F/\rho$
+
+    \end{itemize}
+
+  \item Invertibility and Inverse Systems
+
+    \begin{itemize}
+
+      \item Consider a system $S$ which processes an input signal, $x(t)/x[n]$ to produce an output $y(t)/y[n]$; if an inverse system $S_i$ exists tha can reproduce the original input signal $x(t)/x[n]$ using the output, $y(t)/y[n]$, the system is said to be invertible
+
+      \item Cascading a system with its inverse system results in an identity system, producing an output identical to the input
+
+      \item Data transmitted over a communication channel can be distorted due to the channel's non-ideal frequency response; an inverse system for the channel, known as an equalizer, can be used to compensate for this distortion
+
+      \item To demonstrate that a system is invertible, one must find the inverse system; conversely, to show that a system is non-invertible, it's necessary to identify two different inputs that result in the same output
+
+    \end{itemize}
+
 \end{itemize}
 
 \end{document}

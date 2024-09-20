@@ -1,0 +1,371 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 2}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{enumerate}[label=\textbf{\Roman*.}]
+
+      \item 
+
+        \begin{enumerate}[label=\alph*)]
+
+          \item 
+
+            We begin by sketching $x[n-2]$, which generates a rightward shift of $2$:
+
+            \begin{figure}[H]
+              \centering
+              \include{Figures/H2P1a1.tex}
+              \caption{$x[n-2]$}
+              \label{fig:1}
+            \end{figure}
+
+            We then apply the delta function to filter out only the value at $n=2$:
+
+            \begin{figure}[H]
+              \centering
+              \include{Figures/H2P1a2.tex}
+              \caption{$x[n-2]\delta(n-2)$}
+              \label{fig:2}
+            \end{figure}
+
+          \item 
+
+            Once again, the delta extracts the value at $n=2$, except the function is no longer shifted. This gives us the following graph:
+
+            \begin{figure}[H]
+              \centering
+              \include{Figures/H2P1b.tex}
+              \caption{$x[n]\delta(n-2)$}
+              \label{fig:3}
+            \end{figure}
+
+          \item 
+
+            We begin by referencing Figure \ref{fig:1}. The step function then draws all values left (due to the negative sign) of and including $n=1$. This gives us:
+
+            \begin{figure}[H]
+              \centering
+              \include{Figures/H2P1c.tex}
+              \caption{$x[n-2]u(1-n)$}
+              \label{fig:4}
+            \end{figure}
+
+        \end{enumerate}
+
+      \item 
+
+        Although, due to the step function, we can adjust the bounds to:
+
+        $$\int_{-2}^{\infty}5t^2\cos(\pi t)\delta(t-2)\,dt$$
+
+        This is unnecessary, as the sifting property makes this a function evaluated at $t=2$:
+
+        $$\int_{-\infty}^{\infty}5t^2\cos(\pi t)u(t+2)\delta(t-2)\,dt=5t^2\cos(\pi t)\Big|_{t=2}$$
+
+        This gives us:
+
+        $$5(2)^2\cos(2\pi)=20$$
+
+        Thus, we find:
+
+        $$\boxed{\int_{-\infty}^{\infty}5t^2\cos(\pi t)u(t+2)\delta(t-2)\,dt=20}$$
+
+    \end{enumerate}
+
+  \item
+
+    For this problem, we begin by changing the summation to a unit step function. The summation given is:
+
+    $$\sum_{k=2}^{\infty}\delta[n-4-k]$$
+
+    We know that, to equal one, the delta function needs to be evaluated at a point where:
+
+    $$n-4-k\geq 0$$
+    $$n\geq k+4$$
+
+    The smallest such value occurs when:
+
+    $$n=6$$
+
+    Thus, we can say that the function $x[n]=1$ from $-\infty$ to $5$, and zero otherwise. This can be written as:
+
+    $$x[n]=u(5-n)$$
+
+    Which means:
+
+    $$\boxed{M=-1;\quad n_o=-5}$$
+
+  \item
+
+    The function $y(t)$ may be rewritten as:
+
+    $$y(t)=\left\{\begin{matrix} 0, & t<-1\\ 2, & -1\leq t< 4\\ 0, & t\geq 4\end{matrix}$$
+
+      \begin{center}
+        or
+      \end{center}
+
+      \vspace{-15pt}
+
+      $$y(t)=2u(t+1)-2u(t-4)$$
+
+      This would look like:
+
+      \begin{figure}[H]
+        \centering
+        \include{Figures/H2P3.tex}
+        \caption{$y(t)$ Graph}
+        \label{fig:5}
+      \end{figure}
+
+      The energy over the entire interval may be seen as the function squared, which would be the area under the figure shown above with the height squared (in this case, doubled). This would give us:
+
+      $$\boxed{E_{\infty}=4(5)=20}$$
+
+  \item
+
+    Given the graph of $x(t)$, we know that the slope jumps to $1$ at $t=0$, then $-2$ at $t=1$, then up $2$ at $t=3$, the down $2$ at $t=4$, and so on. This means that we may write this as:
+
+    $$\frac{dx(t)}{dt}=\delta(t)-2\delta(t-1)+2\delta(t-3)-2\delta(t-4)+2\delta(t-6)-2\delta(t-7)+2\delta(t-9)-2\delta(t-10)\cdots$$
+
+    We may group similar terms to write:
+
+    $$\frac{dx(t)}{dt}=\delta(t)-2[\delta(t-1)+\delta(t-4)+\delta(t-7)+\cdots]+2[\delta(t-3)+\delta(t-6)+\delta(t-9)+\cdots]$$
+
+     Noticing a trend, we can write:
+
+    $$\frac{dx(t)}{dt}=\delta(t)-2[\delta(t-1)+\delta(t-1-3k)\cdots]+2[\delta(t-3)+\delta(t-3-3k)\cdots]$$
+
+    Writing this as a summation, we get:
+
+    $$\frac{dx(t)}{dt}=\delta(t)-2\sum_{k=0}^{\infty}\delta(t-1-3k)+2\sum_{k=0}^{\infty}\delta(t-3-3k)$$
+
+    This gives us the coefficients as:
+
+    $$\boxed{A_o=1,\quad A_1=-2,\quad t_1=1,\quad A_2=2,\quad t_2=3}$$
+
+  \item
+
+    The function $x(t)$ may be expressed as:
+
+    $$\boxed{2u(t)-u(t-1)+.5r(t-2)+u(t-4)-.5r(t-4)-2r(t-5)+2r(t-6)-u(t-7)}$$
+
+    Differentiating, we find that $\dfrac{dx(t)}{dt}$ is:
+
+    $$\boxed{2\delta(t)-\delta(t-1)+.5u(t-2)+\delta(t-4)-.5u(t-4)-2u(t-5)+2u(t-6)-\delta(t-7)}$$
+
+    This gives us the following plot:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/H2P5}
+      \caption{Plot of $dx(t)/dt$}
+      \label{fig:6}
+    \end{figure}
+
+  \item
+
+    We can prove linearity by confirming that the input:
+
+    $$x(t)=a_1x_1(t)+a_2x_2(t)$$
+
+    yields output:
+
+    $$y(t)=a_1y_1(t)+a_2y_2(t)$$
+
+    Furthermore, we can prove time invariance by using input:
+
+    $$x(t-t_1)$$
+
+    and confirming this yields output:
+
+    $$y(t-t_1)$$
+
+    \begin{enumerate}[label=\textbf{\alph*)}]
+
+      \item 
+
+        We first define the transformation:
+
+        $$y(t)=2\cos(t)e^{-2t}x(t-2)$$
+
+        For linearity, $x(t-2)=a_1x_1(t)+a_2x_2(t)$ should yield:
+
+        $$2a_1\cos(t)e^{-2t}x_1(t-2)+2a_2\cos(t)e^{-2t}x_2(t-2)$$
+
+        Checking $a_1y_1(t)+a_2y_2(t)$, we see:
+
+        $$a_1y_1(t)+a_2y_2(t)=2a_1\cos(t)e^{-2t}x_1(t-2)+2a_2\cos(t)e^{-2t}x_2(t-2)$$
+
+        Since the two are equivalent, \underline{the transform is linear}. We now check for time invariance:
+
+        $$x(t-t_1)\to2\cos(t)e^{-2t}x(t-2-t_1)$$
+        $$y(t-t_1)\to2\cos(t-t_1)e^{-2(t-t_1)}x(t-2-t_1)$$
+
+        Since $x(t-t_1)\neq y(t-t_1)$, \underline{the transform is not time invariant}
+
+      \item 
+
+        We first define the transform:
+
+        $$y[n]=x[n-4]+2n^2x[n-2]$$
+
+        Checking for linearity, we test $a_1x_1[n]+a_2x_2[n]$:
+
+        $$a_1x_1[n-4]+2a_1n^2x_1[n-2]+a_2x_2[n-4]+2a_2n^2x_2[n-2]$$
+
+        Comparing to $a_1y_1[n]+a_2y_2[n]$, we see:
+
+        $$a_1x_1[n-4]+2a_1n^2x_1[n-2]+a_2x_2[n-4]+2a_2n^2x_2[n-2]$$
+
+        Since the two are the same, \underline{the transform is linear}. We now check for time invariance:
+
+        $$x[n-n_o]\to x[n-4-n_o]+2n^2x[n-2-n_o]$$
+        $$y[n-n_o]\to x[n-4-n_o]+2(n-n_o)^2x[n-2-n_o]$$
+
+        Since $x[n-n_o]\neq y[n-n_o]$, \underline{the transform is not time invariant}
+
+      \item 
+
+        First, we define the transform:
+
+        $$y[n]=2x^2[n-1]$$
+
+        Checking for linearity, we test $a_1x_1[n]+a_2x_2[n]$:
+
+        $$2a_1^2x_1^n[n-1]+2a_2^2x_2^2[n-1]+4a_1a_2x_1[n-1]x_2[n-1]$$
+
+        Comparing to $a_1y_1[n]+a_2y_2[n]$, we see:
+
+        $$2a_1x_1^n[n-1]+2a_2x_2^2[n-1]$$
+
+        Since the two are not equivalent, \underline{the transform is not linear}. Now we check for time invariance:
+
+        $$x[n-n_o]\to 2x^2[n-1-n_o]$$
+        $$y[n-n_o]\to 2x^2[n-1-n_o]$$
+
+        Since the two are equivalent, \underline{the transform is time invariant}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}[label=\textbf{\alph*.}]
+
+      \item 
+
+        By inspection, we can see that the transform can be written as:
+
+        $$y(t)=2x\left( t-\frac{\pi}{12} \right)$$
+
+        Testing this system, we see:
+
+        $$2e^{j\left[ 3\left( t-\dfrac{\pi}{12} \right) \right]}=2e^{-\frac{j\pi}{4}}e^{3jt}$$
+        $$2e^{j\left[ -3\left( t-\dfrac{\pi}{12} \right) \right]}=2e^{\frac{j\pi}{4}}e^{-3jt}$$
+
+        Taking $x_1(t)=4\cos(3t)$ as the input, we find that the output is:
+
+        $$\boxed{y_1(t)=8\cos\left( 3t-\frac{\pi}{4} \right)}$$
+
+      \item 
+
+        Taking $x_2(t)=2\sin\left(3t-\frac{\pi}{2}\right)$ as the input, we find that the output is:
+
+        $$\boxed{y_2(t)=4\sin\left( 3t-\frac{3\pi}{4} \right)}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}[label=\textbf{\alph*)}]
+
+      \item 
+
+        For $x_1(t)=\pi/4$ and $x_2(t)=(9\pi/4)$, $y(t)$ has the same output:
+
+        $$y_1(t)=2\cos\left( \frac{\pi}{4}-\frac{\pi}{4} \right)=2$$
+        $$y_2(t)=2\cos\left( \frac{9\pi}{4}-\frac{\pi}{4} \right)=2$$
+
+        Therefore, \underline{the transform is not invertible}
+
+      \item 
+
+        \underline{This system is invertible}. We may write:
+
+        $$x[n]=\left\{\begin{matrix} x[n], & n > 1\\ x[n+1], & n \leq 1\end{matrix}$$
+
+      \item 
+
+        We can begin to manipulate the system as:
+
+        $$y\left( \frac{t}{4} \right)=e^{.5t}x(t)$$
+        $$x(t)=e^{-.5t}y\left( \frac{t}{4} \right)$$
+
+        Thus, we see that \underline{the system is invertible}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+        For $x_2(t)$, we see that the input is shifted 1 unit to the left, and doubled in magnitude. Additionally, we add a part that is shifted 1 unit right, with an opposite magnitude. Thus, we write:
+
+        $$x_2(t)=2x_1(t+1)-x_1(t-1)$$
+
+        According to linearity and time invariance, we know the output will respond as:
+
+        $$\boxed{y_2(t)=2y_1(t+1)-y_1(t-1)}$$
+
+        This gives us the following graph:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/H2P9a}
+          \caption{Output $y_2(t)$ for Input $x_2(t)$}
+          \label{fig:7}
+        \end{figure}
+
+      \item 
+
+        For $x_3(t)$, we see that the transform is:
+
+        $$x_3(t)=2x_1\left( 2t \right)-2x_1(2t-4)$$
+
+        This gives us output:
+
+        $$\boxed{y_3(t)=2y_1\left( 2t \right)-2y_1(2t-4)}$$
+
+        Which produces the following graph:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/H2P9b}
+          \caption{Output $y_3(t)$ for Input $x_3(t)$}
+          \label{fig:8}
+        \end{figure}
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+

@@ -1,0 +1,50 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 5 — Linear Time Invariant Systems}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item The Impulse Response
+
+    \begin{itemize}
+
+      \item Linear algebra concepts apply to LTI system analysis; if the response to basis input signals are known, any general input can be expressed as a linear combination of these basis signals, allowing the output to be determined
+
+      \item The system is fully characterized by its responses to the basis signals
+
+      \item In the time domain representation, we use delayed unit impulse functions as basis signals
+
+      \item The impulse response, $h(t)/h[n]$, of a linear time invariant system is defined as the response of the system to a unit impulse input, $x(t)=\delta(t)/x[n]=\delta[n]$
+
+      \item The response of a linear time invariant system with impulse response $h[n]$ to a general input $x[n]$ can be obtained using the convolution sum; the convolution sum sifts through the sequence values, $x[k]$. respresented by an impulse located at $n=k$, and finds the corresponding response given by $h[n-k]$
+
+        $$x[n]=\sum_{k=-\infty}^{\infty}x[k]\delta[n-k]\Longrightarrow y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]$$
+
+    \end{itemize}
+
+  \item The Convolution Sum
+
+    \begin{itemize}
+
+      \item The convolution sum may also be expressed as:
+
+        $$y[n]=x[n]*h[n]=h[n]*x[n]=\sum_{k=-\infty}^{\infty}x[n-k]h[k]$$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

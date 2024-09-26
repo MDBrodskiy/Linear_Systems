@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Quiz 1}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[label=\textbf{\Alph*}.]
+
+  \item
+
+    We may begin by finding the energy:
+
+    $$E_{\infty}=\lim_{T\to\infty}\int_{-T}^T |x(t)|^2\,dt$$
+
+    Since the signal is finite, we have a nonzero value only for $0\leq t\leq 1$. Therefore, we may write:
+
+    $$E_{\infty}=\int_{0}^1 |e^t|^2\,dt$$
+    $$E_{\infty}=\int_{0}^1 e^{2t}\,dt$$
+    $$E_{\infty}=\frac{1}{2}e^{2t}\Big_0^1$$
+    $$\boxed{E_{\infty}=\frac{1}{2}e^{2}-\frac{1}{2}}$$
+
+    We then find the power:
+
+    $$P_{\infty}=\lim_{T\to\infty}\frac{E_{\infty}}{2T}$$
+    $$\boxed{P_{\infty}=0}$$
+
+    Therefore, because energy is finite and power is 0, then \underline{this is an energy signal}
+
+  \item
+
+    \begin{enumerate}[label=(\roman*)]
+
+      \item For $x(t+2)$:
+
+        \vspace{-30pt}
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Q1P2a}
+          \caption{Plot for $x(t+2)$}
+          \label{fig:1}
+        \end{figure}
+
+      \item For $x\left( -\frac{t}{2}+2 \right)$:
+
+        \vspace{-20pt}
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/Q1P2b}
+          \caption{Plot for $x\left( -\frac{t}{2}+2 \right)$}
+          \label{fig:2}
+        \end{figure}
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}[label=\textbf{\Roman*}.]
+
+      \item We begin by finding whether the individual sinusoids are periodic:
+
+        $$N_1\to \frac{2\pi}{\frac{4\pi}{5}}\to \frac{5}{2}m\to 5$$
+        $$N_2\to \frac{2\pi}{\frac{5\pi}{7}}\to \frac{14}{5}m\to 14$$
+
+        Thus, we see both are, individually, periodic.
+
+        We then find the least common factor between the two signals, which comes out to be:
+
+        $$N_o=aN_1+bN_2\to N_1N_2$$
+        $$\boxed{N_o=70}$$
+
+      \item From the signal, we see that the leading term is $\left( \frac{1}{2} \right)^n$. Since this is a geometric, decaying series, the signal must converge. Therefore, \underline{the signal is \textbf{not} periodic}
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+

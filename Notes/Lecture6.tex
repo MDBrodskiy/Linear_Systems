@@ -1,0 +1,28 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 6 — Properties of Linear Time Invariant Systems}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item Changing the order of cascaded LTI systems does not change the overall response (commutative)
+
+  \item You can determine the overall response by first applying the input to the first system, computing its output, and then using that output as the input to the second system; alternatively, you can find the impulse response of the equivalent system, $h_{eq}=h_1*h_2$, and use it to find the overall response, $y=x*h_{eq}$ (associative)
+
+  \item Two systems in parallel with a single input can be added together to find the output, $y=x*(h_1+h_2)$ (distributive)
+
+\end{itemize}
+
+\end{document}
+

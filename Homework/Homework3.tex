@@ -16,31 +16,139 @@
 
 \begin{enumerate}
 
-  \item
+  \item Classifying systems as memory-less, time-invariant, linear, causal, and/or stable:
 
     \begin{enumerate}
 
-      \item 
+      \item $y(t)=5e^{4t}x(t-1)$
 
-      \item 
+        \begin{itemize}
 
-      \item 
+          \item Memory: \textbf{not} memory-less; the $x(t-1)$ term means the system relies on values other than the present value; therefore, it is not memory-less
 
-      \item 
+          \item Time-Invariant: \textbf{not} time-invariant; we may see that, $y(t-t_o)$ changes the $t$ value in the exponential and $x(t)$ statement, while $x(t-t_o)$ changes only the $x(t)$ statement; thus, it is not time-invariant, since $x(t-t_o)\neq y(t-t_o)$
+
+          \item Linear: the system \textbf{is} linear (see below) because $ax_1(t)+bx_2(t)= ay_1(t)+by_2(t)$
+
+            $$ax_1(t)+bx_2(t)\to a5e^{4t}x_1(t-1)+b5e^{4t}x_2(t-1)$$
+            $$ay_1(t)+by_2(t)\to a5e^{4t}x_1(t-1)+b5e^{4t}x_2(t-1)$$
+
+          \item Causal: the system \textbf{is} causal , because it only depends on past or present values (ex. $t=0\to y(t)=5e^{4(0)}x(-1)$)
+
+          \item Stable: Given that the system depends on an exponential $e^{4t}$, its maximum value is unbounded and, therefore, it is \textbf{unstable}
+
+        \end{itemize}
+
+      \item $y(t)=\displaystyle \int_{-\infty}^{\frac{t}{2}} x(\tau)\,d\tau$
+
+        \begin{itemize}
+
+          \item Memory: \textbf{not} memory-less; the system depends on a shift of the $t$ parameter ($t/2$), and, therefore, does not always depend on the current value of time
+
+          \item Time-Invariant: \textbf{not} time-invariant; $y(t-t_o)\neq x(t-t_o)$ (see below)
+
+            $$x(t-t_o)\to \int_{-\infty}^{\frac{t}{2}} x(\tau-t_o)\,d\tau$$
+            $$y(t-t_o)\to \int_{-\infty}^{\frac{(t-t_o)}{2}} x(\tau-t_o)\,d\tau$$
+            $$\therefore x(t-t_o)\neq y(t-t_o)$$
+
+          \item Linear: the system \textbf{is} linear; it follows both the superposition and homogeneity principles (see below)
+
+            $$ay_1(t)+by_2(t)\to a\int_{-\infty}^{\frac{t}{2}} x_1(\tau)\,d\tau+b\int_{-\infty}^{\frac{t}{2}} x_2(\tau)\,d\tau$$
+            $$ax_1(t)+bx_2(t)\to a\int_{-\infty}^{\frac{t}{2}} x_1(\tau)\,d\tau+b\int_{-\infty}^{\frac{t}{2}} x_2(\tau)\,d\tau$$
+            $$\therefore ax_1(t)+bx_2(t)=ay_1(t)+by_2(t)$$
+
+          \item Causal: the system \textbf{is not} causal; integration depends on future values when $t<0$
+
+          \item Stable: the system \textbf{is not} stable (see below)
+
+            $$y(t)=\int_{-\infty}^{\frac{t}{2}} x(\tau)\,d\tau$$
+            $$h(t)=\int_{-\infty}^{\frac{t}{2}} \delta(\tau)\,d\tau=\left\{\begin{array}{ll}0,& t<0\\1,& t>0\end{array}$$
+            $$h(t)\to u(t)$$
+            $$\int_{-\infty}^{\infty} h(t)\,dt=\infty$$
+
+        \end{itemize}
+
+      \item $y(t)=4+5\dfrac{d^2}{dt^2}x(t)$
+
+        \begin{itemize}
+
+          \item Memory: the system is \textbf{not} memory-less; the use of a differential implies that the system depends on past values
+
+          \item Time-Invariant: the system \textbf{is} time-invariant (see below)
+
+            $$x(t-t_o)\to 4+5\dfrac{d^2}{dt^2}x(t-t_o)$$
+            $$y(t-t_o)\to 4+5\dfrac{d^2}{dt^2}x(t-t_o)$$
+            $$\therefore x(t-t_o)=y(t-t_o)$$
+
+          \item Linear: the system is \textbf{not} linear (see below)
+
+            $$ax_1(t)+bx_2(t)=\left(4+5a\dfrac{d^2}{dt^2}x_1(t)\right)+\left(4+5b\dfrac{d^2}{dt^2}x_2(t)\right)$$
+            $$ay_1(t)+by_2(t)=a\left(4+5\dfrac{d^2}{dt^2}x_1(t)\right)+b\left(4+5\dfrac{d^2}{dt^2}x_2(t)\right)$$
+            $$\therefore ax_1(t)+bx_2(t)\neq ay_1(t)+by_2(t)$$
+
+          \item Causal: the system \textbf{is} causal because it only depends on past or present values
+
+          \item Stable: the system is \textbf{unstable} because it is unbounded
+
+        \end{itemize}
+
+      \item $y(t)=\left\{\begin{array}{ll} 0, & t<0\\ x(t-2)+2x(t), & t\geq0\end{array}$
+
+        \begin{itemize}
+
+          \item Memory: the system is \textbf{not} memory-less, since the $x(t-2)$ term depends on a past value
+
+          \item Time-Invariant: the system is \textbf{not} time-invariant (see below)
+
+            $$x(t-t_o)\to\left\{\begin{array}{ll} 0, & t<0\\ x(t-2-t_o)+2x(t-t_o), & t\geq0\end{array}$$
+            $$y(t-t_o)\to\left\{\begin{array}{ll} 0, & t<2\\ x(t-2-t_o)+2x(t-t_o), & t\geq2\end{array}$$
+            $$\therefore x(t-t_o)\neq y(t-t_o)$$
+
+          \item Linear: the system \textbf{is} linear (see below)
+
+            $$ax_1(t)+bx_2(t)\to\left\{\begin{array}{ll} 0, & t<0\\ ax_1(t-2)+2ax_1(t)+bx_2(t-2)+2bx_2(t), & t\geq0\end{array}$$
+            $$ay_1(t)+by_2(t)\to\left\{\begin{array}{ll} 0, & t<0\\ ax_1(t-2)+2ax_1(t)+bx_2(t-2)+2bx_2(t), & t\geq0\end{array}$$
+              $$\therefore ax_1(t)+bx_2(t)=ay_1(t)+by_2(t)$$
+
+            \item Causal: the system \textbf{is} causal because it only depends on past or present values
+
+            \item Stable: the system \textbf{is} stable, because it does not tend to diverge
+
+        \end{itemize}
+
+        Problem 1 can be tabulated as follows:
+
+        \begin{center}
+          \begin{tabular}[H]{|c|c|c|c|c|}
+            \hline
+            System & a & b & c & d\\
+            \hline
+            Memory-Less & no & no & no & no\\
+            \hline
+            Time-Invariant & no & no & yes & no\\
+            \hline
+            Linear & yes & yes & no & yes\\
+            \hline
+            Causal & yes & no & yes & yes\\
+            \hline
+            Stable & no & no & no & yes\\
+            \hline
+          \end{tabular}
+        \end{center}
 
     \end{enumerate}
 
-  \item
+  \item Classifying systems as memory-less, time-invariant, linear, causal, and/or stable:
 
     \begin{enumerate}
 
-      \item 
+      \item $y[n]=x[n+1]-2x[n-4]$
 
-      \item 
+      \item $y[n]=\text{Even}\left\{ x[n-1] \right\}$
 
-      \item 
+      \item $y[n]=5x[3n+1]$
 
-      \item 
+      \item $y[n]=\left\{ \begin{array}{ll} 0, & n=2\\ x[n], & \text{otherwise}\end{array}$
 
     \end{enumerate}
 

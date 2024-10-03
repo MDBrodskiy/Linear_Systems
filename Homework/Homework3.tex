@@ -144,11 +144,103 @@
 
       \item $y[n]=x[n+1]-2x[n-4]$
 
+        \begin{itemize}
+
+          \item Memory: system is \textbf{not} memory-less, as it depends on past and future values
+
+          \item Time-Invariant: system \textbf{is} time-invariant (see below)
+
+            $$x[n-n_o]=x[n+1-n_o]-2x[n-4-n_o]$$
+            $$y[n-n_o]=x[n+1-n_o]-2x[n-4-n_o]$$
+            $$\therefore x[n-n_o]=y[n-n_o]$$
+
+          \item Linear: system \textbf{is} linear (see below)
+
+            $$ax_1[n]+bx_2[n]=a(x_1[n+1]-2x_1[n-4])+b(x_2[n+1]-2x_2[n-4])$$
+            $$ay_1[n]+by_2[n]=a(x_1[n+1]-2x_1[n-4])+b(x_2[n+1]-2x_2[n-4])$$
+            $$\therefore ay_1[n]+by_2[n]=ax_1[n]+bx_2[n]$$
+
+          \item Causal: system is \textbf{not} causal, as it depends on past and present values
+
+          \item Stable: system \textbf{is} stable because $y[n]$ is finite
+
+        \end{itemize}
+
       \item $y[n]=\text{Even}\left\{ x[n-1] \right\}$
+
+        To simplify analysis, we can express the even function as:
+
+        $$\frac{x[n]+x^*[-n]}{2}\to\frac{x[n-1]+x^*[-n+1]}{2}$$
+
+        \begin{itemize}
+
+          \item Memory: system is \textbf{not} memory-less, as it depends on future values
+
+          \item Time-Invariant: system \textbf{is} time-invariant (see below)
+
+            $$x[n-n_o]=\text{Even}\left\{ x[n-1-n_o] \right\}$$
+            $$y[n-n_o]=\text{Even}\left\{ x[n-1-n_o] \right\}$$
+            $$\therefore x[n-n_o]=y[n-n_o]$$
+
+          \item Linear: system is \textbf{not} linear (see below); note that this is because $a$ or $b$ may be complex. Given this, for a purely real signal, the system can be classified as linear; however, due to the need to use the 'conjugate' for the even function, in the case of a complex signal, this is non-linear
+
+            $$ax_1[n]+bx_2[n]=\frac{ax_1[n-1]+a^*x_1^*[-n+1]}{2}+\frac{bx_2[n-1]+b^*x_2^*[-n+1]}{2}$$
+            $$ay_1[n]+by_2[n]=\frac{ax_1[n-1]+ax_1^*[-n+1]}{2}+\frac{bx_2[n-1]+bx_2^*[-n+1]}{2}$$
+            $$\therefore ay_1[n]+by_2[n]\neq ax_1[n]+bx_2[n]$$
+
+          \item Causal: system is \textbf{not} causal, as it depends on a future value
+
+          \item Stable: system \textbf{is} stable because $y[n]$ is finite
+
+        \end{itemize}
 
       \item $y[n]=5x[3n+1]$
 
+        \begin{itemize}
+
+          \item Memory: system is \textbf{not} memory-less, as it depends on non-present values
+
+          \item Time-Invariant: system is \textbf{not} time-invariant (see below)
+
+            $$x[n-n_o]=5x[3n-n_o+1]$$
+            $$y[n-n_o]=5x[3n-3n_o+1]$$
+            $$\therefore x[n-n_o]\neq y[n-n_o]$$
+
+          \item Linear: system \textbf{is} linear (see below)
+
+            $$ax_1[n]+bx_2[n]=5ax_1[3n+1]+5bx_2[3n+1]$$
+            $$ay_1[n]+by_2[n]=5ax_1[3n+1]+5bx_2[3n+1]$$
+            $$\therefore ay_1[n]+by_2[n]=ax_1[n]+bx_2[n]$$
+
+          \item Causal: system is \textbf{not} causal, as it depends on a future value
+
+          \item Stable: system \textbf{is} stable because $y[n]$ is finite
+
+        \end{itemize}
+
       \item $y[n]=\left\{ \begin{array}{ll} 0, & n=2\\ x[n], & \text{otherwise}\end{array}$
+
+        \begin{itemize}
+
+          \item Memory: system \textbf{is} memory-less; it does not depend on past or present values
+
+          \item Time-Invariant: system is \textbf{not} time-invariant (see below)
+
+            $$x[n-n_o]=\left\{ \begin{array}{ll} 0, & n=2\\ x[n-n_o], & \text{otherwise}\end{array}$$
+            $$y[n-n_o]=\left\{ \begin{array}{ll} 0, & n=2+n_o\\ x[n-n_o], & \text{otherwise}\end{array}$$
+            $$\therefore x[n-n_o]\neq y[n-n_o]$$
+
+          \item Linear: system \textbf{is} linear (see below)
+
+            $$ax_1[n]+bx_2[n]=\left\{ \begin{array}{ll} 0, & n=2\\ ax_1[n]+bx_2[n], & \text{otherwise}\end{array}$$
+            $$ay_1[n]+by_2[n]=\left\{ \begin{array}{ll} 0, & n=2\\ ax_1[n]+bx_2[n], & \text{otherwise}\end{array}$$
+            $$\therefore ay_1[n]+by_2[n]=ax_1[n]+bx_2[n]$$
+
+          \item Causal: system \textbf{is} causal, as it depends on only past or present values
+
+          \item Stable: system \textbf{is} stable because $y[n]$ is finite
+
+        \end{itemize}
 
     \end{enumerate}
 
@@ -158,15 +250,92 @@
 
       \item 
 
-      \item 
+        We may begin by constructing the expression for the convolution sum:
+
+        $$y[n]=\sum_{k=-\infty}^{\infty}x[k]h[n-k]$$
+
+        This gets us:
+
+        $$y[n]=\sum_{k=-\infty}^{\infty} \left( \frac{1}{4} \right)^{k-2}u[k-2]u[n-k+1]$$
+
+        We may observe the following:
+
+        $$x[n]\neq 0,\quad n\geq 2$$
+        $$h[n]\neq 0,\quad n\geq -1$$
+
+        Integrating this into the convolution sum, we may see that the expression is nonzero (unit functions both exist) for $k\geq 2$, and that $k\leq n+1$. Thus, we get:
+
+        $$y[n]=\sum_{k=2}^{n+1} \left( \frac{1}{4} \right)^{k-2}$$
+
+        Using the expansion for series, we obtain:
+
+        $$y[n]=\frac{1-(.25)^{n-1}}{1-.25}$$
+        $$\boxed{y[n]=\frac{4}{3}\left[ 1-\left( \frac{1}{4} \right)^{n-1} \right]\text{ for }n\geq 2}$$\\
+
+        This can be sketched as:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW3-3a}
+          \caption{Sketch of $y[n]$}
+          \label{fig:1}
+        \end{figure}
 
       \item 
 
+        Per the time-shifting property, we know that:
+
+        $$y[n]=x[n]*h[n]\to y_1[n]=y[n-3]=x[n-3]*h[n]$$
+
+        Which gives us:
+
+        $$\boxed{y_1[n]=\frac{4}{3}\left[ 1-\left( \frac{1}{4} \right)^{n-4} \right]\text{ for }n\geq 5}$$
+
       \item 
+
+        Per the time-shifting property, we know that:
+
+        $$y[n]=x[n]*h[n]\to y_2[n]=y[n-2]=x[n]*h[n-2]$$
+
+        $$\boxed{y_2[n]=\frac{4}{3}\left[ 1-\left( \frac{1}{4} \right)^{n-3} \right]\text{ for }n\geq 4}$$
+
+      \item 
+
+        Per the time-shifting property, we know that:
+
+        $$y[n]=x[n]*h[n]\to y_3[n]=y[n+1]=x[n-2]*h[n+3]$$
+
+        $$\boxed{y_3[n]=\frac{4}{3}\left[ 1-\left( \frac{1}{4} \right)^{n} \right]\text{ for }n\geq 1}$$
 
     \end{enumerate}
 
   \item
+
+    To simplify the analysis, we can defined the given functions as:
+
+    $$x[n]=u[n-1]-u[n-3]$$
+    $$h[n]=u[n-5]-u[n-10]$$
+
+    From here, we apply the sum:
+
+    $$y[n]=\sum_{k=-\infty}^{\infty} (u[k-1]-u[k-3])(u[n-k-5]-u[n-k-10])$$
+    $$y[n]=\sum_{k=-\infty}^{\infty} u[k-1]u[n-k-5]-u[k-3]u[n-k-5]-u[k-1]u[n-k-10]+u[k-3]u[n-k-10]$$
+
+    By observation, we find:
+
+    $$\text{Term 1 }\neq 0,\quad n-5\geq k\geq1$$
+    $$\text{Term 2 }\neq 0,\quad n-5\geq k\geq3$$
+    $$\text{Term 3 }\neq 0,\quad n-10\geq k\geq1$$
+    $$\text{Term 4 }\neq 0,\quad n-10\geq k\geq3$$
+
+    We see the smallest non-zero value for which a term exists is $k\geq 1$, and the largest value for which a term exists is $n-5$. We can apply these bounds:
+
+    $$y[n]=\sum_{k=1}^{n-5} u[k-1]u[n-k-5]-u[k-3]u[n-k-5]-u[k-1]u[n-k-10]+u[k-3]u[n-k-10]$$
+
+    We can break the sum down by looking at 'zones' for the terms. For $k=1,2$, two terms exist:
+
+    $$y_1[n]=\sum_{k=1}^{2} u[k-1]u[n-k-5]-u[k-1]u[n-k-10]$$
+    $$y_1[n]= u[n-6]-u[n-11]+u[n-7]-u[n-12]$$
 
   \item
 

@@ -343,15 +343,101 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We can express this as $x_1[n]=u[n-3]$
 
-      \item 
+        Since this is an LTI system, we know that the output will be shifted by the same amount (shifting property), which gives us:
 
-      \item 
+        $$\boxed{x_1[n]\to y_1[n]=\left( \frac{1}{4} \right)^{n-3}u[n-3]-\left( \frac{1}{4} \right)^{n-4}u[n-4]}$$
+
+      \item This input can be expressed as: $x_2[n]=u[n]-u[n-4]$
+
+        Once again by the shifting property, as well as by homogeneity and superposition, we can write:
+
+        $$\boxed{x_2[n]\to y_2[n]=\left( \frac{1}{4} \right)^{n}u[n]-\left( \frac{1}{4} \right)^{n-1}u[n-1]-\left( \frac{1}{4} \right)^{n-4}u[n-4]+\left( \frac{1}{4} \right)^{n-5}u[n-5]}$$
+
+      \item This input can be expressed as: $x_3[n]=2u[n]-2u[n-1]$
+
+        By the shifting, homogenous, and superposition principles of LTI systems, we get:
+
+        $$x_3[n]\to y_2[n]=2\left( \frac{1}{4} \right)^{n}u[n]-2\left( \frac{1}{4} \right)^{n-1}u[n-1]-2\left( \frac{1}{4} \right)^{n-1}u[n-1]+2\left( \frac{1}{4} \right)^{n-2}u[n-2]$$
+
+        Which can be simplifed:
+
+        $$\boxed{x_3[n]\to y_2[n]=2\left( \frac{1}{4} \right)^{n}u[n]-4\left( \frac{1}{4} \right)^{n-1}u[n-1]+2\left( \frac{1}{4} \right)^{n-2}u[n-2]}$$
 
     \end{enumerate}
 
   \item
+
+    Per convolution properties, we know:
+
+    $$x(t)*\delta(t-t_o)\Rightarrow x(t-t_o)$$
+
+    Thus, looking at the input, in addition to the fact that this is an LTI system, we can write:
+
+    $$\boxed{y(t)=x(t)*h(t)\to y(t)=x(t+2)-2x(t)}$$
+
+    Plotting this shift, we get:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW3-7}
+      \caption{Plot for $y(t)=x(t+2)-2x(t)$}
+      \label{fig:2}
+    \end{figure}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Using this, we can rewrite $x$ as:
+
+        $$x(t)=u(t)-u(t-1)$$
+
+        Which would make $h$:
+
+        $$h(t)=u(t-2)-u(t-4)$$
+
+        This gives us:
+
+        $$y(t)=\int[u(t)-u(t-1)]*[u(t-2)-u(t-4)]\,dt$$
+
+        Which expands to:
+
+        $$y(t)=\int u(t)u(t-2)-u(t)u(t-4)-u(t-1)u(t-2)+u(t-1)u(t-4)\,dt$$
+
+        To analyze, we can use the following properties:
+
+        $$r(t)*r(t-T_1)=r(t-T_1)$$
+        $$r(t-T_1)*r(t-T_2)=r(t-T_1-T_2)$$
+
+        This gives us:
+
+        $$y(t)=r(t-2)-r(t-4)-r(t-3)+r(t-5)$$
+        $$\boxed{y(t)=r(t-2)-r(t-3)-r(t-4)+r(t-5)}$$
+
+        And the plot becomes:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW3-8}
+          \caption{Plot for $y(t)=r(t-2)-r(t-3)-r(t-4)+r(t-5)$}
+          \label{fig:3}
+        \end{figure}
+
+      \item 
+
+        We can determine $\frac{d}{dt}[y(t)]$ to be:
+
+        $$\frac{d}{dt}[y(t)]=u(t-2)-u(t-3)-u(t-4)+u(t-5)$$
+
+        The discontinuities may be identified by differentiating again to get:
+
+        $$\frac{d^2}{dt^2}[y(t)]=\delta(t-2)-\delta(t-3)-\delta(t-4)+\delta(t-5)$$
+
+        We know that each impulse represents a discontinuity; Therefore, we can tell that there are 4 discontinuities, at $t=2,3,4,$ and $5$, for $d/dt[y(t)]$
+
+    \end{enumerate}
 
   \item
 
@@ -359,15 +445,18 @@
 
       \item 
 
-      \item 
+        We know that the impulse response can be determined if $x(t)=\delta(t)$:
 
-    \end{enumerate}
+        $$y(t)=\int_{-\infty}^{t}e^{-(t-\tau)}x(\tau-2)\,d\tau$$
+        $$y(t)=\int_{-\infty}^{t}e^{-(t-\tau)}\delta(\tau-2)\,d\tau$$
 
-  \item
+        We also know from the property of the impulse that:
 
-    \begin{enumerate}
+        $$\int_{-\infty}^{\infty} x(t)\delta(t-t_o)\,dt=x(t_o)$$
 
-      \item 
+        Thus, we can see that:
+
+        $$\boxed{h(t)=e^{-(t-2)}}$$
 
       \item 
 

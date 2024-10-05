@@ -311,33 +311,94 @@
 
   \item
 
-    To simplify the analysis, we can defined the given functions as:
+    We may simplify analysis by using a tabulating method. Using this, we can see that:
 
-    $$x[n]=u[n-1]-u[n-3]$$
-    $$h[n]=u[n-5]-u[n-10]$$
+    $$x=\left\{ 0, 1, 1, 1 \right\}$$
+    $$h=\left\{ 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1 \right\}$$
 
-    From here, we apply the sum:
+    This can be written as:
 
-    $$y[n]=\sum_{k=-\infty}^{\infty} (u[k-1]-u[k-3])(u[n-k-5]-u[n-k-10])$$
-    $$y[n]=\sum_{k=-\infty}^{\infty} u[k-1]u[n-k-5]-u[k-3]u[n-k-5]-u[k-1]u[n-k-10]+u[k-3]u[n-k-10]$$
+    \begin{center}
+    \begin{tabular}[H]{c|cccc}
+      & 0 & 1 & 1 & 1\\
+      \hline
+      0 & \iddots & \iddots & \iddots & \iddots \\
+      0 & \iddots & \iddots & \iddots & \iddots \\
+      0 & \iddots & \iddots & \iddots & \iddots \\
+      0 & \iddots & \iddots & \iddots & \iddots \\
+      0 & \iddots & \iddots & \iddots & \iddots \\
+      1 & \iddots & \iddots & \iddots & \iddots \\
+      1 & \iddots & \iddots & \iddots & \iddots \\
+      1 & \iddots & \iddots & \iddots & \iddots \\
+      1 & \iddots & \iddots & \iddots & \iddots \\
+      1 & \iddots & \iddots & \iddots & \iddots \\
+      1 & \iddots & \iddots & \iddots & \iddots \\
+    \end{tabular}
+    \end{center}
 
-    By observation, we find:
+    Here, we multiply the corresponding terms to populate the table:
 
-    $$\text{Term 1 }\neq 0,\quad n-5\geq k\geq1$$
-    $$\text{Term 2 }\neq 0,\quad n-5\geq k\geq3$$
-    $$\text{Term 3 }\neq 0,\quad n-10\geq k\geq1$$
-    $$\text{Term 4 }\neq 0,\quad n-10\geq k\geq3$$
+    \begin{center}
+    \begin{tabular}[H]{c|cccc}
+      & 0 & 1 & 1 & 1\\
+      \hline
+      0 & 0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0 & 0\\
+      0 & 0 & 0 & 0 & 0\\
+      1 & 0 & 1 & 1 & 1 \\
+      1 & 0 & 1 & 1 & 1 \\
+      1 & 0 & 1 & 1 & 1 \\
+      1 & 0 & 1 & 1 & 1 \\
+      1 & 0 & 1 & 1 & 1 \\
+      1 & 0 & 1 & 1 & 1 \\
+    \end{tabular}
+    \end{center}
 
-    We see the smallest non-zero value for which a term exists is $k\geq 1$, and the largest value for which a term exists is $n-5$. We can apply these bounds:
+    Now we add diagonals to find the product, which gives us:
 
-    $$y[n]=\sum_{k=1}^{n-5} u[k-1]u[n-k-5]-u[k-3]u[n-k-5]-u[k-1]u[n-k-10]+u[k-3]u[n-k-10]$$
+    $$y[n]=\{ 0, (0+0), (0+0+0), (0+0+0+0), (0+0+0+0), $$
+    $$(0+0+0+0), (0+0+1+0), (0+1+1+0), $$
+    $$(0+1+1+1), (0+1+1+1), (0+1+1+1),(1+1+1), (1+1), 1 \}$$
 
-    We can break the sum down by looking at 'zones' for the terms. For $k=1,2$, two terms exist:
+    This can be simplifed to:
 
-    $$y_1[n]=\sum_{k=1}^{2} u[k-1]u[n-k-5]-u[k-1]u[n-k-10]$$
-    $$y_1[n]= u[n-6]-u[n-11]+u[n-7]-u[n-12]$$
+    $$y[n]=\left\{ 0, 0, 0, 0, 0, 0, 1, 2, 3, 3, 3, 3, 2, 1, 0\cdots\right\}$$
+
+    Using the step function notation, we may write:
+
+    $$y[n]=u[n-6]+u[n-7]+u[n-8]-u[n-12]-u[n-13]-u[n-14]$$
 
   \item
+
+    We can use a method similar to question (4) to find $N$. Let us begin with a table:
+
+    \begin{center}
+      \begin{tabular}[H]{c|cccccc}
+        & 1 & 1 & 1 & 1 & 1 & 1 & 1\\
+        \hline
+        1 & & & & & & & \\
+        \vdots & & & & & & & \\
+      \end{tabular}
+    \end{center}
+
+    Using the tabulating method, we know that, for there to be a value of $4$, $h[n]$ needs to exist for at least 4 different $n$. Therefore, let us begin with the minimum such value for $h[n]$, when $N=3$, which gives us the following table:
+
+    \begin{center}
+      \begin{tabular}[H]{c|cccccc}
+        & 1 & 1 & 1 & 1 & 1 & 1 \\
+        \hline
+        1 & 1 & 1 & 1 & 1 & 1 & 1\\
+        1 & 1 & 1 & 1 & 1 & 1 & 1\\
+        1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+      \end{tabular}
+    \end{center}
+
+    This gives us $y[n]=\left\{  1, 2, 3, 4, 4, 4, 3, 2, 1, 0, \cdots\right\}$. With this result, we see that $y[3]=4$, and $y[9]=0$. Thus, we find that:
+
+    $$\boxed{N=3}$$
 
   \item
 
@@ -459,6 +520,28 @@
         $$\boxed{h(t)=e^{-(t-2)}}$$
 
       \item 
+
+        We may begin by writing $x(t)$:
+
+        $$x(t)=u(t+1)-u(t-2)$$
+
+        Alternatively, this may be written in laplace form as:
+
+        $$x(s)=\frac{e^s}{s}-\frac{e^{-2s}}{s+1}$$
+
+        Which gives us:
+
+        $$h(s)=\frac{1}{s+1}$$
+
+        Multiplying the two togetherm, we get:
+
+        $$x(s)h(s)=e^s\left[ \frac{1}{s}-\frac{1}{s+1} \right]-\frac{e^{-2s}}{(s+1)^2}$$
+
+        We then take the inverse laplace transform to finally find:
+
+        $$\boxed{y(t)=u(t+1)-e^{-t-1}u(t+1)-(t-2)e^{2-t}u(t-2)}$$
+
+        $$$$
 
     \end{enumerate}
 

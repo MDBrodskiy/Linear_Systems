@@ -29,6 +29,42 @@
       \item Known as the identity LTI system
 
     \end{itemize}
+    
+  \item An \nth{N} order LCCDE differential equation is an implicit description of the output in terms of the input
+
+    $$a_N\frac{d^Ny(t)}{dt^N}+a_{N-1}\frac{d^{N-1}y(t)}{dt^{N-1}}+\cdots+a_1\frac{dy(t)}{dt}+a_0y(t)=b_M\frac{d^Mx(t)}{dt^M}+\cdots+b_ox(t)$$
+
+  \item Since the derivative operation is irreversible, to solve for $y(t)$, further information about the conditions of $y(t)$ and its derivatives at the start of the interval is needed. These conditions are referred to as the initial our auxiliary conditions
+
+  \item The term linear in LCC does not imply that the system is linear, but rather indicates that the equation is represented by linear combinations of the derivative of both input and output
+
+  \item The complete solution may be written as:
+
+    $$y(t)=y_p(t)+y_h(t)$$
+
+    \begin{itemize}
+
+      \item Where the $p$ component is the particular solution
+
+        \begin{itemize}
+
+          \item Also known as the forced solution
+
+          \item Has the same form of the applied input
+
+          \item Represents the steady-state response of the system
+
+        \end{itemize}
+
+      \item And the $h$ component is the homogenous solution
+
+    \end{itemize}
+
+  \item The homogenous solution may be found using:
+
+    $$\sum_{n=0}^Na_n\frac{d^ny(t)}{dt^n}=0$$
+
+  \item The initial rest conditions imply that the system is causal, which means that if the input $x(t)=0$ for $t<t_o$, then the output can not exist before $t=t_o$. This also enforces linearity and time invariance
 
 \end{itemize}
 

@@ -20,15 +20,50 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We begin by taking the Laplace transform to get:
+
+        $$H(s)=-\frac{1}{s-1}\quad\text{ and }\quad X(s)=\frac{2}{s}\left[  e^{-s}-e^{-2s}\right]$$
+
+        We then multiply the two to get:
+
+        $$Y(s)=X(s)H(s)$$
+        $$Y(s)=-\frac{2}{s(s-1)}\left[ e^{-s}-e^{-2s} \right]$$
+
+        Using partial fraction decomposition, we may write the equivalent such that:
+
+        $$-\frac{2}{s(s-1)}=\frac{A}{s-1}+\frac{B}{s}=As+B(s-1)$$
+
+        We use $s=0,1$ to get:
+
+        $$A=-2,\,B=2\to -\frac{2}{s-1}+\frac{2}{s}$$
+
+        We now distribute this in the above case to get:
+
+        $$Y(s)=-\frac{2}{s-1}\left[ e^{-s}-e^{-2s} \right]+\frac{2}{s}\left[ e^{-s}-e^{-2s} \right]$$
+        $$Y(s)=-\frac{2e^{-s}}{s-1}+\frac{2e^{-2s}}{s-1}+\frac{2e^{-s}}{s}-\frac{2e^{-2s}}{s}$$
+
+        Finally, we take the inverse transform to get:
+
+        $$\boxed{y(t)=-2u(1-t)+2e^{t-1}u(1-t)+2u(2-t)-2e^{t-2}u(2-t)}$$
 
       \item 
 
-      \item 
+        Differentiating one of the inputs is the same as differentiating the output. Thus, we may say:
 
-      \item 
+        $$g(t)=\frac{d}{dt}[y(t)]$$
+        $$\boxed{g(t)=2e^{t-1}u(1-t)-2e^{t-2}u(2-t)}$$
 
-      \item 
+      \item As stated in (b) \underline{$g(t)=(d/dt)[y(t)]$}
+
+      \item $z(t)$ is the same as $g(t)$. Since taking the differential is a linear operation, it does not matter if this is done to the impulse response or to $x(t)$. Therefore, we get:
+
+      \item By linearity of the transform, we may say:
+
+        $$y_1(t)=2y(t-1)$$
+
+        Therefore, we may obtain:
+
+        $$\boxed{y_1(t)=-4u(2-t)+4e^{t-2}u(2-t)+4u(3-t)-4e^{t-3}u(3-t)}$$
 
     \end{enumerate}
 

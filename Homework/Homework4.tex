@@ -189,13 +189,40 @@
 
   \item
 
-    \begin{enumerate}
+    We may begin by observing that $x(t)$ may be expressed as a summation of impulses, written as:
 
-      \item 
+    $$x(t)=\sum_{n=-\infty}^{\infty} \delta(t-nT)$$
 
-      \item 
+    Convolving this with $h(t)$, by the property that $x(t)*\delta(t-t_o)=x(t-t_o)$, we may write:
 
-    \end{enumerate}
+    $$y(t)=\sum_{n=-\infty}^{\infty} h(t-nT)$$
+
+    To expand this, we may write:
+
+    $$y(t)=\cdots+h(t+3T)+h(t+2T)+h(t+T)+h(t)+h(t-T)+h(t-2T)+h(t-3T)+\cdots$$
+
+    We begin by analyzing the $T=1$ case. Summing these graphically, we obtain:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW4-6a}
+      \caption{$T=1$ Case Graphically Summed}
+      \label{fig:1}
+    \end{figure}
+
+    For ease of interpretation, the graph above shows the sum expanded above, with $n$ even cases in red and $n$ odd in blue. We may thus see that, summing the two, we simply obtain $\boxed{y(t)=0\Big|_{T=1}}$, or a flat line on the $t$ axis. Applying similar logic to $T=2$, we may draw the corresponding sinusoids to find:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW4-6b}
+      \caption{$T=2$ Case Graphically Summed}
+      \label{fig:2}
+    \end{figure}
+
+    We may observe that this sinusoid consists solely of the even sinusoids from Figure \ref{fig:1}. This makes sense, as using $T=2$ effectively doubles every $n$, making the shift even. Therefore, we obtain the solution shown in Figure \ref{fig:2}. We may write this as:
+
+    $$y(t)=\cdots+h(t+6)+h(t+4)+h(t+2)+h(t)+h(t-2)+h(t-4)+h(t-6)+\cdots$$
+    $$\boxed{y(t)=\sum_{n=-\infty}^{\infty} h(t-2n)}$$
 
   \item
 

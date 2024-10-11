@@ -87,7 +87,45 @@
 
       \item 
 
+        Given the set up, we may write:
+
+        $$\left( \frac{1}{4} \right)^nu[n]-A\left( \frac{1}{4} \right)^{n-1}u[n-1]=\delta[n]$$
+
+        We may redefine the delta as:
+
+        $$\left( \frac{1}{4} \right)^nu[n]-A\left( \frac{1}{4} \right)^{n-1}u[n-1]=u[n]-u[n-1]$$
+
+        Thus, we see that we need the exponential term to cancel. We can do this by simply taking:
+
+        $$\left( \frac{1}{4} \right)^n=A\left( \frac{1}{4} \right)^{n-1}$$
+
+        Dividing the exponential from one side to the other, we see:
+
+        $$A=\left( \frac{1}{4} \right)^1$$
+        $$\boxed{A=\frac{1}{4}}$$
+
       \item 
+
+        By definition, with $h[n]$ and $g[n]=h_{inv}[n]$, we know:
+
+        $$h[n]*g[n]=\delta[n]$$
+
+        Using the equation from part (a), we know:
+
+        $$h[n]-Ah[n-1]=\delta[n]$$
+
+        By the properties of convolution, we know that:
+
+        $$x[n]*\delta[n-n_o]=x[n-n_o]$$
+
+        Thus, we may expand to write:
+
+        $$h[n]*\delta[n]-Ah[n]*\delta[n-1]=\delta[n]$$
+        $$h[n]*(\delta[n]-A\delta[n-1])=\delta[n]$$
+
+        Thus, combining this with the definition of inverse, we may write:
+
+        $$\boxed{g[n]=\delta[n]-\frac{1}{4}\delta[n-1]}$$
 
       \item 
 
@@ -111,13 +149,41 @@
 
     \begin{enumerate}
 
-      \item 
+      \item For the given system, we may see that, for $t<0$, the response may be non-zero (more precisely, it is non-zero for $-\infty< t<5$); therefore, the system is \underline{not causal}. We check for stability below:
+
+        $$\int_{-\infty}^{5}e^{-3t}\,dt$$
+        $$-\frac{e^{-3t}}{3}\Big|_{-\infty}^5=\infty$$
+
+        Therefore, the system is \underline{not stable}
+
+      \item We may see that, for the given system, for $t<0$, the response may be non-zero (more precisely, it is non-zero for $t>-10$); therefore, the system is \underline{not causal}. We check for stability below:
+
+        $$\int_{-10}^{\infty}e^{-4t}\,dt$$
+        $$-\frac{e^{-4t}}{4}\Big_{-10}^{\infty}=\frac{e^{40}}{4}<\infty$$
+
+        Thus, we see that the system is \underline{stable}
 
       \item 
 
-      \item 
+        We may rewrite the function as:
 
-      \item 
+        $$x(t)=\left\{\begin{array}{ll} e^{-2t}, & t\geq0\\ e^{2t}, & t<0\end{array}$$
+
+        Because the value of the function is non-zero when $t<0$, we can see that it is \underline{not causal}
+
+        We may check for stability below:
+
+        $$\int_{-\infty}^{0} e^{2t}\,dt + \int_0^{\infty} e^{-2t}\,dt$$
+        $$\frac{e^{2t}}{2}\Big|_{-\infty}^0-\frac{e^{-2t}}{2}\Big|_0^{\infty}=1$$
+
+        Therefore, we may see that the system is \underline{stable}
+
+      \item We may see that, because the system is zero for $t\leq 0$, it \underline{is causal}. We now check for stability:
+
+        $$\int_2^{\infty} 3e^{-2t}-e^{-.05t+5}\,dt$$
+        $$3e^{-2t}-e^{-.05t+5}\Big|_2^{\infty}=e^{4.9}-\frac{3}{e^4}<\infty$$
+
+        Therefore, we may see that the system is \underline{stable}
 
     \end{enumerate}
 
@@ -135,13 +201,118 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Given the form of $x(t)$, we know $y(t)$ is of the form:
+
+        $$y(t)=Ae^{(-1+2j)t}$$
+
+        Plugging this into the given equation, we get:
+
+        $$A(-1+2j)e^{(-1+2j)t}+3Ae^{(-1+2j)t}=e^{(-1+2j)t}$$
+
+        This simplifies to:
+
+        $$A(-1+2j)+3A=1$$
+        $$A=\frac{1}{2j+2}$$
+
+        And gives us the particular equation:
+
+        $$y_p(t)=\frac{e^{(-1+2j)t}}{2j+2}$$
+
+        We can now find the homogenous solution, with general form of $y(t)$:
+
+        $$y_h(t)=Ae^{\lambda t}$$
+
+        Using our equation, we may obtain:
+
+        $$A\lambda e^{\lambda t}+3Ae^{\lambda t}=0$$
+        $$\lambda=-3$$
+
+        Combing the two we get:
+
+        $$y(t)=Ae^{-3 t}+\frac{e^{(-1+2j)t}}{2j+2}$$
+
+        Applying the initial rest condition, we get:
+
+        $$0=A+\frac{1}{2j+2}$$
+        $$A=-\frac{1}{2j+2}$$
+
+        Thus, ensuring that there is a response only for $t>0$, we finally get:
+
+        $$\boxed{y(t)=\frac{1}{2+2j}\left[ e^{(-1+2j)t}-e^{-3t} \right]u(t)}$$
 
       \item 
+
+        We can expand our answer from (a):
+
+        $$y(t)=\frac{1}{2+2j}\left[ e^{-t}\cos(2t)+je^{-t}\sin(2t)-e^{-3t} \right]u(t)$$
+
+        Multiplying by the conjugate, we get:
+
+        $$y(t)=(.25-.25j)\left[ e^{-t}\cos(2t)+je^{-t}\sin(2t)-e^{-3t} \right]u(t)$$
+        $$y(t)=\left[ .25e^{-t}\cos(2t)+.25e^{-t}\sin(2t)-.25e^{-3t} \right]u(t)$$
+
+        Therefore, our output becomes:
+
+        $$\boxed{y(t)=\left[ .25e^{-t}\sin(2t)+.25e^{-t}\cos(2t)-.25e^{-3t}\right]u(t)}$$
 
     \end{enumerate}
 
   \item
+
+    \begin{itemize}
+
+      \item We know that the equations governing time response of an inductor and capacitor are (respectively):
+
+        $$y(t)=L\frac{di(t)}{dt}\quad\text{ and }i(t)=C\frac{dV_c(t)}{dt}$$
+
+        We know that the voltage across the capacitor will be the difference between the voltage supplied and the voltage across the inductor; thus, we may write:
+
+        $$i(t)=C\frac{d}{dt}\left[ x(t)-y(t) \right]$$
+
+        Inserting this into the inductor equation, we get:
+
+        $$y(t)=L\frac{d}{dt}\left[ C\frac{d}{dt}\left[ x(t)-y(t) \right] \right]$$
+        $$y(t)=LC\frac{d^2}{dt^2}\left[x(t)-y(t) \right]$$
+
+        Putting similar terms to one side, we may write:
+
+        $$\frac{d^2y(t)}{dt^2}+\frac{1}{LC}y(t)=\frac{d^2x(t)}{dt^2}$$
+
+        Inserting known values:
+
+        $$\boxed{\frac{d^2y(t)}{dt^2}+25y(t)=\frac{d^2x(t)}{dt^2}}$$
+
+      \item 
+
+        Taking $x(t)\to0$, we find the homogenous solution form as:
+
+        $$\frac{d^2y(t)}{dt^2}+25y(t)=0$$
+
+        Using the provided equation, we insert into the above:
+
+        $$\left[ K_1\omega_1^2e^{j\omega_1 t}+K_2\omega_2^2e^{j\omega_2t} \right]+25\left[ K_1e^{j\omega_1 t}+K_2e^{j\omega_2t} \right]=0$$
+
+        Dividing by the exponentials, we get:
+
+        $$K_1\omega_1^2+K_2\omega_2^2+25K_1+25K_2=0$$
+
+        By observation, we may see that:
+
+        $$\boxed{\omega_1=\omega_2=\pm5}$$
+
+      \item 
+
+        From part (b), we see that the natural (homogenous) response may be modeled by:
+
+        $$y(t)=Ae^{j5t}+Be^{-j5t}$$
+
+        We may take $A=\frac{1}{2}(a+b)$ and $B=\frac{1}{2}(a-b)$. We then apply Euler's Law to get:
+
+        $$\boxed{y(t)=a\cos(5t)+b\sin(5t)}$$
+
+        We may thus observe that the natural response is sinusoidal in nature.
+
+    \end{itemize}
 
 \end{enumerate}
 

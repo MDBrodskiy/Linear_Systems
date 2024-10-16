@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 7 — The Laplace Transform}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item For an input $x(t)=e^{st}$ passed through $h(t)$, we get the Laplace transform determined as:
+
+    $$y(t)=H(s)e^{st}$$
+
+    \begin{itemize}
+
+      \item With $s$ in some form $s=\sigma+j\omega$
+        
+    \end{itemize}
+
+  \item $H(s)$ can be expressed as:
+
+    $$H(s)=\int_{-\infty}^{\infty} e^{-s\tau}h(\tau)\,d\tau$$
+
+    \begin{itemize}
+
+      \item Taking $s=j\omega$, this is equivalent to writing:
+
+        $$H(j\omega)=\int_{-\infty}^{\infty} e^{-j\omega\tau}h(\tau)\,d\tau$$
+
+      \item This is known as the continuous time Fourier transform; note that this is a special case of the Laplace Transform
+
+    \end{itemize}
+
+  \item The Laplace Transform is defined as:
+
+    $$X(s)=\int_{-\infty}^{\infty}x(t)e^{-st}\,dt$$
+
+    \begin{itemize}
+
+      \item Example transform:
+
+        $$x(t)=e^{-at}u(t)\longleftrightarrow X(s)=\frac{1}{s+a}$$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+

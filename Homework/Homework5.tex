@@ -22,6 +22,22 @@
 
       \item 
 
+        We may begin by rewriting $S_2$ as:
+
+        $$w[n]=y[n]-\frac{1}{2}y[n-1]$$
+
+        $S_1$ may be rewritten in a similar format to get:
+
+        $$x[n]=w[n]-\frac{1}{4}w[n-1]$$
+
+        Substituting the first equation into the second, we get:
+
+        $$x[n]=y[n]-\frac{1}{2}y[n-1]-\frac{1}{4}\left[ y[n-1]-\frac{1}{2}y[n-2] \right]$$
+
+        This can be simplified to:
+
+        $$\boxed{x[n]=y[n]-\frac{3}{4}y[n-1]+\frac{1}{8}y[n-2]}$$
+
       \item 
 
       \item 

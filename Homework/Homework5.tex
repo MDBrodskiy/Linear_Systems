@@ -62,7 +62,36 @@
 
       \item 
 
+        Setting up the Laplace Transform, we get:
+
+        $$X(s)=\int_{2}^{\infty}e^{-(4+s)t}\,dt$$
+        $$X(s)=-\frac{e^{-(4+s)t}}{4+s}\Big|_2^{\infty}$$
+        $$X(s)=\frac{e^{-2(4+s)}}{s+4}$$
+        $$\boxed{X(s)=\frac{e^{-2s-8}}{s+4}}$$
+
+        Since the equation is right-sided, the ROC is to the right of the right-most pole; there is one pole at $s=-4$, so the ROC is $\text{Re}\left\{ s \right\}>-4\longrightarrow \sigma >-4$ (since $s=\sigma+j\omega$)
+
       \item 
+
+        We may find the Laplace Transform to be:
+
+        $$G(s)=\int_{-\infty}^{-2} Ae^{-(4+s)t}\,dt$$
+        $$G(s)=-A\frac{e^{-(4+s)t}}{4+s}\Big|_{-\infty}^{-2}$$
+        $$G(s)=-\frac{A}{4+s}\left[e^{2(4+s)}-e^{\infty(4+s)}\right]$$
+
+        We may see that $G(s)$ converge only when $s$ reaches the ROC at $\sigma<-4$
+
+        We can thus drop the term to get
+
+        $$G(s)=-\frac{Ae^{2s+8}}{4+s}$$
+
+        We can check the value of $A$:
+
+        $$-Ae^{2s+8}=e^{-2s-8}$$
+
+        We may see that, though the exponents will never be the same, we may take $A=-1$ to create a similar algebraic form. Thus, we say:
+
+        $$\boxed{A=-1}$$
 
     \end{enumerate}
 
@@ -78,7 +107,68 @@
 
   \item
 
+    We may rewrite $x(t)$ as:
+
+    $$x(t)=e^t\sin(5t)u(-t)$$
+
+    Which gives us:
+
+    $$X(s)=\int_{-\infty}^{0}e^{-(s-1)t}\sin(5t)\,dt$$
+    $$X(s)=-\frac{5}{(s-1)^2+25}$$
+    $$\boxed{X(s)=-\frac{5}{s^2-2s+26}}$$
+
+    We may see by the second equation that the region of convergence is left-handed, and occurs at $\boxed{\text{ROC: }\text{Re}\left\{s\right\}-1<0\longrightarrow \sigma <1}$. The poles will occur at the solutions to the quadratic in the denominator:
+
+    $$s^2-2s+26=0$$
+    $$\frac{2\pm\sqrt{4-4(1)(26)}}{2}$$
+    $$\frac{2\pm10j}{2}$$
+    $$\boxed{\text{Poles at: }s=1\pm 5j}$$
+
   \item
+
+    Using partial fraction decomposition, we may write:
+
+    $$\frac{s-1}{(s+1)(s+3)(s^2+4s+20)}=\frac{A}{s+1}+\frac{B}{s+3}+\frac{Cs+D}{s^2+4s+20}$$
+
+    And then:
+
+    $$(s+3)(s^2+4s+20)A+(s+1)(s^2+4s+20)B+(s+1)(s+3)(Cs+D)=s-1$$
+    $$As^3+7As^2+32As+60A+Bs^3+5Bs^2+24Bs+20B+Cs^3+4Cs^2+3Cs+Ds^2+4Ds+3D=s-1$$
+
+    From this, we may derive:
+
+    $$A+B+C=0$$
+    $$7A+5B+4C+D=0$$
+    $$32A+24B+3C+4D=1$$
+    $$60A+20B+3D=-1$$
+
+    Using a solver, we obtain:
+
+    $$\left\{\begin{array}{lll} A&=& -\frac{1}{17}\\B&=&\frac{2}{17} \\C&=&-\frac{1}{17} \\D&=&\frac{1}{17} \end{array}$$
+
+      Now with our coefficients, we take the inverse Laplace transforms to get:
+
+      $$x(t)=-\frac{1}{17}\mathcal{L}^{-1}\left\{ \frac{1}{s+1} \right\}+\frac{2}{17}\mathcal{L}^{-1}\left\{ \frac{1}{s+3} \right\}-\frac{1}{17}\mathcal{L}^{-1}\left\{ \frac{(s+2)}{(s+2)^2+4^2} \right\}+\frac{1}{17}\mathcal{L}^{-1}\left\{ \frac{4}{(s+2)^2+4^2} \right\}$$
+
+      And finally, we get:
+
+      $$\boxed{x(t)=-\frac{e^{-t}}{17}+\frac{2e^{-3t}}{17}-\frac{e^{-2t}\cos(4t)}{17}+\frac{e^{-2t}\sin(4t)}{17}}$$
+
+      For each term, in order, the ROCs may be identified as: $\sigma=-1$, $\sigma=-3$, and $\sigma=-4$. Since all of the signals are causal, we know the ROCs are to the right. Thus, there will be overlap when $\sigma$ is greater than the greatest individual ROC, or $\sigma=-1$. This makes the combined ROC: $\boxed{\sigma > -1}$
+
+      We may observe that \underline{four individual signals} contribute to the Laplace Transform. Furthermore, we can find the zeroes and poles as:
+
+      $$\boxed{\text{Zero: }s-1=0\to s=1}$$
+      $$\boxed{\text{Poles: }\left\{\begin{array}{lll} s+1&=&0\\s+3&=&0\\(s^2+4s+20)&=&0\end{array}\to\left\{\begin{array}{lll} s&=&-1\\s&=&-3\\s&=&-2\pm4j\end{array}}$$
+
+          This can be plotted as:
+
+          \begin{figure}[H]
+            \centering
+            \include{Figures/HW5-6}
+            \caption{Pole-Zero Plot of $X(s)$}
+            \label{fig:1}
+          \end{figure}
 
   \item
 
@@ -86,11 +176,85 @@
 
       \item 
 
-      \item 
+        Per the basic Laplace transformation tables, we may write:
+
+        $$\boxed{X(s)=\frac{1}{s+2}-\frac{1}{s-4}}$$
+
+        We may observe that there are two ROCs, $\sigma<4$ and $\sigma>-2$, which gives us overlap in the region:
+
+        $$\boxed{-2<\sigma<4}$$
+
+        This gives us the following plot:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW5-7a}
+          \caption{Pole-Zero Plot for 7(a)}
+          \label{fig:2}
+        \end{figure}
 
       \item 
 
+        Once again employing the tables, we find:
+
+        $$X(s)=\frac{1}{s+3}+\frac{4}{(s+2)^2+16}$$
+
+        Rearranging to simplify ROC analysis, we get:
+
+        $$\boxed{X(s)=\frac{s^2+8s+32}{(s+3)(s^2+4s+20)}}$$
+
+        From this, we can determine that the zeros are at $s=-4\pm4j$ and there are poles at $-3$ and $-4\pm4j$. Since both are right-sided, we may notice that the ROC occurs to the right of the greatest pole, or $\sigma>-3$
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW5-7b}
+          \caption{Pole-Zero Plot for 7(b)}
+          \label{fig:3}
+        \end{figure}
+
       \item 
+
+        We may rewrite $x(t)$ as:
+
+        $$x(t)=-te^{2t}u(-t)+te^{-2t}u(t)$$
+
+        Using our known transforms:
+
+        $$X(s)=-\left[ -\frac{d}{ds}\left( \frac{1}{s-2} \right) \right]-\frac{d}{ds}\left( \frac{1}{s+2} \right)$$
+        $$\boxed{X(s)=\frac{1}{(s+2)^2}-\frac{1}{(s-2)^2}}$$
+
+        To simplify analysis, we rearrange to get:
+
+        $$X(s)=\frac{(s-2)^2-(s+2)^2}{(s+2)^2(s-2)^2}$$
+        $$X(s)=\frac{-8s}{(s+2)^2(s-2)^2}$$
+
+        From this, we observe that there is a zero at $s=0$, and there are poles (both of order 2) $\sigma=\pm 2$. Since both signals are right-handed, the ROC is in: $\sigma>2$. This gives us the following plot:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW5-7c}
+          \caption{Pole-Zero Plot for 7(c)}
+          \label{fig:4}
+        \end{figure}
+
+      \item 
+
+        We may begin by writing:
+
+        $$x(t)=3r(t)-3r(t-1))-3u(t-2)$$
+
+        This gives us the transform as:
+
+        $$\boxed{X(s)=\frac{3}{s^2}-\frac{3}{s^2}e^{s}-\frac{3}{s}e^{2s}}$$
+
+        We may observe that there are no zeros, but there is a pole at $s=0$, which gives an ROC of $s>0$ and the following plot:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW5-7d}
+          \caption{Pole-Zero Plot for 7(d)}
+          \label{fig:5}
+        \end{figure}
 
     \end{enumerate}
 

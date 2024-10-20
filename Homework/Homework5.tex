@@ -40,7 +40,42 @@
 
       \item 
 
+        We may find the impulse response by taking $x[n]\to\delta[n]$. This gives us:
+
+        $$w[n]=\frac{1}{4}w[n-1]+\delta[n]$$
+
+        Taking the $z$ transform, we may write:
+
+        $$W(z)=\frac{1}{\left( 1-\frac{1}{4}z^{-1} \right)},\quad |z|>.25$$
+        $$W(z)=\frac{z}{\left( z-\frac{1}{4} \right)},\quad |z|>.25$$
+        $$\boxed{w[n]=\left( \frac{1}{4} \right)^{n}u[n]}$$
+
+        Finding the individual impulse response for $S_2$, we get:
+
+        $$Y(z)=\frac{1}{1-\frac{1}{2}z^{-1}},\quad |z|>.5$$
+        $$Y(z)=\frac{z}{z-\frac{1}{2}},\quad |z|>.5$$
+        $$\boxed{y[n]=\left( \frac{1}{2} \right)^nu[n]}$$
+
       \item 
+
+        We can once again use the $z$ transform, this time using the equation obtained in (a), to get:
+
+        $$Y(z)=\frac{1}{1-\frac{3}{4}z^{-1}+\frac{1}{8}z^{-2}}$$
+        $$Y(z)=\frac{z^2}{z^2-\frac{3}{4}z+\frac{1}{8}}$$
+        $$Y(z)=\frac{z^2}{\left( z-\frac{1}{2} \right)\left( z-\frac{1}{4} \right)},\quad |z|>.5$$
+
+        We can use partial fraction decomposition, by rearranging:
+
+        $$\frac{Y(z)}{z}=\frac{z}{\left( z-\frac{1}{2} \right)\left( z-\frac{1}{4} \right)},\quad |z|>.5$$
+        $$\frac{Y(z)}{z}=\frac{A}{z-.25}+\frac{B}{z-.5}$$
+
+        We may find: $A=-1$, $B=2$, which gives us:
+
+        $$Y(z)=\frac{-z}{z-.25}+\frac{2z}{z-.5},\quad |z|>.5$$
+
+        We take the inverse transform to get:
+
+        $$\boxed{y[n]=2\left( \frac{1}{2} \right)^nu[n]-\left(\frac{1}{4}\right)u[n]}$$
 
     \end{enumerate}
 
@@ -99,9 +134,30 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may calculate the Laplace transform for the time-shifted signal as:
 
-      \item 
+        $$X_1(s)=\int_{-\infty}^{\infty}x(t-t_o)e^{-st}\,dt$$
+
+        Taking $t-t_o= n$, we write:
+
+        $$X_1(s)=\int_{-\infty}^{\infty}x(n)e^{-s(n+t_o)}\,dn$$
+        $$X_1(s)=e^{-st_o}\underbrace{\int_{-\infty}^{\infty}x(n)e^{-sn}\,dn}_{X(s)}$$
+
+        Which gives us:
+
+        $$\boxed{X_1(s)=e^{-st_o}X(s)}$$
+
+        And we may see that the ROC remains to be $R$.
+
+      \item We may express the signal as:
+
+        $$y(t)=u(t)-2u(t-2)+u(t-4)$$
+
+        Thus, we use our table of known transforms to get:
+
+        $$\boxed{Y(s)=\frac{1}{s}-\frac{2e^{-2t}}{s}+\frac{e^{-4t}}{s}}$$
+
+        We may see that the ROC is: $\boxed{\sigma>0}$
 
     \end{enumerate}
 
@@ -258,21 +314,57 @@
 
     \end{enumerate}
 
-  \item
+  \item Since the function is absolutely integrable, we know that it is bounded by BIBO stability. This means that the ROC contains the $j \omega$ axis, and that the ROC does not have any poles. Knowing this, we can deduce:
 
     \begin{enumerate}
 
-      \item 
+      \item \underline{The function can not be finite}
+
+        This is due to the fact that, since there is a pole at $s=-4$, we know that the signal contains $x(t)=e^{-4t}$. Since this function extends to $t\to\infty$, we know that the signal can not be finite. Also, note that a finite signal, by definition, does not contain poles.
+
+      \item \underline{The function can not be left-sided}
+
+        Since we know that, due to being absolutely integrable, the function must contain the $j \omega$ axis, the right-most pole must be to the right of this axis. Since $s=-4$ is to the left of the axis, the signal can not be left-sided.
+
+      \item \underline{The function can be right-sided}
+
+        An example of such a signal would be:
+
+        $$\boxed{x(t)=e^{-4t}u(t)}$$
+
+      \item \underline{The function can be two-sided} (given that there may be multiple poles — the problem states that there \textit{is} a pole at $s=-4$, but does not state that it is the only pole)
+
+        Take, for example, the signal (where $n>0$):
+
+        $$x(t)=e^{-4t}u(t)+e^{nt}u(-t)$$
+
+        This signal is two-sided, contains $s=-4$ as a pole, is absolutely integrable (and thus contains the $j\omega$ axis), which makes it a valid signal.
 
       \item 
 
-      \item 
+        \begin{itemize}
+
+          \item With the absolutely integrable rule change from $x(t)$ to $x(t)e^{-2t}$, nothing would change. This is because it would mean that, instead of the $j\omega$ axis, the ROC would now need to contain the $\sigma=2$ axis. Thus, the properties remain the same since this is to the right of the pole at $s=-4$.
+
+          \item Changing the condition such that $x(t)e^{5t}$ is absolutely integrable would change things. This would mean that the ROC would need to contain the $\sigma=-5$ axis, instead of the $j\omega$ axis, which is left of the pole. Thus, the signal \underline{can now be left-sided, but not right-sided}
+
+        \end{itemize}
 
       \item 
 
-      \item 
+        We know that, due to the integrable rule, the ROC must be right of the right-most pole (to contain the $j\omega$ axis). This means that the ROC is $\sigma>-2$. From here, we write $X(s)$ as:
 
-      \item 
+        $$X(s)=\frac{N(s-1)}{(s+4)(s+2-j2)}$$
+
+        We can solve for $N$ by using the initial condition:
+
+        $$X(0)=\frac{-N}{4(2-j2)}$$
+        $$\frac{-N}{4(2-j2)}=-1$$
+        $$N=8-j8$$
+
+        This gives us:
+
+        $$\boxed{X(s)=\frac{(8-j8)(s-1)}{(s+4)(s+2-j2)}}$$
 
     \end{enumerate}
 
@@ -280,15 +372,55 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Using the table, we get:
 
-      \item 
+        $$\boxed{x(t)=\frac{1}{3}\sin(3t)u(t)}$$
 
-      \item 
+        And we see that the ROC is $\boxed{\sigma>0}$
 
-      \item 
+      \item Using the table, we get:
 
-      \item 
+        $$\boxed{x(t)=-\cos(2t)u(-t)}$$
+
+        And we see that the ROC is $\boxed{\sigma<0}$
+
+      \item Using the table, we get:
+
+        $$\boxed{x(t)=-e^{-5t}\cos(4t)u(-t)}$$
+
+        And we see that the ROC is $\boxed{\sigma<-5}$
+
+      \item To simplify analysis, we may rewrite this as:
+
+        $$X(s)=\frac{1}{(s+4)(s+2)}$$
+
+        We use partial fraction decomposition to get:
+
+        $$X(s)=\frac{A}{s+2}+\frac{B}{s+4}$$
+
+        Solving, we find: $A=-.5$ and $B=.5$, which gives us:
+
+        $$X(s)=\frac{.5}{s+4}-\frac{.5}{s+2}$$
+
+        Finally, using the table, we get:
+
+        $$\boxed{x(t)=-\frac{1}{2}\left[ e^{-4t}u(t)+e^{-2t}u(-t) \right]}$$
+
+        And we see the ROC is: $\boxed{-4<\sigma<-2}$
+
+      \item This can be expanded to:
+
+        $$X(s)=\frac{(s+2)^2-5s-10+8}{(s+2)^2}$$
+
+        We then break this into:
+
+        $$X(s)=1-\frac{5}{s+2}+\frac{8}{(s+2)^2}$$
+
+        We now use the table to find:
+
+        $$\boxed{x(t)=\delta(t)-5e^{-2t}u(t)+8te^{-2t}u(t)}$$
+
+        With ROC: $\boxed{\sigma>-2}$
 
     \end{enumerate}
 

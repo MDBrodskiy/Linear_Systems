@@ -85,9 +85,55 @@
 
       \item 
 
-      \item 
+        This gives us:
+
+        $$A\left( \frac{1}{4} \right)^{n}-\frac{A}{4}\left( \frac{1}{4} \right)^{n-1}=0$$
+        $$A\left( \frac{1}{4} \right)^{n}-A\left( \frac{1}{4} \right)^{n}=0$$
+
+        The \underline{two terms and subtract, and do equal zero} \textcolor{green}{\checkmark}
 
       \item 
+
+        We may begin by substituting:
+
+        $$B\left( \frac{1}{2} \right)^{n}-\frac{B}{4}\left( \frac{1}{2} \right)^{n-1}=\left( \frac{1}{2} \right)^n$$
+
+        We subtract over:
+        
+        $$\frac{B}{4}\left( \frac{1}{2} \right)^{n-1}=B\left( \frac{1}{2} \right)^{n}-\left( \frac{1}{2} \right)^n$$
+
+        From this, we can set up an expression for $B$:
+
+        $$\frac{B}{4}=\frac{1}{2}\left( B-1 \right)$$
+
+        And now we solve:
+
+        $$-\frac{B}{4}= -\frac{1}{2}$$
+        $$\boxed{B= 2}$$
+
+      \item 
+
+        We first work to find the value of $y[0]$:
+
+        $$y[0]-\frac{1}{4}y[-1]=\left( \frac{1}{2} \right)^{0}$$
+
+        We know the term that occurs before $n=0$ is zero due to the rest condition, and, thus:
+
+        $$y[0]=1$$
+
+        Now we plug this into the overall solution:
+
+        $$y[0]=A\left( \frac{1}{4} \right)^0+2\left( \frac{1}{2} \right)^0$$
+        $$A+2=1$$
+        $$\boxed{A=-1}$$
+
+        Thus, we see that the solution is:
+
+        $$y[n]=-\left( \frac{1}{4} \right)^n+2\left( \frac{1}{2} \right)^n$$
+
+        Which can be simplified:
+
+        $$\boxed{y[n]=\left( \frac{1}{2} \right)^{n-1}-\left( \frac{1}{4} \right)^n}$$
 
     \end{enumerate}
 

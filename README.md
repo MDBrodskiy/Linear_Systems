@@ -38,6 +38,7 @@
 * [**Exams**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/)
     * [**Quiz 1**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/Quiz1.pdf)
     * [**Quiz 2**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/Quiz2.pdf)
+    * [**Midterm Equation Sheet**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/MidtermEquationSheet.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)

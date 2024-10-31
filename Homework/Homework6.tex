@@ -20,7 +20,21 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Per the rules of Laplace Transforms, we can convolve two signals by the rule that:
+
+        $$y(t)=x_1(t)*x_2(t)\to Y(s)=X_1(s)X_2(s)$$
+
+        As such, we may obtain:
+
+        $$X_1(s)=\frac{1}{s+4}\quad\text{ and }\quad X_2(s)=\frac{1}{s+2}$$
+
+        Now, we account for the shifts. We know that, for $x(t)\to x(t-t_o)$ the transform becomes $X(s)\to e^{st_o}X(s)$. Furthermore, we know that for $x(-t)\to X(-s)$. Thus, we find:
+
+        $$X_1(s)=\frac{e^{-3s}}{-s+4}\quad\text{ and }\quad X_2(s)=\frac{e^{-2s}}{s+2}$$
+
+        Multiplying together, we find:
+
+        $$\boxed{Y(s)=\frac{e^{-5s}}{(4-s)(s+2)},\quad\text{ROC: } -2<\sigma<4}$$
 
       \item 
 

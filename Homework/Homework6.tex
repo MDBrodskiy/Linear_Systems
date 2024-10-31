@@ -42,17 +42,79 @@
 
   \item
 
+    First, we know that the poles must be at plus or minus the imaginary value, so the two poles must be at $s=-1\pm 3j$. Thus, we see that $X(s)$ can be expressed as:
+
+    $$X(s)=\frac{k}{(s+1-3j)(s+1+3j)}$$
+    $$X(s)=\frac{k}{(s+1)^2+3^2}$$
+
+    We then apply the condition given in statement (5) to get:
+
+    $$2=\frac{k}{(1^2)+(3^2)}$$
+    $$k=20$$
+
+    Then, because of statement (4), we know that $s=4$ is NOT in the ROC of $X(s)$. This means that we obtain the transform as:
+
+    $$\boxed{X(s)=\frac{20}{(s+1)^2+3^2},\quad\text{ROC: }\sigma <-1}$$
+
+    Taking the inverse transform, per our Laplace tables, we see:
+
+    $$\boxed{x(t)=-\frac{20}{3}e^{-t}\sin(3t)u(-t)}$$
+
   \item
 
     \begin{enumerate}
 
       \item 
 
-      \item 
+        Using our tables, we may obtain (with $X(s)$ ROC: $\sigma <3$ and $H(s)$ ROC: $\sigma>-2$):
+
+        $$\boxed{X(s)=-\frac{5}{s-3}\quad\text{ and }H(s)=\frac{1}{s+2}}$$
 
       \item 
 
+        We may write the convolution transform as:
+
+        $$Y(s)=X(s)H(s)$$
+
+        Thus, we get:
+
+        $$Y(s)=\left( -\frac{5}{s-3} \right)\left( \frac{1}{s+2} \right)$$
+        $$\boxed{Y(s)=-\frac{5}{(s-3)(s+2)}}$$
+
       \item 
+
+        We begin by using partial fraction decomposition, which gives us:
+
+        $$Y(s)=\frac{A}{s-3}+\frac{B}{s+2}$$
+
+        From here, we get $A=-1$ and $B=1$, which gives us:
+
+        $$Y(s)=\frac{-1}{s-3}+\frac{1}{s+2}$$
+
+        Using our inverse transforms, we obtain:
+
+        $$\boxed{y(t)=e^{3t}u(-t)+e^{-2t}u(t)}$$
+
+      \item 
+
+        Explicit convolution gives us:
+
+        $$x(t)*h(t)=\int_0^t 5e^{3\tau}u(-\tau)e^{-2(t-\tau)}u(t-\tau)\,d\tau$$
+        $$x(t)*h(t)=\int_0^t 5e^{-2t+5\tau}u(-\tau)u(t-\tau)\,d\tau$$
+
+        We see that the function is bounded by:
+
+        $$\tau \leq 0\quad\text{ and }\quad \tau\leq t$$
+
+        From this, we may write:
+
+        $$y(t)=-5e^t\int_0^t e^{5\tau}\,d\tau$$
+        $$y(t)=-e^{-2t}\left[ e^{5\tau} \right]\Big|_0^t$$
+        $$y(t)=-e^{-2t}\left[ e^{5t}-1 \right]$$
+
+        This confirms:
+
+        $$\boxed{y(t)=e^{3t}u(-t)+e^{-2t}u(t)}$$
 
     \end{enumerate}
 
@@ -62,23 +124,146 @@
 
       \item 
 
+        Taking the Laplace transform, we get:
+
+        $$s^2Y(s)-sY(s)-6Y(s)=sX(s)$$
+        $$Y(s)[s^2-s-6]=sX(s)$$
+        $$\boxed{H(s)=\frac{Y(s)}{X(s)}=\frac{s}{s^2-s-6}}$$
+
+        Thus, we see that there is a zero at $s=0$ and poles at $s=-2,3$. This allows us to plot:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW6-4a}
+          \caption{Pole-Zero Plot}
+          \label{fig:1}
+        \end{figure}
+        
       \item 
+
+        We may begin by using partial fraction decomposition:
+
+        $$\frac{s}{s^2-s-6}\Rightarrow \frac{A}{s-3}+\frac{B}{s+2}$$
+
+        Plugging in our values, we find $A=3/5$ and $B=2/5$, which gives us:
+
+        $$H(s)=\frac{3/5}{s-3}+\frac{2/5}{s+2}$$
 
         \begin{enumerate}
 
-          \item 
+          \item When the system is stable, we know that the ROC must be bounded. Thus, we know that the ROC is $-2<\sigma<3$. Using our transform table, this gives:
 
-          \item 
+            $$\boxed{h(t)=-\frac{3}{5}e^{3t}u(-t)+\frac{2}{5}e^{-2t}u(t)}$$
 
-          \item 
+          \item When the system is causal, we know that the ROC is right-sided, such that $\sigma>3$. Thus, we see:
+
+            $$\boxed{h(t)=\frac{3}{5}e^{3t}u(t)+\frac{2}{5}e^{-2t}u(t)}$$
+
+          \item When it is neither stable nor causal, the ROC must be left-sided and can not include the j$\omega$ axis. This gives us:
+
+            $$\boxed{h(t)=\frac{3}{5}e^{3t}u(t)-\frac{2}{5}e^{-2t}u(-t)}$$
 
         \end{enumerate}
 
     \end{enumerate}
 
-  \item
+  \item Given that this is the step response, and that it is multiplied by the step function, we know that:
+
+    $$X(s)=\frac{1}{s}$$
+
+    We take the transform of $y(t)$ to get:
+
+    $$Y(s)=\frac{1}{s}-\frac{1}{s+2}-\frac{2}{(s+2)^2}$$
+
+    We know that:
+
+    $$H(s)=\frac{Y(s)}{H(s)}$$
+
+    Thus, we find the transfer function be:
+
+    $$H(s)=1-\frac{s}{s+2}-\frac{2s}{(s+2)^2}$$
+    $$H(s)=\frac{4}{(s+2)^2}$$
+
+    Then we can find:
+
+    $$Y_1(s)=\frac{1}{s}-\frac{2}{s+2}+\frac{1}{s+4}$$
+
+    Knowing that this must be equivalent to the transfer function, we see:
+
+    $$\frac{Y_1(s)}{H(s)}=X_1(s)$$
+
+    This gives us:
+
+    $$X_1(s)=\frac{(s+2)^2}{4s}-.5(s+2)+\frac{(s+2)^2}{4(s+4)}$$
+    $$X_1(s)=\frac{(s+2)^2}{4s}-.5(s+2)+\frac{(s+2)^2}{4s+16}$$
+
+    We can simplify to get:
+
+    $$X_1(s)=\frac{2s+4}{s^2+4s}$$
+    $$X_1(s)=\frac{2}{s+4}+\frac{4}{s(s+4)}$$
+
+    We use partial fraction decomposition for the second term to get:
+
+    $$X_1(s)=\frac{2}{s+4}+\frac{A}{s+4}+\frac{B}{s}$$
+
+    We find $A=-1$ and $B=1$ to get:
+
+    $$X_1(s)=\frac{1}{s+4}+\frac{1}{s}$$
+
+    Taking the inverse, we find:
+
+    $$\boxed{x_1(t)=[e^{-4t}+1]u(t)}$$
 
   \item
+
+    We may express $x(t)$ as:
+
+    $$x(t)=e^{t}u(-t)+e^{-t}u(t)$$
+
+    This gives us:
+
+    $$X(s)=-\frac{1}{s-1}+\frac{1}{s+1}$$
+
+    We combine the two terms to get:
+
+    $$X(s)=\frac{-2}{s^2-1}$$
+
+    Multiplying by the system function, we get:
+
+    $$Y(s)=\left[ \frac{s+1}{s^2+2s+9} \right]\left[ -\frac{2}{s^2-1} \right]$$
+
+    We continue to simplify:
+
+    $$Y(s)=\left[ \frac{1}{s^2+2s+9} \right]\left[ -\frac{2}{s-1} \right]$$
+    $$Y(s)=\frac{-2}{(s^2+2s+9)(s-1)}$$
+
+    We then use partial fraction decomposition to write:
+
+    $$Y(s)=\frac{A}{s-1}+\frac{Bs+C}{s^2+2s+9}$$
+
+    Thus, we get:
+
+    $$A(s^2+2s+9)+(Bs+C)(s-1)=-2$$
+    $$As^2+2As+9A+Bs^2-Bs+Cs-C=-2$$
+
+    From this, we can set up the following system:
+
+    $$A+B=0$$
+    $$2A-B-C=0$$
+    $$9A-C=-2$$
+
+    Solving the system, we see: $A=-\frac{1}{6}$, $B=\frac{1}{6}$, and $C=\frac{1}{2}$, which gives us:
+
+    $$Y(s)=\frac{-1/6}{s-1}+\frac{(1/6)s+(1/2)}{s^2+2s+9}$$
+
+    We break this up further to see:
+
+    $$Y(s)=\frac{-1/6}{s-1}+\frac{(1/6)s+(1/6)}{(s+1)^2+8}+\frac{(1/3)}{(s+1)^2+8}$$
+    $$Y(s)=\frac{-1/6}{s-1}+\frac{(1/6)s+(1/6)}{(s+1)^2+8}+\frac{1}{\sqrt{8}}\frac{3\sqrt{8}}{(s+1)^2+8}$$
+
+    We then use the Laplace tables, and the fact that the system is causal, to get:
+
+    $$\boxed{y(t)=-\frac{1}{6}e^{t}u(t)+\frac{1}{6}e^{-t}\cos(\sqrt{8}t)u(t)+\frac{1}{3\sqrt{8}}e^{-t}\sin(\sqrt{8}t)u(t)}$$
 
   \item
 

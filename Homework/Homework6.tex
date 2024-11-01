@@ -36,7 +36,27 @@
 
         $$\boxed{Y(s)=\frac{e^{-5s}}{(4-s)(s+2)},\quad\text{ROC: } -2<\sigma<4}$$
 
-      \item 
+      \item We may write this integral as the convolution of two functions:
+
+        $$x_1(t)=\cos(2t)e^{-2t}$$
+        $$x_2(t)=u(-3t+1)$$
+
+        We now work to use the multiplicative property of the Laplace transform:
+
+        $$\mathcal{L}\left\{ x_1(t) \right\}=\frac{s+2}{(s+2)^2+4}$$
+        $$\mathcal{L}\left\{ x_2(t) \right\}=\frac{e^{-\frac{1}{3}s}}{s}$$
+
+        We multiply the two together to get:
+
+        $$\boxed{Y(s)=\frac{(s+2)e^{-\frac{1}{3}s}}{(s)[(s+2)^2+4]}}$$
+
+        Note that we may also use the last property of Laplace transforms on our equation sheet to write:
+
+        $$\int_t^{\infty} x(\tau)\,d\tau= \frac{1}{s}X(s)$$
+
+        This gives us the same result:
+
+        $$\boxed{Y(s)=\frac{(s+2)e^{-\frac{1}{3}s}}{(s)[(s+2)^2+4]}}$$
 
     \end{enumerate}
 
@@ -269,9 +289,48 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may observe that the left side of the diagram indicates poles, and the right side indicates zeros, while the $s^{-1}$ blocks are delays. We know that the transfer function may be written as:
 
-      \item 
+        $$H(s)=\dfrac{\displaystyle \sum_{n=0}^Nb_ns^{-n}}{\displaystyle 1+\sum_{n=1}^{N}a_ns^{-n}}$$
+
+        We may see that $N=2$, which gives us:
+
+        $$H(s)=\dfrac{\displaystyle \sum_{n=0}^2b_ns^{-n}}{\displaystyle 1+\sum_{n=1}^{2}-a_ns^{-n}}$$
+
+        First, we work to get the numerator:
+
+        $$H(s)=\frac{1-s^{-1}-3s^{-2}}{1+\sum_{n=1}^{2}a_ns^{-n}}$$
+
+        And then the denominator:
+
+        $$H(s)=\frac{1-s^{-1}-3s^{-2}}{1+2s^{-1}+4s^{-2}}$$
+
+        Multiplying both the numerator and denominator by $s^2$, we get:
+
+        $$H(s)=\frac{s^2-s-3}{s^2+2s+4}$$
+
+        We know that the transfer function is equivalent to:
+
+        $$H(s)=\frac{Y(s)}{X(s)}$$
+
+        This allows us to obtain the following:
+
+        $$s^2X(s)-sX(s)-3X(s)=s^2Y(s)+2sY(s)+4Y(s)$$
+
+        Taking the invers transform, we see:
+
+        $$\boxed{\frac{d^2y(t)}{dt^2}+2\frac{dy(t)}{dt}+4y(t)=\frac{d^2x(t)}{dt^2}-\frac{dx(t)}{dt}-3x(t)}$$
+
+      \item We know the system is stable if all poles are to the left of the $s$-plane. This gives us:
+
+        $$s^2+2s+4=0$$
+
+        Using the quadratic equation, we get:
+
+        $$s=\frac{-2\pm\sqrt{4-4(1)(4)}}{2}$$
+        $$s=-1\pm 3j$$
+
+        Given the $-1$ real part, all poles are to the left of the $s$-plane, and, therefore, the \underline{system is stable}.
 
     \end{enumerate}
 
@@ -279,19 +338,77 @@
 
     \begin{enumerate}
 
-      \item 
+      \item From the information,  we know $Y(s)=(2s^2+3s-4)Y_1(s)$, which allows us to write:
+
+        $$\boxed{y(t)=2\frac{d^2y_1(t)}{dt^2}+3\frac{dy_1(t)}{dt}-4y_1(t)}$$
+
+      \item From the figure, we may observe the following relationship:
+
+        $$s^{-1}f(t)=y_1(t)$$
+
+        This allows us to obtain:
+
+        $$\boxed{f(t)=\frac{dy_1(t)}{dt}}$$
+
+      \item Similar to part (b), we may observe the flow of the diagram to see:
+
+        $$s^{-2}e(t)=y_1(t)$$
+        $$e(t)=s^2y_1(t)$$
+
+        This allows us to get:
+
+        $$\boxed{e(t)=\frac{d^2y_1(t)}{dt^2}}$$
+
+      \item Given parts (a), (b), and (c), we may write the original signal as:
+
+        $$\boxed{y(t)=2e(t)+3f(t)-4y_1(t)}$$
 
       \item 
 
-      \item 
+        We may combine the diagram and result from (d) to form the following figure:
 
-      \item 
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW6-8e}
+          \caption{Full System $(S)$ Diagram}
+          \label{fig:2}
+        \end{figure}
 
-      \item 
+      \item From the provided form, we may write:
 
-      \item 
+        $$H_1(s)=\frac{Y_1(s)}{X(s)}\quad\text{ and }\quad H_2(s)=\frac{Y(s)}{Y_1(s)}$$
 
-      \item 
+        This gives us:
+
+        $$(s+3)Y_1(s)=(2s-4)X(s)\Rightarrow (s+2)Y_1(s)=(s+1)Y(s)$$
+        $$\frac{dy_1(t)}{dt}+3y_1(t)=2\frac{dx(t)}{dt}-4x(t)\Rightarrow \frac{dy_1(t)}{dt}+2y_1(t)=\frac{dy(t)}{dt}+y(t)$$
+
+        From $H_2(s)$, we may obtain:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW6-8f}
+          \caption{Representation of $H_2(s)$}
+          \label{fig:3}
+        \end{figure}
+
+        We then combine this with $H_1(s)$ to get a full system flow:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW6-8f2}
+          \caption{Representation of Full System, $H(s)$}
+          \label{fig:4}
+        \end{figure}
+
+      \item Based on the given system, we may obtain:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW6-8g}
+          \caption{Representation of Full System (Part g), $H(s)$}
+          \label{fig:5}
+        \end{figure}
 
     \end{enumerate}
 
@@ -299,13 +416,104 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may begin by converting all of the components to the frequency domain:
+
+        $$z_C=\frac{1}{sC}\quad\text{ and }\quad z_L=sL$$
+
+        This gives us:
+
+        $$R=1[\si{\ohm}],\, z_C=\frac{2}{s}[\si{\ohm}],\, z_l=.4s[\si{\ohm}]$$
+
+        Given that the components are in parallel, we can find the equivalent impedance:
+
+        $$z_{eq1}=\frac{z_Cz_L}{z_C+z_L}$$
+        $$z_{eq1}=\frac{.8}{(2/s)+.4s}$$
+        $$z_{eq1}=\frac{.8s}{2+.4s^2}$$
+
+        And then:
+
+        $$z_{eq}=\frac{Rz_{eq1}}{R+z_{eq1}}$$
+        $$z_{eq}=\frac{z_{eq1}}{1+z_{eq1}}$$
+        $$z_{eq}=\frac{.8s}{2+.8s+.4s^2}$$
+
+        The voltage through each branch may be found by taking:
+
+        $$v(t)=z_{eq}i_g(t)$$
+        $$v(t)=\frac{.8si_g(t)}{2+.8s+.4s^2}$$
+
+        We then divide by the impedance of the capacitor to find the current:
+
+        $$i_o(t)=\frac{.4s^2i_g(t)}{2+.8s+.4s^2}$$
+
+        We then find the transfer function:
+
+        $$H(s)=\frac{i_o(s)}{i_g(t)}$$
+        $$H(s)=\frac{.4s^2}{2+.8s+.4s^2}$$
+
+        To simplify, we multiply both the numerator and denominator by 5:
+
+        $$H(s)=\frac{2s^2}{10+4s+2s^2}$$
+        $$\boxed{H(s)=\frac{s^2}{5+2s+s^2}}$$
 
       \item 
 
-      \item 
+        Given that we know:
+
+        $$H(s)=\frac{Y(s)}{X(s)}$$
+
+        We may obtain:
+
+        $$s^2X(s)=[5+2s+s^2]Y(s)$$
+
+        This gives us:
+
+        $$\boxed{\frac{d^2i_g(t)}{dt^2}=5i_o(t)+2\frac{di_o(t)}{dt}+\frac{d^2i_o(t)}{dt^2}}$$
 
       \item 
+
+        We may obtain $I_o(s)$ using the transfer function:
+
+        $$I_o(s)=\left[ \frac{s^2}{s^2+2s+5} \right]I_g(s)$$
+
+        We take the Laplace transform for the current input to get:
+
+        $$I_g(s)=\frac{10s}{s^2+1}$$
+
+        Multiplying, we get:
+
+        $$\boxed{I_o(s)=\frac{10s^3}{(s^2+1)(s^2+2s+5)}}$$
+
+      \item 
+
+        We may begin by using partial fraction decomposition, such that:
+
+        $$I_o(s)=\frac{As+B}{s^2+1}+\frac{Cs+D}{s^2+2s+5}$$
+
+        Multiplying together, we find:
+
+        $$Cs^3+Cs+Ds^2+D+As^3+2As^2+5As+Bs^2+2Bs+5B=10s^3$$
+
+        This allows us to generate the following system:
+
+        $$C+A=10$$
+        $$D+2A+B=0$$
+        $$C+5A+2B=0$$
+        $$D+5B=0$$
+
+        We solve the system and find: $A=-2, B=-1, C=12$, and $D=5$, which gives us:
+
+        $$I_o(s)=\frac{-2s-1}{s^2+1}+\frac{12s+5}{s^2+2s+5}$$
+
+        Continuing to simplify to take the inverse, we get:
+
+        $$I_o(s)=-\frac{2s+1}{s^2+1}+\frac{12s+5}{(s+1)^2+2^2}$$
+        $$I_o(s)=-\frac{2s}{s^2+1}-\frac{1}{s^2+1}+\frac{12(s+1)}{(s+1)^2+2^2}-\frac{7}{(s+1)^2+2^2}$$
+
+        Per our tables, this gives us:
+
+        $$\boxed{i_o(t)=[\underbrace{-2\cos(t)-\sin(t)}_{\text{steady-state}}+\overbrace{12e^{-t}\cos(2t)-7e^{-t}\sin(2t)}^{\text{transient}}]u(t)}$$
+
+        The transient terms fade with time and are expressed as those with decaying exponentials, while the steady state response is purely sinusoidal.
 
     \end{enumerate}
 

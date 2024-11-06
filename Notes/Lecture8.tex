@@ -1,0 +1,46 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Lecture 8 — The Fourier Transform}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+
+  \item A periodic signal, $x(t)$, with period $T_o$ can be expressed as a sum of complex exponentials at the fundamental frequency and its harmonics. The analysis equation may be written as:
+
+    $$X(\omega)=\int_{-\infty}^{\infty} x(t)e^{-j\omega t}\,dt$$
+
+  \item The synthesis equation may be written as:
+
+    $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)e^{j\omega t}\,d\omega$$
+
+  \item The Fourier Transform exists only if the $j\omega$ axis lies within the ROC of the Laplace Transform
+
+  \item Fourier Transforms are governed by the Dirichlet conditions:
+
+    \begin{enumerate}
+
+      \item $x(t)$ is absolutely integrable
+
+      \item $x(t)$ has a finite number of maxima and minima over any finite interval
+
+      \item $x(t)$ has a finite number of finite discontinuities over any finite interval
+
+      \item Note: Periodic signals do not satisfy these conditions but are considered to have Fourier transforms if impulse functions are included in the Fourier representation
+
+    \end{enumerate}
+
+\end{itemize}
+
+\end{document}
+

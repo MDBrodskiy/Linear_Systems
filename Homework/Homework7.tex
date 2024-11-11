@@ -105,32 +105,20 @@
 
         $$x(t)=tx(at-t_o)$$
 
-        We rewrite the expression as:
+        Which lets us determine $a=3$ and $T_o=2$. As such, we obtain:
 
-        $$x_2(t)=tx(a[t-t_o/a])$$
+        $$X_2(\omega)=j\frac{d}{d\omega}\left[ \frac{e^{-2j\omega}}{3}X\left(\frac{j\omega}{3}\right) \right]$$
+        $$\boxed{X_2(\omega)=\frac{j}{3}\frac{d}{d\omega}\left[ e^{-2j\omega}X\left(\frac{j\omega}{3}\right) \right]}$$
 
-        Which lets us determine $a=3$ and $T_o=-2$. As such, we obtain:
+      \item First, we list the relevant properties:
 
-        $$X_2(\omega)=j\frac{d}{d\omega}\left[ \frac{e^{\frac{2j\omega}{3}}}{3}X\left(\frac{j\omega}{3}\right) \right]$$
-        $$\boxed{X_2(\omega)=\frac{j}{3}\frac{d}{d\omega}\left[ e^{\frac{2j\omega}{3}}X\left(\frac{j\omega}{3}\right) \right]}$$
+        $$x(t-t_o)\to e^{-j\omega t_o}X(j\omega)$$
+        $$x(-t)\to X(-j\omega)$$
+        $$\frac{d}{dt}[x(t)]=j\omega X(j\omega)$$
 
-      \item 
+        From this, we determine that $X(j\omega)\to X(-j\omega)$, and that the signal is time-shifted by $e^{-j\omega}$. Furthermore, it is multiplied by $(j\omega)^2$. Putting this all together, we see:
 
-    \end{enumerate}
-
-  \item
-
-    \begin{enumerate}
-
-      \item 
-
-      \item 
-
-      \item 
-
-      \item 
-
-      \item 
+        $$\boxed{X_3(j\omega)=-\omega^2e^{-j\omega}X(-j\omega)}$$
 
     \end{enumerate}
 
@@ -138,13 +126,45 @@
 
     \begin{enumerate}
 
-      \item 
+      \item First, we see that the transform is:
 
-      \item 
+        $$\boxed{X_1(j\omega)=\frac{1}{2+j\omega}}$$
 
-      \item 
+      \item Then, we see that:
 
-      \item 
+        $$\boxed{X_1(-j\omega)=\frac{1}{2-j\omega}}$$
+
+      \item Synthesizing parts (a) and (b), we may say that:
+
+        $$\mathcal{F}\left\{ e^{-2|t|} \right\}=X_1(j\omega)+X_1(-j\omega)$$
+
+        This gives us:
+
+        $$\boxed{\mathcal{F}\left\{ e^{-2|t|} \right\}=\frac{1}{2+j\omega}+\frac{1}{2-j\omega}}$$
+
+        Note that this may be written as:
+
+        $$\boxed{\mathcal{F}\left\{ e^{-2|t|} \right\}=\frac{4}{4+\omega^2}}$$
+
+      \item Using the table, we find that:
+
+        $$\boxed{\mathcal{F}\left\{ \sin(5t) \right\}=\frac{\pi}{j}\left[ \delta(\omega-5)-\delta(\omega+5) \right]}$$
+
+      \item Combining parts (a) through (d), we may see that, with $x(t)$:
+
+        $$x(t)=e^{-2|t|}\sin(5t)$$
+
+        The transform becomes:
+
+        $$\mathcal{F}\left\{ e^{-2t}\sin(5t)u(t)-e^{2t}\sin(5t)u(-t) \right\}$$
+
+        We see the first term transforms as:
+
+        $$\left[ \frac{\pi}{j}\left( \frac{1}{2+j(\omega-5)}-\frac{1}{2+j(\omega+5)} \right) \right]-\mathcal{F}\left\{ e^{2t}\sin(5t)u(-t) \right\}$$
+
+        And then we may find the full transform as:
+
+        $$\boxed{X(j\omega)=\frac{\pi}{j}\left[ \left( \frac{1}{2+j(\omega-5)}-\frac{1}{2+j(\omega+5)} \right) -\left( \frac{1}{2-j(\omega-5)}-\frac{1}{2-j(\omega+5)} \right)\right]}$$
 
     \end{enumerate}
 
@@ -152,11 +172,29 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may find the derivative to be:
 
-      \item 
+        $$\boxed{\dot{x}(t)=-\delta(t)+u(t-1)-u(t-3)-\delta(t-4)}$$
 
-      \item 
+      \item Taking the differential with respect to time of $p_T(t)$ as $\dot{p}_T(t)$, we may write:
+
+        $$\boxed{\dot{x}(t)=p_1(t-2)-\dot{p}_2(t-1)}$$
+
+      \item Rewriting in terms of $\delta$ and the rectangle function, we get:
+
+        $$\dot{x}(t)=\text{rect}\left( \frac{t-2}{2} \right)-\delta(t)-\delta(t-4)$$
+
+        From the table, we get:
+
+        $$\boxed{\dot{X}(j\omega)=\frac{2\sin(\omega)}{\omega}e^{-2j\omega}-1-e^{-4j\omega}}$$
+
+      \item Per the properties of Fourier transforms, we know that:
+
+        $$\frac{d}{dt}[x(t)]=j\omega X(j\omega)$$
+
+        This gives us:
+
+        $$\boxed{X(j\omega)=\frac{2\sin(\omega)}{j\omega^2}e^{-2j\omega}-\frac{1}{j\omega}-\frac{e^{-4j\omega}}{j\omega}}$$
 
     \end{enumerate}
 
@@ -164,9 +202,100 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Per the frequency shifting property, we know:
 
-      \item 
+        $$e^{j\omega_ot}x(t)\longleftrightarrow X(j(\omega-\omega_o))$$
+
+        From our table of transforms, we know:
+
+        $$x(t)\longleftrightarrow X(j\omega)\quad\text{ and }\quad e^{j\omega_ot}\longleftrightarrow 2\pi\delta(\omega-\omega_o)$$
+
+        Combining these, we find:
+
+        $$e^{j\omega_ot}x(t)=\frac{1}{2\pi}\left[ X(j\omega)\cdot2\pi\delta(\omega-\omega_o) \right]$$
+
+        This is equivalent to:
+
+        $$e^{j\omega_ot}x(t)= X(j\omega)\cdot\delta(\omega-\omega_o) $$
+
+        Per the sifting property, we may conclude the frequency shifting property by getting:
+
+      $$\boxed{e^{j\omega_ot}x(t)= X(j(\omega-\omega_o))}$$
+
+    \item Given that $y(t)=2\cos(\omega_ot)x(t)$, we may write:
+
+      $$y(t)=[e^{j\omega_ot}+e^{-j\omega_o t}]x(t)$$
+
+      Per the frequency property determined in (a), we may write:
+
+      $$\boxed{Y(j\omega)=X(j(\omega-\omega_o))+X(j(\omega+\omega_o))}$$
+
+    \item From the result in part (b), we may determine:
+
+      $$Y_1(j\omega)=.5[X(j(\omega-3))+X(j(\omega+3))]$$
+      $$Y_2(j\omega)=.5[X(j(\omega-.5))+X(j(\omega+.5))]$$
+
+      This gives us the following plots:
+
+      \begin{figure}[H]
+        \centering
+        \include{Figures/HW7-6c1}
+        \caption{Plot for $Y_1(j\omega)$}
+        \label{fig:1}
+      \end{figure}
+
+      \begin{figure}[H]
+        \centering
+        \include{Figures/HW7-6c2}
+        \caption{Plot for $Y_2(j\omega)$}
+        \label{fig:2}
+      \end{figure}
+
+  \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item From our result in Problem 7 part (b), we may write this as:
+
+        $$Y(j\omega)=\frac{1}{2}\left[ X(j(\omega-2))+X(j(\omega+2)) \right]$$
+
+        We may re-express the given transform of $Y$ as:
+
+        $$Y(j\omega)=u(t+4)-u(t-4)$$
+
+        Equating the two, we get:
+
+        $$2u(t+4)-2u(t-4)=X(j(\omega-2))+X(j(\omega+2))$$
+
+        Thus, we see that we may write this as:
+
+        $$\boxed{X(j\omega)=\left\{\begin{array}{ll}2,&|\omega|<2\\0,&\text{otherwise}\end{array}}$$
+
+        Alternatively, we may write this as:
+
+        $$X(j\omega)=2u(t+2)-2u(t-2)$$
+
+        This gives us:
+
+        $$x(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\omega)e^{j\omega t}\,d\omega$$
+        $$x(t)=\frac{1}{\pi}\int_{-2}^{2}e^{j\omega t}\,d\omega$$
+        $$x(t)=\frac{1}{\pi}\left[\frac{e^{j\omega t}}{j t}\right]\Big|_{-2}^{2}$$
+        $$x(t)=\frac{e^{2jt}-e^{-2jt}}{j\pi t}$$
+
+        This can be simplified to get:
+
+        $$\boxed{x(t)=\frac{2\sin(2t)}{\pi t}}$$
+
+      \item $x(t)\cos(t)$ may be plotted as:
+
+        \begin{figure}[H]
+          \centering
+          \includegraphics[width=.8\textwidth]{Figures/HW7-7b}
+          \caption{Plot of $x(t)\cos(t)$}
+          \label{fig:3}
+        \end{figure}
 
     \end{enumerate}
 
@@ -174,9 +303,9 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We are given that the signal is real, finite, and has even symmetry. Per properties of Fourier transforms, this means that the transform is real and even as well (the imaginary part is zero, and phase is zero). If the transform is real and has even symmetry, then the magnitude of the transform will also have even symmetry. Thus, we may look at the figure and see that this is only true for $X_4(j\omega)$ and $X_5(j\omega)$.
 
-      \item 
+      \item We are given that the signal is real, finite, and has odd symmetry. This means that the Fourier transform must be imaginary and odd. This means that the phase needs to be $\pm\pi/2$, and the magnitude of the transform must have even symmetry. Looking at our options, we see that this is true only for $X_3(j\omega)$ and $X_6(j\omega)$.
 
     \end{enumerate}
 

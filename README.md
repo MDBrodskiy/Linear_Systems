@@ -38,6 +38,7 @@
     * [**Homework 6**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Homework/Homework6.pdf)
     * [**Computational Homework 2**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Homework/ComputationalHW2.pdf)
     * [**Homework 7**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Homework/Homework7.pdf)
+    * [**Homework 8**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Homework/Homework8.pdf)
 * [**Exams**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/)
     * [**Quiz 1**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/Quiz1.pdf)
     * [**Quiz 2**](https://github.com/MDBrodskiy/Linear_Systems/tree/master/Exams/Quiz2.pdf)

@@ -1,0 +1,184 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 8}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item The signal $x(t)$ may be expressed in several parts: a step up by 1 at $t=-1$ to $t=1$, a slope of 1 between $-1$ and $1$, and a step up of $2$ for $t>1$. Thus, we get:
+
+        $$\boxed{x(t)=u(t+1)+r(t+1)+u(t-1)-r(t-1)}$$
+
+        This lets us find:
+
+        $$\boxed{\frac{dx}{dt}=\delta(t+1)+u(t+1)+\delta(t-1)-u(t-1)}$$
+
+        And finally:
+
+        $$\boxed{\frac{d^2x}{dt^2}=\delta(t+1)-\delta(t-1)}$$
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+    \setcounter{enumi}{3}
+
+  \item
+
+    \begin{enumerate}
+
+      \item Per the theorem, we may write:
+
+        $$\int_{-\infty}^{\infty}|x(t)|^2=\frac{1}{2\pi}\int_{-\infty}^{\infty} |X(\omega)|^2\,d\omega$$
+        $$2\pi\int_{-\infty}^{\infty}|x(t)|^2=\int_{-\infty}^{\infty} |X(\omega)|^2\,d\omega$$
+
+        This allows us to write:
+
+        $$A=4\pi\int_{0}^{\infty}e^{-4t}\,dt$$
+        $$-\pi \left(e^{-4t}\right)\Big|_0^{\infty}$$
+        $$-\pi \left(e^{-4\infty}-1\right)$$
+
+        Thus, we obtain:
+
+        $$\boxed{A=\pi}$$
+
+      \item Per our Fourier transform properties, we may write:
+
+        $$tx(t)\to j\frac{d}{d\omega}X(\omega)$$
+
+        For $y(t)=te^{-2|t|}$ this gives us:
+
+        $$Y(j\omega)=j\frac{d}{d\omega}\left[ \frac{4}{(4+\omega^2)} \right]$$
+
+        Differentiating gives us the final answer as:
+
+        $$\boxed{Y(j\omega)=-\frac{8j\omega}{(4+\omega^2)^2}}$$
+
+      \item By the duality property, we know that if $x(t)\leftrightarrow X(j\omega)$, then:
+
+        $$x(t)\leftrightarrow 2\pi X(-j\omega)$$
+
+        As such, we may write:
+
+        $$-\frac{8jt}{(4+t^2)^2}\leftrightarrow 2\pi(-\omega)e^{-2|\omega|}$$
+        $$\frac{t}{(4+t^2)^2}\leftrightarrow -j\pi\omega e^{-2|\omega|}$$
+
+        Thus, we see that:
+
+        $$\boxed{\mathcal{F}\left\{ \frac{4t}{(4+t^2)^2} \right\}=-j\pi\omega e^{-2|\omega|}}$$
+
+    \end{enumerate}
+
+  \item We may compute the response of the system using the convolution; the convolution may be more easily computed using the Fourier transform such that:
+
+    $$y(t)=h(t)*x(t)\leftrightarrow Y(j\omega)=H(j\omega)X(j\omega)$$
+
+    We can see that the given response may be written as:
+
+    $$H(j\omega)=\left\{\begin{array}{ll} e^{-3j\omega},&|\omega|\leq4\\0,&\text{otherwise}\end{array}$$
+
+    \begin{enumerate}
+
+      \item We may see that the transform becomes:
+
+        $$X_1(j\omega)=\pi e^{N\pi j\omega}\left[ \delta(\omega-10)+\delta(\omega+10) \right]$$
+
+        We may observe that the response and signal do not have common values for which they are non-zero. This gives us:
+
+        $$Y_1(j\omega)=0$$
+
+        This ultimately means:
+
+        $$\boxed{y_1(t)=0}$$
+
+      \item We may see that the transform becomes:
+
+        $$X_2(j\omega)=5\pi\left[ \delta(\omega-2)+\delta(\omega+2) \right]$$
+
+        We multiply the two together to get:
+
+        $$Y_2(j\omega)=5\pi e^{-3j\omega}\left[  \delta(\omega-2)+\delta(\omega+2)\right]$$
+
+        We see this introduces a delay of three units, which gives us:
+
+        $$\boxed{y_2(t)=5\cos(2(t-3))}$$
+
+      \item We may see that the transform becomes:
+
+        $$X_3(j\omega)=\left\{\begin{array}{ll} 1,&|\omega|\leq1\\0,&\text{otherwise}\end{array}$$
+
+          Multiplying the two together creates a delayed sink function, but with the boundaries of the input:
+
+        $$Y_3(j\omega)=\left\{\begin{array}{ll} e^{-3j\omega},&|\omega|\leq1\\0,&\text{otherwise}\end{array}$$
+
+          Transforming back, we get:
+
+          $$\boxed{y_3(t)=\frac{\sin(t-3)}{\pi(t-3)}}$$
+
+        \item We may observe that the input signals within the passband of the filter simply introduce a delay at the output, thus, we may conclude:
+
+          $$\boxed{y_4(t)=\left( \frac{\sin(t-3)}{\pi(t-3)} \right)^2}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+    \setcounter{enumi}{7}
+
+  \item
+
+    \begin{enumerate}
+
+      \item 
+
+      \item 
+
+      \item 
+
+      \item 
+
+    \end{enumerate}
+
+  \item
+
+  \item
+
+\end{enumerate}
+
+\end{document}
+

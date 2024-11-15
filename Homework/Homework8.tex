@@ -20,9 +20,28 @@
 
     \begin{enumerate}
 
-      \item 
+      \item By the duality property, we may write:
 
-      \item 
+        $$\cos(\omega_o t)\leftrightarrow \pi\left[ \delta(\omega-\omega_o)+\delta(\omega+\omega_o) \right]$$
+        $$\pi\left[ \delta(t-t_o)+\delta(t+t_o) \right]\leftrightarrow 2\pi\cos(\omega t_o)$$
+
+        In tandem with the time shifting property, we may write:
+
+        $$\frac{1}{2}e^{-\alpha j\omega}\left[ \delta(t-t_o)+\delta(t+t_o) \right]\leftrightarrow \cos(\omega t_o-\alpha)$$
+
+        This gives us:
+
+        $$\boxed{x(t)=\frac{1}{2}e^{-\frac{\pi j \omega}{3}}\left[ \delta(t-4)+\delta(t+4) \right]}$$
+
+      \item We may use the following known transform formulas:
+
+        $$\pi\left[ \delta(\omega-\omega_o)+\delta(\omega+\omega_o) \right]\leftrightarrow \cos(\omega_o t)$$
+        $$\frac{\pi}{j}\left[ \delta(\omega-\omega_o)-\delta(\omega+\omega_o) \right]\leftrightarrow \sin(\omega_o t)$$
+        $$\frac{1}{(\alpha+j\omega)^2}\leftrightarrow te^{-\alpha t}u(t)$$
+
+        In combination with the time shifting property, we may get:
+
+        $$\boxed{x(t)=\frac{2}{\pi}\cos(5t-3)-4j\pi\sin(2\pi t)+te^{-2t}u(t)}$$
 
     \end{enumerate}
 
@@ -32,19 +51,46 @@
 
       \item The signal $x(t)$ may be expressed in several parts: a step up by 1 at $t=-1$ to $t=1$, a slope of 1 between $-1$ and $1$, and a step up of $2$ for $t>1$. Thus, we get:
 
-        $$\boxed{x(t)=u(t+1)+r(t+1)+u(t-1)-r(t-1)}$$
+        $$\boxed{x(t)=r(t+1)-r(t-1)}$$
 
         This lets us find:
 
-        $$\boxed{\frac{dx}{dt}=\delta(t+1)+u(t+1)+\delta(t-1)-u(t-1)}$$
+        $$\boxed{\frac{dx}{dt}=u(t+1)-u(t-1)}$$
 
         And finally:
 
         $$\boxed{\frac{d^2x}{dt^2}=\delta(t+1)-\delta(t-1)}$$
 
-      \item 
+      \item The DC component can be accounted for using:
 
-      \item 
+        $$x_{DC}=\lim_{T\to\infty}\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}} x(t)\,dt$$
+
+        This gives:
+
+        $$x_{DC}=\lim_{T\to\infty} \frac{1}{T}\left[ \int_{-1}^{1}(t+1)\,dt+\int_1^{\frac{T}{2}} 2\,dt \right]$$
+        $$x_{DC}=\lim_{T\to\infty} \frac{1}{T}\left[ 2+2\left( \frac{T}{2}-1 \right) \right]$$
+        $$x_{DC}=1$$
+
+        Using the duality property, we may write:
+
+        $$1\leftrightarrow 2\pi\delta(\omega)$$
+
+        We then transform the second order derivative to see:
+
+        $$\mathcal{F}\left\{ \frac{d^2x(t)}{dt^2} \right\}=e^{j\omega} -e^{-j\omega}$$
+        $$(j\omega)^2X(\omega)=e^{j\omega} -e^{-j\omega}$$
+
+        This gives us:
+
+        $$X(j\omega)=-\frac{2j\sin(\omega)}{\omega^2}$$
+          
+        We then add in the DC component to get:
+
+        $$\boxed{X(j\omega)=2\pi\delta(\omega)-\frac{2j\sin(\omega)}{\omega^2}}$$
+
+      \item Given that the subtraction of the 1 removes the DC component, we simply get:
+
+        $$\boxed{G(j\omega)=-\frac{2j\sin(\omega)}{\omega^2}}$$
 
     \end{enumerate}
 
@@ -152,9 +198,43 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may apply the Laplace transform to get:
 
-      \item 
+        $$s^2Y(s)+5sY(s)+4Y(s)=3X(s)$$
+
+        Since we know that the response is the output over input, we may write:
+
+        $$H(s)=\frac{3}{s^2+5s+4}$$
+        $$H(s)=\frac{3}{(s+4)(s+1)}$$
+
+        We use partial fraction decomposition in order to be able to apply the reverse transform. This gets us:
+
+        $$H(s)=-\frac{1}{s+1}+\frac{1}{s+4}$$
+
+        We take the inverse transform to conclude:
+
+        $$\boxed{h(t)=[-e^{-t}+e^{-4t}]u(t)}$$
+
+      \item Given the input $x(t)$, we may write:
+
+        $$X(s)=\frac{1}{s+1}$$
+
+        We know the response may be written as:
+
+        $$Y(s)=H(s)X(s)$$
+
+        And so we get:
+
+        $$Y(s)=\frac{3}{(s+4)(s+1)^2}$$
+
+        We once again use partial fraction decomposition to write:
+
+        $$Y(s)=\frac{A}{s+1}+\frac{B}{(s+1)^2}+\frac{C}{s+4}$$
+        $$Y(s)=\frac{-1}{3(s+1)}+\frac{1}{(s+1)^2}+\frac{1}{3(s+4)}$$
+
+        We take the inverse transform to get:
+
+        $$\boxed{y(t)=\left[-\frac{1}{3}e^{-t}+\frac{1}{3}e^{-4t}+te^{-t}\right]u(t)}$$
 
     \end{enumerate}
 
@@ -164,19 +244,162 @@
 
     \begin{enumerate}
 
-      \item 
+      \item We may take the Laplace transform of both to get:
 
-      \item 
+        $$X(s)=\frac{1}{s+1}+\frac{2}{s+4}$$
+        $$Y(s)=\frac{3}{s+1}-\frac{3}{s+3}$$
 
-      \item 
+        We may combine the fractions to get:
 
-      \item 
+        $$X(s)=\frac{3s+6}{(s+1)(s+4)}$$
+        $$Y(s)=\frac{6}{(s+1)(s+3)}$$
+        
+        We know the response may be written as:
+
+        $$H(s)=\frac{Y(s)}{X(s)}$$
+
+        This gives us:
+
+        $$H(s)=\frac{6}{(s+1)(s+3)}\cdot\frac{(s+1)(s+4)}{3s+6}$$
+        $$H(s)=\frac{2s+8}{(s+2)(s+3)}$$
+
+        Given that $s=j\omega$, we may write:
+
+        $$H(j\omega)=\frac{2j\omega+8}{(j\omega+2)(j\omega+3)}$$
+
+        We may simplify to get:
+
+        $$\boxed{H(j\omega)=\frac{2j\omega+8}{6+5j\omega-\omega^2}}$$
+
+      \item Using partial fraction decomposition, we may write:
+
+        $$H(s)=\frac{A}{s+2}+\frac{B}{s+3}$$
+
+        We may find that $A=4$ and $B=-2$ to get:
+
+        $$H(s)=\frac{4}{s+2}-\frac{2}{s+3}$$
+
+        Taking the inverse transform, we find:
+
+        $$\boxed{h(t)=[4e^{-2t}-2e^{-3t}]u(t)}$$
+
+      \item From part (a), we know:
+
+        $$\frac{Y(s)}{X(s)}=\frac{2s+8}{(s+2)(s+3)}$$
+        $$Y(s)[s^2+5s+6]=X(s)[2s+8]$$
+
+        Taking the inverse transform, we get:
+
+        $$\boxed{\frac{d^2y(t)}{dt}+5\frac{dy(t)}{dt}+6y(t)=2\frac{dx(t)}{dt}+8x(t)}$$
+
+      \item For an inverse system, we know:
+
+        $$H(s)H_i(s)=1$$
+
+        As such, we get:
+
+        $$H_i(s)=\frac{(s+2)(s+3)}{2s+8}$$
+
+        Taking $s\to j\omega$, we get:
+
+        $$\boxed{H_i(j\omega)=\frac{(j\omega+2)(j\omega+3)}{2j\omega+8}}$$
 
     \end{enumerate}
 
-  \item
+  \item To plot the signals, we may begin by converting them to their Fourier form. Moving in order, we may begin with $v_1(t)$ to observe:
 
-  \item
+    $$v_1(t)=x(t)\cdot2\cos(\omega_c t)$$
+    $$V_1(j\omega)=2\pi\delta(\omega-\omega_c)+\delta(\omega+\omega-c)X(j\omega)$$
+
+    Since, at $\omega_c$, $X(j\omega)=.5$, This gives us:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9a}
+      \caption{Spectrum of $V_1(j\omega)$}
+      \label{fig:1}
+    \end{figure}
+
+    As a result of the filter, we may see that:
+    
+    $$W_1(j\omega)=2\pi\left[ \delta(\omega-\omega_c)+\delta(\omega-\omega_c) \right]$$
+
+    Changing $\omega_c$ to $\omega_o$ per the given relationship, we get:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9b}
+      \caption{Spectrum of $W_1(j\omega)$}
+      \label{fig:2}
+    \end{figure}
+
+    We then check $V_2(j\omega)$ to see that, because of the flipped sign in the transform of the $\sin$ term, the negative corner frequency has negative magnitude:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9c}
+      \caption{Spectrum of $V_2(j\omega)$}
+      \label{fig:3}
+    \end{figure}
+
+    Because of the filter, however, we see that the spectrum of $W_2(j\omega)$ remains the same as that of $W_1(j\omega)$:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9d}
+      \caption{Spectrum of $W_2(j\omega)$}
+      \label{fig:4}
+    \end{figure}
+
+    We see that combining the signals $W_{1,2}$ with the sinusoids results in Fourier responses consisting of rect functions, centered at $\pm\omega_c$, with a width of $2\omega_o$:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9e}
+      \caption{Spectrum of $Z_1(j\omega)$}
+      \label{fig:5}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9f}
+      \caption{Spectrum of $Z_2(j\omega)$}
+      \label{fig:6}
+    \end{figure}
+
+    Summing the signals gives us a height of 1, which indicates that this is a bandpass filter with center frequency $\omega_c$ and bandwidth $2\omega_o$:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/HW8-9g}
+      \caption{Spectrum of $Y(j\omega)$}
+      \label{fig:7}
+    \end{figure}
+
+  \item We may write the equivalent impedances of all of the components as:
+
+    $$Z_L=.5s\quad\text{ and }Z_C=\frac{1}{2s}$$
+
+    The equivalent impedance becomes:
+
+    $$Z_{eq}=.5s+1+\frac{1}{2s}$$
+
+    The current becomes:
+
+    $$I(s)=\frac{X(s)}{Z_{eq}}$$
+
+    Which means that the voltage across the capacitor, $y(t)$ is:
+
+    $$Y(s)=\frac{\frac{1}{2s}X(s)}{.5s+1+\frac{1}{2s}}$$
+
+    Since the response is output over input, we get:
+
+    $$H(s)=\frac{1}{s^2+2s+1}$$
+    $$H(s)=\frac{1}{(s+1)^2}$$
+
+    This gives us the final response as:
+
+    $$\boxed{h(t)=te^{-t}u(t)}$$
 
 \end{enumerate}
 

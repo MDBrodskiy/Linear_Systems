@@ -16,15 +16,78 @@
 
 \begin{enumerate}
 
-  \item
+  \item From the fundamental period, we may get:
+
+    $$\omega_o=\frac{2\pi}{N}$$
+    $$\omega_o=\frac{2\pi}{5}$$
+
+    We can express the signal as:
+
+    $$x[n]=\sum_{-\infty}^{\infty} a_ke^{jk\omega_o n}$$
+
+    We know:
+
+    $$a_o=4,\,a_2=2je^{-\frac{j\pi}{4}}=a_{-2}^{*},\,a_4=e^{-\frac{j\pi}{8}}=c_{-4}^{*}$$
+
+    This allows us to write:
+
+    $$x[n]=4+a_2e^{2j\omega_o n}+a_{-2}e^{-2j\omega_on}+a_{4}e^{4j\omega_o n}+a_{-4}e^{-4j\omega_o n}$$
+
+    Plugging in known values gets us:
+
+    $$x[n]=4+2je^{-\frac{j\pi}{4}}e^{2j\omega_o n}-2je^{\frac{j\pi}{4}}e^{-2j\omega_on}+e^{-\frac{j\pi}{8}}e^{4j\omega_o n}-e^{\frac{j\pi}{8}}e^{-4j\omega_o n}$$
+
+    Per our exponential formulas, we may get:
+
+    $$x[n]=4-4\sin\left( 2\omega_on-\frac{\pi}{4} \right)+2\cos\left( 4\omega_on-\frac{\pi}{8} \right)$$
+
+    We then use:
+
+    $$\cos(\theta)=\sin\left( \theta+\frac{\pi}{2} \right)$$
+
+    To get:
+
+    $$x[n]=4-4\sin\left( 2\omega_on-\frac{\pi}{4} \right)+2\sin\left( 4\omega_on+\frac{3\pi}{8} \right)$$
+
+    Inserting the fundamental frequency gets us:
+
+    $$\boxed{x[n]=4-4\sin\left( \frac{4\pi}{5}n-\frac{\pi}{4} \right)+2\sin\left(\frac{8\pi}{5}n+\frac{3\pi}{8} \right)}$$
 
   \item
 
     \begin{enumerate}
 
-      \item 
+      \item Using our trigonometric identities, we may expand to get:
 
-      \item 
+        $$\cos\left( \frac{2\pi}{3}n \right)\cos\left( \frac{2\pi}{4}n \right)=\frac{1}{2}\left[ \cos\left( \frac{7\pi}{6}n \right)+\cos\left( \frac{\pi}{6}n \right) \right]$$
+
+        We then chance the sinusoids to exponentials to get:
+
+        $$\frac{1}{2}\left[ \cos\left( \frac{7\pi}{6}n \right)+\cos\left( \frac{\pi}{6}n \right) \right]=\frac{1}{4}\left[ e^{\frac{7j\pi}{6}n}+e^{-\frac{7j\pi}{6}n}+e^{\frac{j\pi}{6}n}+e^{\frac{-j\pi}{6}n} \right]$$
+
+        Thus, we write:
+
+        $$x[n]=\frac{1}{4}e^{\frac{7j\pi}{6}n}+\frac{1}{4}e^{-\frac{7j\pi}{6}n}+\frac{1}{4}e^{\frac{j\pi}{6}n}+\frac{1}{4}e^{\frac{-j\pi}{6}n}$$
+
+        From this, and the fact that the signal is real, we may write the coefficients as:
+
+        $$\boxed{c_n=a_n=\left\{\begin{array}{ll} a_{-1}&= 1/4\\a_{1}&= 1/4\\a_{-7}&=1/4\\a_{7}&= 1/4\end{array}} $$
+
+      \item We can use the following formula:
+
+        $$c_k=\frac{1}{N_o}\sum_{n=0}^{N-1}x[n]e^{-\frac{2jk\pi}{N_o}n}$$
+
+        We may substitute in known values:
+
+        $$c_k=\frac{1}{3}\sum_{n=0}^{2}\left( 1-\sin\left( \frac{\pi}{3}n \right) \right)e^{-\frac{2jk\pi}{3}n}$$
+
+        We evaluate for all values to get:
+
+        $$c_k=\frac{1}{3}\left[1+\left( 1-\frac{\sqrt{3}}{2} \right)e^{-\frac{2jk\pi}{3}}+\left( 1-\frac{\sqrt{3}}{2} \right)e^{-\frac{4jk\pi}{3}}\right]$$
+
+        We can simplify to get:
+
+        $$\boxed{c_k=\frac{1}{3}+\frac{1}{3}\left( 1-\frac{\sqrt{3}}{2} \right)\left[e^{-\frac{2jk\pi}{3}}+e^{-\frac{4jk\pi}{3}}\right]}$$
 
     \end{enumerate}
 
@@ -32,47 +95,42 @@
 
     \begin{enumerate}
 
-      \item 
+      \item To simplify the Fourier transform, we may express $x[n]$ in terms of delta functions, which gives us:
 
-      \item 
+        $$x[n]=\delta[n+2]+\delta[n+1]+\cdots+\delta[n-4]$$
 
-      \item 
+        Using our known transforms, we may write:
 
-      \item 
+        $$\boxed{X_1(e^{j\Omega})=e^{2j\Omega}+e^{j\Omega}+1+e^{-j\Omega}+e^{-2j\Omega}+e^{-3j\Omega}+e^{-4j\Omega}}$$
 
-      \item 
+      \item Per the time-shifting property, we may simply shift each signal by the frequency of the added exponential to get:
 
-    \end{enumerate}
+        $$\boxed{X_2(e^{j\Omega})=e^{2j\left(\Omega-\frac{\pi}{4}\right)}+e^{j\left(\Omega-\frac{\pi}{4}\right)}+1+e^{-j\left(\Omega-\frac{\pi}{4}\right)}+e^{-2j\left(\Omega-\frac{\pi}{4}\right)}+e^{-3j\left(\Omega-\frac{\pi}{4}\right)}+e^{-4j\left(\Omega-\frac{\pi}{4}\right)}}$$
 
-  \item
+      \item Combining several of our known Fourier transform properties, we may write:
 
-    \begin{enumerate}
+        $$\boxed{X_3(e^{j\Omega})=\frac{e^{2j\Omega}}{1-\frac{1}{8}e^{j\Omega}}}$$
 
-      \item 
+      \item We can take:
 
-      \item 
+        $$\cos\left( \frac{\pi}{3}n \right)\to \pi\left[ \delta\left( \Omega-\frac{\pi}{3} \right)+\delta\left( \Omega+\frac{\pi}{3} \right) \right]$$
 
-      \item 
+        And:
 
-      \item 
+        $$\left( \frac{1}{2} \right)^nu[n]\to\frac{1}{1-\frac{1}{2}e^{-j\Omega}}$$
 
-      \item 
+        We combine the two to get:
 
-    \end{enumerate}
+        $$\boxed{X_4(e^{j\Omega}=\frac{\pi\delta\left( \Omega-\frac{\pi}{3} \right)}{1-\frac{1}{2}e^{-j\left( \Omega-\frac{\pi}{3} \right)}}+\frac{\pi\delta\left( \Omega+\frac{\pi}{3} \right)}{1-\frac{1}{2}e^{-j\left( \Omega+\frac{\pi}{3} \right)}}}$$
 
-  \item
+      \item We take the known transforms for both sinusoids to write:
 
-    \begin{enumerate}
+        $$2\sin\left( \frac{\pi}{3}n \right)\to \frac{2\pi}{j}\left[ \delta\left( \Omega-\frac{\pi}{3} \right)-\delta\left( \Omega+\frac{\pi}{3} \right) \right]$$
+        $$4\cos\left( \frac{2\pi}{5}n \right)\to 4\pi\left[ \delta\left( \Omega-\frac{2\pi}{5} \right)+\delta\left( \Omega+\frac{2\pi}{5} \right) \right]$$
 
-      \item 
+        We sum the two to get:
 
-      \item 
-
-      \item 
-
-      \item 
-
-      \item 
+        $$\boxed{X_5(e^{j\Omega})=\frac{2\pi}{j}\left[ \delta\left( \Omega-\frac{\pi}{3} \right)-\delta\left( \Omega+\frac{\pi}{3} \right) \right]+4\pi\left[ \delta\left( \Omega-\frac{2\pi}{5} \right)+\delta\left( \Omega+\frac{2\pi}{5} \right) \right]}$$
 
     \end{enumerate}
 
@@ -80,9 +138,49 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Based on our formulas, we may write:
 
-      \item 
+        $$x[n]=\frac{1}{2\pi}\left[\int_{\frac{\pi}{3}}^{\frac{2\pi}{3}}e^{jn\Omega}\,d\Omega\right]$$
+
+        From here, we simply evaluate:
+
+        $$x[n]=\frac{1}{2jn\pi}\left[e^{jn\Omega}\Big|_{-\frac{2\pi}{3}}^{-\frac{\pi}{3}}+e^{jn\Omega}\Big|_{\frac{\pi}{3}}^{\frac{2\pi}{3}}\right]$$
+        $$x[n]=\frac{1}{2jn\pi}\left[e^{-\frac{jn\pi}{3}}-e^{-\frac{2jn\pi}{3}} +e^{-\frac{2jn\pi}{3}}-e^{\frac{jn\pi}{3}} \right]$$
+
+        Using our formulas, we get:
+
+        $$\boxed{x[n]=\frac{1}{n\pi}\left[\sin\left( \frac{2\pi n}{3}\Omega \right)-\sin\left( \frac{\pi n}{3} \Omega\right)\right]}$$
+
+      \item We may observe that this is simply a collection of delta signals:
+
+        $$\boxed{x_2[n]=5\delta[n]+4\delta[n-1]+2\delta[n-3]-5\delta[n-4]+\delta[n-7]}$$
+
+      \item We may rewrite this as:
+
+        $$X_3(e^{j\Omega})=2\left[ 1+\cos(6\Omega) \right]+4\left[ 1-\cos(4\Omega) \right]$$
+        $$X_3(e^{j\Omega})=6+2\cos(6\Omega) -4\cos(4\Omega) \right]$$
+
+        We may once again rewrite this as:
+
+        $$X_3(e^{j\Omega})=6+e^{6j\Omega}+e^{-6j\Omega}-2e^{4j\Omega}-2e^{-4j\Omega}$$
+
+        This can easily be converted to delta signals:
+
+        $$\boxed{x_3[n]=6\delta[n]+\delta[n-6]+\delta[n+6]-2\delta[n-4]-2\delta[n+4]}$$
+
+      \item Skipped (4 Needed for Full Credit)
+
+      \item We may rewrite this as:
+
+      $$\frac{1-\frac{1}{3}e^{-j\Omega}}{1-\frac{3}{4}e^{-j\Omega}+\frac{1}{8}e^{-2j\Omega}}=\frac{1-\frac{1}{3}e^{-j\Omega}}{\left( 1-\frac{1}{2}e^{-j\Omega} \right)\left( 1-\frac{1}{4}{e^{-j\Omega}} \right)}$$
+
+        Using partial fraction decomposition, we may write this as:
+
+        $$X_5(e^{j\Omega})=\frac{2/3}{1-\frac{1}{2}e^{-j\Omega}}+\frac{1/3}{1-\frac{1}{4}e^{-j\Omega}}$$
+
+        From here, we can use our transform formulas to obtain:
+
+        $$\boxed{x_5[n]=\frac{2}{3}\left( \frac{1}{2} \right)^{n}u[n]+\frac{1}{3}\left( \frac{1}{4} \right)^{n}u[n]}$$
 
     \end{enumerate}
 
@@ -90,13 +188,141 @@
 
     \begin{enumerate}
 
-      \item 
+      \item Taking the transform, we get:
+
+        $$Y(e^{j\Omega})+\frac{1}{6}e^{-j\Omega}Y(e^{j\Omega})-\frac{1}{6}e^{-2j\Omega}Y(e^{j\Omega})=X(e^{j\Omega})-e^{-j\Omega}X(e^{j\Omega})$$
+
+        We know that the transfer function may be defined as the output divided by the input. This gives us:
+
+        $$\boxed{H(e^{j\Omega})=\frac{1-e^{-j\Omega}}{1+\frac{1}{6}e^{-j\Omega}-\frac{1}{6}e^{-2j\Omega}}}$$
+
+      \item We may factor the denominator in the above to get:
+
+        $$H(e^{j\Omega})=\frac{1-e^{-j\Omega}}{-\frac{1}{6}(e^{-j\Omega}-3)(e^{-j\Omega}+2)}$$
+
+        Using partial fraction decomposition, we get:
+
+        $$H(e^{j\Omega})=\frac{18/5}{e^{-j\Omega}+2}-\frac{12/5}{e^{-j\Omega}-3}$$
+
+        We can rearrange this to a form that is easier to convert:
+
+        $$H(e^{j\Omega})=\frac{18/5}{1+\frac{1}{2}e^{-j\Omega}}-\frac{12/5}{1-\frac{1}{3}e^{-j\Omega}}$$
+
+        This allows to take the inverse transform to obtain:
+
+        $$\boxed{h[n]=\frac{18}{5}\left( -\frac{1}{2} \right)^nu[n]-\frac{12}{5}\left( \frac{1}{3} \right)^nu[n]}$$
+
+      \item We can multiply the response in the frequency domain by the input in the frequency domain:
+
+        $$X_1(e^{j\Omega})=\frac{1}{1-\frac{1}{4}e^{-j\Omega}}$$
+
+        This gives us:
+
+        $$y_1(e^{j\Omega})=\frac{18/5}{\left( 1+\frac{1}{2}e^{-j\Omega} \right)\left(1-\frac{1}{4}e^{-j\Omega}\right)}-\frac{12/5}{\left( 1-\frac{1}{3}e^{-j\Omega} \right)\left(1-\frac{1}{4}e^{-j\Omega}\right)}$$
+
+        We decompose to get:
+
+        $$y_1(e^{j\Omega})=\frac{12/5}{1+\frac{1}{2}e^{-j\Omega}}+\frac{6/5}{1-\frac{1}{4}e^{-j\Omega}}-\frac{48/5}{1-\frac{1}{3}e^{-j\Omega}}+\frac{36/5}{1-\frac{1}{4}e^{-j\Omega}}$$
+        $$y_1(e^{j\Omega})=\frac{12/5}{1+\frac{1}{2}e^{-j\Omega}}+\frac{42/5}{1-\frac{1}{4}e^{-j\Omega}}-\frac{48/5}{1-\frac{1}{3}e^{-j\Omega}}$$
+
+        And then we take the inverse:
+
+        $$\boxed{y_1[n]=\left[\frac{12}{5}\left( -\frac{1}{2} \right)^n+\frac{42}{5}\left( \frac{1}{4} \right)^n-\frac{48}{5}\left( \frac{1}{3} \right)^n\right]u[n]}$$
+
+      \item We use the time-shifting property to write:
+
+        $$h_2(e^{j\Omega})=e^{-\frac{j \pi}{2}\Omega}\left[\frac{18/5}{1+\frac{1}{2}e^{-j\Omega}}-\frac{12/5}{1-\frac{1}{3}e^{-j\Omega}}\right]$$
+
+        This gives us:
+
+        $$\boxed{y_2[n]=\frac{18}{5}\left( -\frac{1}{2} \right)^{n-\frac{\pi}{2}}u\left[ n-\frac{\pi}{2} \right]-\frac{12}{5}\left( \frac{1}{3} \right)^{n-\frac{\pi}{2}}u\left[ n-\frac{\pi}{2} \right]}$$
+
+      \item We know that this sinusoid may be written as:
+
+        $$2\cos\left( \frac{\pi}{2}n \right)\to e^{-\frac{j\pi n}{2}}+e^{\frac{j\pi n}{2}}$$
+
+        Thus, we may write this input as:
+
+        $$x_3[n]=\frac{1}{2}x_2[n]+\frac{e^{-j\pi n}}{2}x_2[n]$$
+
+        This gives us:
+
+        $$\boxed{y_3[n]=\left[\frac{9}{5}\left( -\frac{1}{2} \right)^{n-\frac{\pi}{2}}-\frac{6}{5}\left( \frac{1}{3} \right)^{n-\frac{\pi}{2}}\right]u\left[ n-\frac{\pi}{2} \right]+}$$
+        $$\boxed{\left[\frac{9}{5}\left( -\frac{1}{2} \right)^{n-\frac{3\pi}{2}}-\frac{6}{5}\left( \frac{1}{3} \right)^{n-\frac{3\pi}{2}}\right]u\left[ n-\frac{3\pi}{2} \right]}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item First, we transform the response to get:
+
+        $$X(e^{j\Omega})=\frac{1}{1-\frac{1}{2}e^{-j\Omega}}$$
+
+        The response can then be written as:
+
+        $$Y(e^{j\Omega})=j\frac{d}{d\Omega}\left[ \frac{1}{1-\frac{1}{3}e^{-j\Omega}} \right]$$
+        $$Y(e^{j\Omega})= \frac{\frac{1}{3}e^{-j\Omega}}{\left[1-\frac{1}{3}e^{-j\Omega}\right]^2} \right]$$
+
+        We divide the response by the input to get:
+
+        $$\boxed{H(e^{j\Omega})=\frac{\frac{1}{3}e^{-j\Omega}-\frac{1}{6}e^{-2j\Omega}}{\left[1-\frac{1}{3}e^{-j\Omega}\right]^2}}$$
+
+      \item We expand the response from above to get:
+
+        $$\frac{Y(e^{j\Omega})}{X(e^{j\Omega})}=\frac{\frac{1}{3}e^{-j\Omega}-\frac{1}{6}e^{-2j\Omega}}{1-\frac{2}{3}e^{-j\Omega}+\frac{1}{9}e^{-2j\Omega}}$$
+
+        From this, we get:
+
+        $$\boxed{y[n]-\frac{2}{3}y[n-1]+\frac{1}{9}y[n-2]=\frac{1}{3}x[n-1]-\frac{1}{6}x[n-2]}$$
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item The overall response can be found by multiplying the two individual responses:
+
+        $$H(e^{j\Omega})=H_1(e^{j\Omega})H_2(e^{j\Omega})$$
+        $$H(e^{j\Omega})=\left( \frac{1-\frac{1}{2}e^{-j\Omega}}{1+\frac{1}{3}e^{-j\Omega}} \right)\left( \frac{1}{\left[ 1-\frac{1}{3}e^{-j\Omega} \right]^2}  \right)$$
+
+        This gives us:
+
+        $$\boxed{H(e^{j\Omega})=\frac{1-\frac{1}{2}e^{-j\Omega}}{\left( 1+\frac{1}{3}e^{-j\Omega} \right)\left( 1-\frac{1}{3}e^{-j\Omega} \right)^2}}$$
 
       \item 
+        
+        We can multiply out the denominator to get:
 
-      \item 
+        $$H(e^{j\Omega})=\frac{1-\frac{1}{2}e^{-j\Omega}}{\left( 1-\frac{1}{9}e^{-2j\Omega} \right)\left( 1-\frac{1}{3}e^{-j\Omega} \right)}$$
+        $$H(e^{j\Omega})=\frac{1-\frac{1}{2}e^{-j\Omega}}{1-\frac{1}{3}e^{-j\Omega} -\frac{1}{9}e^{-2j\Omega}+\frac{1}{27}e^{-3j\Omega}}$$
 
-      \item 
+        This gives us the difference equation as:
+
+        $$\boxed{y[n]-\frac{1}{3}y[n-1]-\frac{1}{9}y[n-2]+\frac{1}{27}y[n-3]=x[n]-\frac{1}{2}x[n-1]}$$
+
+      \item We can take the inverse of our result from (a) by first breaking it into partial fractions:
+
+        $$H(e^{j\Omega})=\frac{15/8}{3+e^{-j\Omega}}+\frac{15/8}{3-e^{-j\Omega}}-\frac{9/4}{(-3+e^{-j\Omega})^2}$$
+        $$H(e^{j\Omega})=\frac{5/8}{1+\frac{1}{3}e^{-j\Omega}}+\frac{5/8}{1-\frac{1}{3}e^{-j\Omega}}-\frac{1/4}{(1-\frac{1}{3}e^{-j\Omega})^2}$$
+
+        Taking the inverse, we get:
+
+        $$\boxed{h[n]=\left[\frac{5}{8}\left( -\frac{1}{3} \right)^{n}+\frac{5}{8}\left( \frac{1}{3} \right)^{n}-\frac{n}{4}\left( \frac{1}{3} \right)^n\right]u[n]}$$
+
+      \item Taking the inverse of the first system, we get:
+
+        $$H_1^{inv}(e^{j\Omega})=\frac{1+\frac{1}{3}e^{-j\Omega}}{1-\frac{1}{2}e^{-j\Omega}}$$
+
+        This can be separated into:
+
+        $$\boxed{H_1^{inv}(e^{j\Omega})=\frac{1}{1-\frac{1}{2}e^{-j\Omega}}-\frac{\frac{1}{3}e^{-j\Omega}}{1-\frac{1}{2}e^{-j\Omega}}}$$
+
+        This gives us:
+
+        $$\boxed{h_1^{inv}[n]=\left( \frac{1}{2} \right)^nu[n]-\frac{1}{3}\left( \frac{1}{2} \right)^{n-1}u[n-1]}$$
 
     \end{enumerate}
 

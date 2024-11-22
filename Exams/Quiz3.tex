@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Quiz 3}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[label=\Alph*.]
+
+  \item Taking the Laplace transform of the transfer function, we get:
+
+    $$s^2Y(s)+2sY(s)-8Y(s)=sX(s)+3X(s)$$
+
+    Given that the transfer function may be expressed as:
+
+    $$H(s)=\frac{Y(s)}{X(s)}$$
+
+    We rearrange to get:
+
+    $$[s^2+2s-8]Y(s)=[s+3]X(s)$$
+
+    This gives us:
+
+    $$\boxed{H(s)=\frac{s+3}{s^2+2s-8}}$$
+
+  \item Given that the function is stable, we know that the ROC must contain the $j\omega$ axis. Since we see that the poles are at $s=2,-4$, we know that the ROC can be expressed as the real values in between the two poles (double-sided):
+
+    $$\boxed{\text{R.O.C: }-4<\sigma<2}$$
+
+  \item We see that there are poles at $\sigma=2,-4$ and a zero at $\sigma=-3$. This gives us:
+
+    \begin{figure}[H]
+      \centering
+      \include{Figures/Q3C}
+      \caption{Pole-Zero Plot of $H(s)$}
+      \label{fig:1}
+    \end{figure}
+
+  \item The system has one zero located at $\sigma=-3$.
+
+  \item Since the signal is double-sided, we know it \underline{is not} causal.
+
+  \item We may begin by using partial fractions to obtain an equivalent $H(s)$. This gives us:
+
+    $$\frac{s+3}{(s+4)(s-2)}=\frac{A}{s+4}+\frac{B}{s-2}$$
+
+    Using partial fraction decomposition, we get $A=1/6$ and $B=5/6$:
+
+    $$H(s)=\frac{1/6}{s+4}+\frac{5/6}{s-2}$$
+
+    Taking the inverse transform, we get:
+
+    $$\boxed{h(t)=\frac{5}{6}e^{2t}u(-t)+\frac{1}{6}e^{-4t}u(t)}$$
+
+  \item
+
+    \begin{enumerate}[label=\Roman*.]
+
+      \item Using our transform tables, the transform of this input is:
+
+        $$\boxed{X(s)=\frac{6}{s+3}}$$
+
+        Since the signal is right-handed, the R.O.C is:
+
+        $$\boxed{\text{R.O.C: } \sigma>-3}$$
+
+      \item We determine the output by multiplying together the response and input. This gives us:
+
+        $$Y(s)=\left( \frac{s+3}{(s-2)(s+4)} \right)\left( \frac{6}{s+3} \right)$$
+        $$\boxed{Y(s)=\frac{6}{(s-2)(s+4)}}$$
+
+        We combine the two regions of convergence, which means the R.O.C is:
+
+        $$\boxed{\text{R.O.C: }-3<\sigma<2}$$
+
+      \item We use partial fractions to get:
+
+        $$Y(s)=\frac{1}{s+4}+\frac{3}{s-2}$$
+
+        Taking the inverse transform, we get:
+
+        $$\boxed{y(t)=e^{-4t}u(t)+3e^{2t}u(-t)}$$
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+

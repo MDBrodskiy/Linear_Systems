@@ -1,0 +1,229 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Homework 10}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: I. Salama}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+  \item We first determine the sampling frequency to be:
+
+    $$f_s=\frac{1}{10^{-4}}=10[\si{\kilo\hertz}]$$
+    $$\omega_s=2\pi\cdot10^4\left[\si{rad\over\sec}\right]$$
+
+    \begin{enumerate}
+
+      \item Since the signal band is limited to $5000\pi[\si{rad\per\second}]$, the Nyquist frequency is:
+
+        $$\omega_N=2\omega$$
+        $$\omega_N=10000\pi$$
+
+        Since the sampling frequency is greater than the Nyquist frequency, \underline{the signal} \underline{can be fully recovered}
+        
+      \item Since the signal band is limited to $12000\pi[\si{rad\per\second}]$, the Nyquist frequency is:
+
+        $$\omega_N=24000\pi$$
+
+        Since the sampling frequency is less than the Nyquist frequency, \underline{the signal can not} \underline{be fully recovered}
+
+      \item Since we only know the behavior of the real part of the signal, we do not know if the signal is band-limited. Thus, the sampling theorem \underline{can not guarantee exact recovery}
+        
+      \item Since the signal is real, $X(j\omega)$ must be symmetrical, and, therefore, the signal is band-limited to $5000\pi[\si{rad\per\second}]$. This means that, for the same reasoning as (a), the signal \underline{can be fully recovered}
+        
+      \item Similarly, since the signal is real, we know that $X(j\omega)$ must be symmetrical, and that, per the same reasoning as (b), it \underline{can not be exactly recovered}
+        
+      \item We know that, if $X(j\omega)=0$ for $|\omega|=\omega_1$, then $X(j\omega)*X(j\omega)=0$ for $|\omega|>2\omega$. Thus, we may write:
+
+        $$X(j\omega)=0\text{  for  }|\omega|>6000\pi$$
+
+        This means that the Nyquist frequency is:
+
+        $$\omega_N=12000\pi$$
+
+        Since the Nyquist frequency is less than the sampling frequency, we know that the signal \underline{can be fully recovered}
+        
+      \item From this, we may determine that, because:
+
+        $$|X(j\omega)|=0\text{  for  }|\omega|>6000\pi$$
+
+        The signal \underline{can be fully recovered}, for the same reasoning as part (f).
+        
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item The maximum frequency of the signal, due to the multiplication in the frequency domain, becomes the minimum of the two bandwidths, such that:
+
+        $$\omega=2000\pi$$
+
+        Thus, the Nyquist frequency becomes:
+
+        $$\omega_N=4000\pi$$
+
+        This means that, to fully recover the signal, the period must be:
+
+        $$T\leq \frac{2\pi}{4000\pi}$$
+        $$T\leq \frac{1}{2000}$$
+        $$\boxed{T\leq .5[\si{\milli\second}]}$$
+
+      \item Multiplication leads to convolution in the frequency domain, which means that the bandwidth now limits the frequency to a maximum of:
+
+        $$\omega=2000\pi+4000\pi$$
+        $$\omega=6000\pi$$
+
+        The Nyquist frequency becomes:
+
+        $$\omega_N=12000\pi$$
+
+        This gives us a period range of:
+
+        $$T\leq\frac{2\pi}{12000\pi}$$
+        $$T\leq\frac{1}{6000}$$
+        $$\boxed{T\leq.166\bar{6}[\si{\milli\second}]}$$
+
+    \end{enumerate}
+
+  \item Per the Nyquist criterion for bandpass signals, we know that the sampling frequency must be twice the bandwidth of the signal. Thus, we may find:
+
+    $$\omega_N=2(\omega_2-\omega_1)$$
+
+    This gives us a maximum period of:
+
+    $$T\leq\frac{2\pi}{2(\omega_2-\omega_1)}$$
+    $$\boxed{T\leq\frac{\pi}{\omega_2-\omega_1}}$$
+
+    To accurately recover the signal, we should take the parameters as:
+
+    $$\boxed{\left\{\begin{array}{ll}\omega_a &= \omega_1\\\omega_b&= \omega_2 \end{array}}$$
+
+    This allows us to accurately obtain the initial signal. Furthermore, since we want the original signal, we want a gain of unity, or:
+
+    $$\boxed{A=1}$$
+
+  \item
+
+    \begin{enumerate}
+
+      \item We may sketch $X_p(j\omega)$ as:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-4a}
+          \caption{Sketch of $X_p(j\omega)$}
+          \label{fig:1}
+        \end{figure}
+
+      \item Given that the signal is limited to $\omega_2$, we can take the minimum sampling frequency as:
+
+        $$\boxed{\omega_s\geq 2\omega_2}$$
+
+      \item Given that $X(j\omega)$ is not present within $X_p(j\omega)$, the original signal can not be recovered using any kind of filter. Thus, this is a loss of information.
+
+    \end{enumerate}
+
+  \item
+
+    \begin{enumerate}
+
+      \item We may sketch the given signals as:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-5a}
+          \caption{Sketch of $X_p(j\omega)$}
+          \label{fig:2}
+        \end{figure}
+
+        We may see that the signal is constrained by:
+
+        $$x(n)=x_c(nT)$$
+
+        We can continue to sketch $X(e^{j\Omega})$, which looks quite similar; however, we first convert from analog to digital frequency:
+
+        $$\Omega=\frac{\omega}{f_s}$$
+        $$\Omega=\frac{\omega}{3\cdot10^4}$$
+
+        This gives us:
+        
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-5a2}
+          \caption{Sketch of $X(e^{j\Omega})$}
+          \label{fig:3}
+        \end{figure}
+
+        From here, we may obtain $Y(e^{j\Omega})$ as:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-5a3}
+          \caption{Sketch of $Y(e^{j\Omega})$}
+          \label{fig:4}
+        \end{figure}
+
+        We convert back to digital frequency to get:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-5a4}
+          \caption{Sketch of $Y_p(j\omega)$}
+          \label{fig:5}
+        \end{figure}
+
+        Passed through the filter, our response becomes:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-5a5}
+          \caption{Sketch of $Y_c(j\omega)$}
+          \label{fig:6}
+        \end{figure}
+
+        The frequency response of the continuous time equivalent would be:
+
+        $$\omega=\Omega f_s$$
+        $$\omega=\left( \frac{\pi}{4} \right)\left( 3\cdot10^4 \right)$$
+        $$\boxed{\omega=7500\pi}$$
+
+        This gives us:
+
+        \begin{figure}[H]
+          \centering
+          \include{Figures/HW10-5a6}
+          \caption{Continuous Time Response}
+          \label{fig:7}
+        \end{figure}
+
+      \item Only the first sinusoid is within the bandpass of the filter, which lets us determine:
+
+        $$\boxed{y(t)=2\cos(4500\pi t+\pi/2)}$$
+        
+        When converted to a discrete sequence, we may observe that the sine term becomes:
+
+        $$\Omega_N=6\pi\cdot10^4$$
+        $$6\pi\cdot10^4-54000\pi=6000\pi$$
+
+        This becomes aliased, which results in a discrete time result of:
+
+        $$\boxed{y(t)=2\cos(4500\pi t+ \pi/2)+\sin(6000\pi t)}$$
+
+        Thus, aliasing gives us a different result in discrete time.
+
+    \end{enumerate}
+
+\end{enumerate}
+
+\end{document}
+

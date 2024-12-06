@@ -1,0 +1,232 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Fundamentals of Linear Systems
+% Professor: I. Salama
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+\urlstyle{same}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead[\textsc{Fall 2024}]{\textsc{Fall 2024}}
+\chead[\textit{Linear Systems Final Equation Sheet}]{\textit{Linear Systems Final Equation Sheet}}
+\rhead[\textsc{EECE2520}]{\textsc{EECE2520}}
+\cfoot[\thepage]{\thepage}
+
+\begin{document}
+
+
+\begin{center}
+  \underline{Continuous Fourier Transform Properties and Common Functions}}
+\end{center}
+\vspace{-40pt}
+
+\begin{multicols}{2}
+
+\begin{equation*}
+  \begin{split}
+    \underline{f(t)}\quad&\vline\quad\underline{F(j\omega)}\\
+    x(t)\quad&\vline\quad X(j\omega)\\
+    ax_1(t)+bx_2(t)\quad&\vline\quad aX_1(j\omega)+bX_2(j\omega)\\
+    x(t-t_o)\quad&\vline\quad e^{-j\omega t_o}X(j\omega)\\
+    e^{j\omega_ot}x(t)\quad&\vline\quad X(j(\omega-\omega_o))\\
+    x(at)\quad&\vline\quad\frac{1}{|a|}X\left( \frac{j\omega}{a} \right)\\
+    x(-t)\quad&\vline\quad X(-j\omega)\\
+    x^*(t)\quad&\vline\quad X^*(-j\omega)\\
+    x_1(t)*x_2(t)\quad&\vline\quad X_1(j\omega)X_2(j\omega)\\
+    x(t)y(t)\quad&\vline\quad\frac{1}{2\pi}[X(j\omega)*Y(j\omega)]\\
+    tx(t)\quad&\vline\quad j\frac{d}{d\omega}X(j\omega)\\
+    \frac{d}{dt}x(t)\quad&\vline\quad j\omega X(j\omega)\\
+    \int_{-\infty}^{t} x(t)\,dt\quad&\vline\quad \frac{X(j\omega)}{j\omega}+\pi X(0)\delta(\omega)\\
+    \text{real and even}\quad&\vline\quad\text{real and even}\\
+    \text{real and odd}\quad&\vline\quad\text{imaginary and odd}\\
+    Even\left\{x(t)\right\}\quad&\vline\quad Re\left\{ X(j\omega) \right\}\\
+    Odd\left\{x(t)\right\}\quad&\vline\quad j Im\left\{ X(j\omega) \right\}\\
+    \int_{-\infty}^{\infty}|x(t)|^2\,dt\quad&\vline\quad \frac{1}{2\pi}\int_{-\infty}^{\infty}|X(j\omega)|^2\,d\omega\\
+  \end{split}
+  \label{1}
+  \end{equation*}
+    
+\begin{equation*}
+  \begin{split}
+    \underline{f(t)}\,\,&\vline\,\,\underline{F(j\omega)}\\
+    \delta(t)\quad&\vline\quad 1\\
+    \delta(t-t_o)\quad&\vline\quad e^{-j\omega t_o}\\
+    u(t)\quad&\vline\quad \frac{1}{j\omega}+\pi\delta(\omega)\\
+    e^{-at}u(t)\text{ ($Re\left\{ a \right\}>0$)}\quad&\vline\quad \frac{1}{a+j\omega}\\
+    te^{-at}u(t)\text{ ($Re\left\{ a \right\}>0$)}\quad&\vline\quad \frac{1}{(a+j\omega)^2}\\
+    \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)\quad&\vline\quad \frac{1}{(a+j\omega)^n}\\
+    e^{j\omega_ot}\quad&\vline\quad 2\pi\delta(\omega-\omega_o)\\
+    \cos(\omega_ot)\quad&\vline\quad \pi\left[ \delta(\omega-\omega_o)+\delta(\omega+\omega_o) \right]\\
+    \sin(\omega_ot)\quad&\vline\quad \frac{\pi}{j}\left[ \delta(\omega-\omega_o)-\delta(\omega+\omega_o) \right]\\
+    1\quad&\vline\quad 2\pi\delta(\omega)\\
+    \text{rect}(t)\quad&\vline\quad \frac{2}{\omega}\sin(\omega t)\\
+    \frac{1}{\pi t}\sin(\omega t)\quad&\vline\quad \text{rect}(\omega)\\
+    \sum_{n=-\infty}^{\infty}\delta(t-nT)\quad&\vline\quad \frac{2\pi}{T}\sum_{k=-\infty}^{\infty}\delta\left( \omega-\frac{2\pi k}{T} \right)\\
+    \sum_{k=-\infty}^{\infty} a_ke^{jk\omega_o t}\quad&\vline\quad 2\pi\sum_{k=-\infty}^{\infty}a_k\delta(\omega-k\omega_o)\\
+  \end{split}
+  \label{2}
+  \end{equation*}
+
+\end{multicols}
+
+\begin{center}
+  \underline{Discrete Fourier Transform Properties and Common Functions}}
+\end{center}
+\vspace{-30pt}
+
+\begin{multicols}{2}
+
+\begin{equation*}
+  \begin{split}
+    \underline{f[n]}\quad&\vline\quad\underline{F(e^{j\Omega})}\\
+    x_k[n]=\left\{\begin{array}{l} x\left[ \frac{n}{k} \right]\\0\end{array}\quad&\vline\quad X(e^{jk\Omega})\\
+    x[n]y[n]\quad&\vline\quad \frac{1}{2\pi}\int_{0}^{2\pi}X(e^{j\theta})Y(e^{j(\Omega-\theta)})\\
+    x[n]-x[n-1]\quad&\vline\quad (1-e^{-j\Omega})X(e^{j\Omega})\\
+    \sum_{-\infty}^nx[n]\quad&\vline\quad \frac{X(e^{j\Omega})}{1-e^{-j\Omega}}+\pi X(1)\sum_{k=-\infty}^{\infty}\delta(\Omega-2\pi k)\\
+    \sum_{n=-\infty}^{\infty}|x[n]|^2\quad&\vline\quad \frac{1}{2\pi}\int_{0}^{2\pi}|X(e^{j\Omega})|^2\,d\Omega\\
+    a^nu[n] \quad &\vline\quad \frac{1}{1-ae^{-j\Omega}}
+  \end{split}
+  \label{3}
+  \end{equation*}
+    
+\begin{equation*}
+  \begin{split}
+    \underline{f[n]}\,\,&\vline\,\,\underline{F(e^{j\Omega})}\\
+    \frac{(n+r-1)!}{n!(r-1)!}a^nu[n] \quad &\vline\quad \frac{1}{(1-ae^{-j\Omega})^n}\\
+    u[n]\quad&\vline\quad \frac{1}{1-e^{-j\Omega}}+\pi\sum_{k=-\infty}^{\infty}\delta(\Omega-2\pi k)\\
+    \text{rect}(n) \quad&\vline\quad \sin\left( \Omega\left( n+\frac{1}{2} \right) \right)\sin^{-1}\left( \frac{\Omega}{2} \right)\\
+    \frac{\sin(\Omega n)}{n\pi} \quad&\vline\quad \text{rect}(\Omega)\text{ (repeats every $2\pi$)}\\
+    \cos(\Omega_on)\quad&\vline\quad\pi\left[ \sum_{k=-\infty}^{\infty} \delta(\Omega-\Omega_o-2\pi k)\\
+    \quad&\vline\quad +\delta(\Omega+\Omega_o-2\pi k) ]
+  \end{split}
+  \label{4}
+  \end{equation*}
+
+\end{multicols}
+
+\begin{center}
+  Note, in the first property of discrete time, $k$ is a multiple of $n$\\
+  Discrete time maintains properties of continuous time, except that:
+\end{center}
+\vspace{-15pt}
+
+$$\boxed{\left\{\begin{array}{ll} j\omega\to& e^{j\Omega}\\\omega\to&\Omega\\ t\to&n \end{array}}$$
+
+\begin{center}
+  \underline{Laplace Transform Properties and Common Functions}
+\end{center}
+\vspace{-35pt}
+
+\begin{multicols}{2}
+
+\begin{equation*}
+  \begin{split}
+    \underline{f(t)}\quad&\vline\quad\underline{F(s)}\quad\quad \text{\underline{R.O.C}}\\
+    x(t)\quad&\vline\quad X(s)\\
+    x(t-t_o)\quad&\vline\quad e^{-st_o}X(j\omega)\quad R\\
+    e^{s_ot}x(t)\quad&\vline\quad X(s-s_o)\quad R+Re\left\{ s_o \right\}\\
+    x^*(t)\quad&\vline\quad X^*(s^*)\quad R\\
+    -tx(t)\quad&\vline\quad \frac{d}{ds}X(s)\\
+    \frac{d}{dt}x(t)\quad&\vline\quad sX(s)\\
+  \int_{-\infty}^{t} x(t)\,dt\quad&\vline\quad \frac{X(s)}{s}\quad >R\cap Re\left\{ s \right\}>0\\
+    u(t)\quad&\vline\quad \frac{1}{s}\quad\quad Re\left\{ s \right\}>0\\
+    -u(-t)\quad&\vline\quad \frac{1}{s}\quad\quad Re\left\{ s \right\}<0\\
+    \frac{t^{n-1}}{(n-1)!}u(t)\quad&\vline\quad \frac{1}{(s)^n}\quad\quad Re\left\{ s \right\}>0\\
+    -\frac{t^{n-1}}{(n-1)!}u(-t)\quad&\vline\quad \frac{1}{(s)^n}\quad\quad Re\left\{ s \right\}<0\\
+    \underbrace{u(t)*\cdots*u(t)}_{n\text{ times}} \quad&\vline\quad s^{-n}\quad\quad \text{All }s
+  \end{split}
+  \label{5}
+  \end{equation*}
+    
+\begin{equation*}
+  \begin{split}
+    \underline{f(t)}\quad&\vline\quad\underline{F(s)}\quad\quad \text{\underline{R.O.C}}\\
+    e^{-at}u(t)\quad&\vline\quad \frac{1}{s+a}\quad\quad Re\left\{ s \right\}>-a\\
+    -e^{-at}u(-t)\quad&\vline\quad \frac{1}{s+a}\quad\quad Re\left\{ s \right\}<-a\\
+    \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)\quad&\vline\quad \frac{1}{(s+a)^n}\quad\quad Re\left\{ s \right\}>0\\
+    -\frac{t^{n-1}}{(n-1)!}e^{-at}u(-t)\quad&\vline\quad \frac{1}{(s+a)^n}\quad\quad Re\left\{ s \right\}<0\\
+    e^{-j\omega_ot}u(t)\quad&\vline\quad \frac{1}{s+j\omega_o}\quad\quad Re\left\{ s \right\}>0\\
+    \cos(\omega_ot)u(t)\quad&\vline\quad \frac{s}{s^2+\omega_o^2}\quad Re\left\{ s \right\}>0\\
+    \sin(\omega_ot)u(t)\quad&\vline\quad \frac{\omega_o}{s^2+\omega_o^2}\quad Re\left\{ s \right\}>0\\
+    e^{-at}\cos(\omega_ot)u(t)\quad&\vline\quad \frac{s+a}{(s+a)^2+\omega_o^2}\quad Re\left\{ s \right\}>-a\\
+    e^{-at}\sin(\omega_ot)u(t)\quad&\vline\quad \frac{\omega_o}{(s+a)^2+\omega_o^2}\quad Re\left\{ s \right\}>-a\\
+    u_n(t)=\frac{d^n}{dt^n}\delta(t)\quad&\vline\quad s^n\quad\quad\quad\quad \text{All }s\\
+    x_1(t)*x_2(t) \quad&\vline\quad X_1(s)X_2(s)\quad\quad > R_1\cap R_2
+  \end{split}
+  \label{6}
+  \end{equation*}
+
+\end{multicols}
+
+  \begin{center}
+    \underline{Energy and Power}:
+  \end{center}
+
+  \vspace{-30pt}
+
+\begin{multicols}{2}
+
+  \begin{equation*}
+    \begin{split}
+      E_{\infty}=\lim_{T\to\infty}\int_{-T}^{T} \underbrace{|x(t)|^2}_{p(t)}\,dt\\
+      P_{\infty}=\frac{1}{2T}\lim_{T\to\infty}\int_{-T}^{T} \underbrace{|x(t)|^2}_{p(t)}\,dt
+    \end{split}
+    \label{7}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{split}
+      E_{\infty}=\lim_{N\to\infty}\sum_{n=-N}^{N} \underbrace{|x[n]|^2}_{p[n]}\\
+      P_{\infty}=\lim_{N\to\infty}\frac{1}{2N+1}\sum_{n=-N}^{N} \underbrace{|x[n]|^2}_{p[n]}
+    \end{split}
+    \label{8}
+  \end{equation*}
+
+\end{multicols}
+
+\vspace{-10pt}
+
+$$\boxed{\text{Convolution: }\quad y[n]=\sum_{k=-\infty}^{\infty}x[n-k]h[n]\quad\quad y(t)=\int_0^t x(t-\tau)h(t)\,d\tau}$$
+
+\vspace{-10pt}
+
+$$\boxed{\text{Geometric Series Properties: }\quad \sum_{k=0}^{n}r^k=\frac{1-r^{n+1}}{1-r}\quad\quad\sum_{n_1}^{n_2}r^k=\frac{r^{n_1}-r^{n_2+1}}{1-r}\quad\quad\sum_{k=n}^{\infty}=\frac{r^{n}}{1-r}}$$
+
+\newpage
+\begin{center}
+  \underline{System Properties}:
+\end{center}
+
+\vspace{-35pt}
+
+\begin{multicols}{2}
+
+  \begin{equation*}
+    \begin{split}
+      \text{\underline{Linear}:}\\
+      ax_1+bx_2=ay_1+by_2\\
+      \text{\underline{Memory}:}\\
+      \text{Depends only on current $n$ or $t$}\\
+      \text{\underline{Stability}:}\\
+      \int_{-\infty}^{\infty} x(t)\,dt<\infty\text{ or }\sum_{n=-\infty}^{\infty} x[n]<\infty
+    \end{split}
+    \label{9}
+  \end{equation*}
+
+  \begin{equation*}
+    \begin{split}
+      \text{\underline{Time-Invariant}:}\\
+      x(t-t_o)=y(t-t_o)\\x[n-n_o]=y[n-n_o]\\
+      \text{\underline{Causal}:}\\
+      \text{Depends on current or past $n$ or $t$}\\
+      \text{\underline{Non-invertible}:}\\
+      \text{Two inputs produce same output}\\
+    \end{split}
+    \label{10}
+  \end{equation*}
+
+\end{multicols}
+
+\end{document}
+
